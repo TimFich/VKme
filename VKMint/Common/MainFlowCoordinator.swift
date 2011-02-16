@@ -48,6 +48,7 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
 }
 
 // MARK: - AuthModuleOutput
+
 extension MainFlowCoordinator: AuthModuleOutput {
     func moduleWantsToOpenTapBar(animated: Bool) {
         openTabBar(animated: animated)

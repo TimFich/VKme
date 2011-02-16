@@ -16,11 +16,13 @@ protocol ProfileSettingsItemOutput: AnyObject {
 class ProfileSettingsItemView: UIView {
 
     // MARK: - Private properties
+
     private var flagOfChange = true
     private var output: ProfileSettingsItemOutput
 
     // MARK: - UI
-    private lazy var imageView: UIImageView = {
+
+    fileprivate lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: nil)
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -53,6 +55,7 @@ class ProfileSettingsItemView: UIView {
     }
 
     // MARK: - configure UI
+    
     private func setUpUI() {
         self.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -84,6 +87,7 @@ class ProfileSettingsItemView: UIView {
 //    }
 //
     // MARK: - Action
+    
     @objc
     func touchItem() {
         if title.currentTitle == "Appearance" {

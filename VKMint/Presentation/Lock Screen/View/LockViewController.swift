@@ -18,13 +18,13 @@ protocol LockViewOutput: AnyObject {
 
 class LockViewController: UIViewController {
 
-    // MARK: - Properties
+    // Properties
     var presenter: LockPresenter!
     private let kPasswordDigit = 6
     private var password = ""
     private let keyChainManager = KeychainManager()
 
-    // MARK: - UI
+    // UI
     private var passwordContainerView: PasswordContainerView!
 
     private lazy var mainStackView: UIStackView = {
@@ -35,6 +35,7 @@ class LockViewController: UIViewController {
     }()
 
     // MARK: - View life cyrcle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -45,7 +46,8 @@ class LockViewController: UIViewController {
         setUpUI()
     }
 
-    // MARK: - Configure UI
+    // MARK: - Private
+    
     private func setUpUI() {
         view.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { make in
@@ -61,6 +63,7 @@ class LockViewController: UIViewController {
 }
 
 // MARK: - PasswordInputCompleteProtocol
+
 extension LockViewController: PasswordInputCompleteProtocol {
     func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
         if password != "" {
@@ -103,5 +106,6 @@ private extension LockViewController {
 }
 
 // MARK: - LockViewInput
+
 extension LockViewController: LockViewInput {
 }

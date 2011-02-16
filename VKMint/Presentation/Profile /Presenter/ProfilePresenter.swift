@@ -10,7 +10,7 @@ import SwiftyVK
 
 class ProfilePresenter {
 
-    // MARK: - Properties
+    // Dependencies
     private var interactor: ProfileInteractor
     weak var view: ProfileViewController?
     private weak var moduleOutput: ProfileModuleOutput!
@@ -23,6 +23,7 @@ class ProfilePresenter {
 }
 
 // MARK: - ProfileInteractorOutput
+
 extension ProfilePresenter: ProfileInteractorOutput {
     func logoutSuccess() {
         view?.dismiss(animated: true, completion: {
@@ -32,6 +33,7 @@ extension ProfilePresenter: ProfileInteractorOutput {
 }
 
 // MARK: - ProfileViewOutput
+
 extension ProfilePresenter: ProfileViewOutput {
     func itemPressed(flag: Int) {
         moduleOutput.moduleWantsToOpenSetting(flag: flag)

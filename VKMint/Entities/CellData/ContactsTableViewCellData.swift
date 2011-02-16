@@ -18,7 +18,13 @@ class ContactsTableViewCellData {
     let isOnline: Bool
     let platform: Int
 
-    init(id: Int, firstName: String, lastName: String, photo: UIImage, lastSeen: Int, isOnline: Bool, platform: Int) {
+    init(id: Int,
+         firstName: String,
+         lastName: String,
+         photo: UIImage,
+         lastSeen: Int,
+         isOnline: Bool,
+         platform: Int) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

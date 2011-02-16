@@ -40,7 +40,7 @@
          }
          if days != 0 {
              return "last seen \(days) days ago"
-         } else if days != 0 {
+         } else if days == 0 {
              return "last seen \(hours) hours ago"
          }
          return "last seen \(buf) minutes ago"

@@ -77,7 +77,17 @@ class MessagesModel {
             let cellData = TableViewCellData()
             cellData.title = user.firstName + user.lastName
             cellData.lastMessage = item.lastMessage.text
+            //            APIInteractor.getUserAvatar(userId: item.conversation.peer.id) { result in
+            //                if result.photo == nil {
+            //                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+            //                } else {
+            //                    print(result)
+            //                    APIInteractor.downloadImage(urlOfPhoto: result.photo!) { res in
+            //                        cellData.avatarOfChat = res
+            //                    }
+            //                }
             self.convCellData.append(cellData)
+            //            }
         })
     }
 }

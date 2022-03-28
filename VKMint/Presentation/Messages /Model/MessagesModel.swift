@@ -61,11 +61,14 @@ class MessagesModel {
                 cellData.title = item.conversation.chatSettings?.title ?? ""
                 cellData.lastMessage = item.lastMessage.text
                 if item.conversation.chatSettings?.photo == nil {
+                    
                     cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+                    
                 } else {
                     APIInteractor.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
                         cellData.avatarOfChat = result
                     }
+                    
                 }
                 chatsCellData.append(cellData)
             }
@@ -75,19 +78,19 @@ class MessagesModel {
     private func loadConversation(item: Item) {
         APIInteractor.getUserByID(userId: item.conversation.peer.id, completion: { user in
             let cellData = TableViewCellData()
-            cellData.title = user.firstName + user.lastName
+            cellData.title = user.firstName + " " + user.lastName
             cellData.lastMessage = item.lastMessage.text
-            //            APIInteractor.getUserAvatar(userId: item.conversation.peer.id) { result in
-            //                if result.photo == nil {
-            //                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-            //                } else {
-            //                    print(result)
-            //                    APIInteractor.downloadImage(urlOfPhoto: result.photo!) { res in
-            //                        cellData.avatarOfChat = res
-            //                    }
-            //                }
-            self.convCellData.append(cellData)
-            //            }
+            APIInteractor.getUserAvatar(userId: item.conversation.peer.id) { result in
+                if result[0].photo == nil {
+                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+                } else {
+                    print(result)
+                    APIInteractor.downloadImage(urlOfPhoto: result[0].photo!) { res in
+                        cellData.avatarOfChat = res
+                    }
+                }
+                self.convCellData.append(cellData)
+            }
         })
     }
 }

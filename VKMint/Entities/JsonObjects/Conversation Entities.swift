@@ -141,6 +141,7 @@ struct LastMessage: Codable {
     let fwdMessages: [JSONAny]
     let important: Bool
     let conversationMessageID: Int
+    let attachments: [Attachments]?
 
     enum CodingKeys: String, CodingKey {
         case peerID = "peer_id"
@@ -154,6 +155,15 @@ struct LastMessage: Codable {
         case fwdMessages = "fwd_messages"
         case important = "important"
         case conversationMessageID = "conversation_message_id"
+        case attachments = "attachments"
+    }
+}
+
+struct Attachments: Codable {
+    let type: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case type = "type"
     }
 }
 

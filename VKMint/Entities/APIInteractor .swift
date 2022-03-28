@@ -23,7 +23,7 @@ class APIInteractor {
     }
     
     class func getConversation(completion: @escaping (Conversation) -> ()) {
-        VK.API.Messages.getConversations([Parameter.count: "100"])
+        VK.API.Messages.getConversations(.empty)
             .onSuccess({ result in
                 do {
                     let conversation = try? JSONDecoder().decode(Conversation.self, from: result)
@@ -70,13 +70,13 @@ class APIInteractor {
         }).send()
     }
     
-    static func getUserAvatar(userId: Int, completion: @escaping (UserEntities) -> Void) {
+    static func getUserAvatar(userId: Int, completion: @escaping ([UserEntities]) -> Void) {
         VK.API.Users.get([Parameter.userId: "\(userId)", Parameter.fields: "photo_200"]).onSuccess ({ result in
             
-            let user = try? JSONDecoder().decode(UserEntities.self, from: result)
+            let users = try! JSONDecoder().decode([UserEntities].self, from: result)
             
             DispatchQueue.main.async {
-                completion(user!)
+                completion(users)
             }
        }).send()
     }

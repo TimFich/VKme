@@ -16,29 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nva-sD-2yB">
-                                <rect key="frame" x="39" y="801" width="355" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nva-sD-2yB">
+                                <rect key="frame" x="10" y="821" width="394" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Войти"/>
                                 <connections>
                                     <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WFA-ka-bqz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VK Mint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAj-rr-mCu">
-                                <rect key="frame" x="39" y="408" width="323" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VK Mint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAj-rr-mCu">
+                                <rect key="frame" x="10" y="593" width="394" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-Vq-FDL">
-                                <rect key="frame" x="75" y="185" width="264" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-Vq-FDL">
+                                <rect key="frame" x="77" y="323" width="260" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="1am-V7-zp7"/>
+                                    <constraint firstAttribute="width" constant="260" id="ha2-Rd-sXl"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ничего лишнего" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FY-wC-sFT">
-                                <rect key="frame" x="134" y="491" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ничего лишнего" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FY-wC-sFT">
+                                <rect key="frame" x="10" y="656" width="394" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,8 +46,22 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="9FY-wC-sFT" firstAttribute="top" secondItem="TAj-rr-mCu" secondAttribute="bottom" constant="10" id="1cq-im-SQx"/>
+                            <constraint firstItem="9FY-wC-sFT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="4cj-p7-H6M"/>
+                            <constraint firstItem="nva-sD-2yB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="D47-eh-npc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9FY-wC-sFT" secondAttribute="trailing" constant="10" id="EiE-Rr-ZrH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TAj-rr-mCu" secondAttribute="trailing" constant="10" id="I1E-1q-oEl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nva-sD-2yB" secondAttribute="trailing" constant="10" id="L7C-yW-qUb"/>
+                            <constraint firstItem="TAj-rr-mCu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="bZC-hQ-fhu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nva-sD-2yB" secondAttribute="bottom" constant="10" id="f7u-So-Ack"/>
+                            <constraint firstItem="TAj-rr-mCu" firstAttribute="top" secondItem="4wj-Vq-FDL" secondAttribute="bottom" constant="10" id="ieE-My-3za"/>
+                            <constraint firstItem="4wj-Vq-FDL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ohD-VO-DOz"/>
+                            <constraint firstItem="4wj-Vq-FDL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zb8-tO-s42"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="nva-sD-2yB" id="Cgd-sV-sae"/>
                         <segue destination="naP-c7-CFU" kind="presentation" identifier="enter" modalPresentationStyle="fullScreen" id="83V-sC-Nzg"/>
                     </connections>
                 </viewController>

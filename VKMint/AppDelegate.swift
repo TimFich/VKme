@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         vkDelegate = VKDelegate()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let moduleBuilder = AuthorisationModuleBuilder()
+        window.rootViewController = moduleBuilder.start()
         return true
     }
 

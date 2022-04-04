@@ -62,11 +62,12 @@ class MessagesModel {
                 cellData.lastMessage = item.lastMessage.text
                 if item.conversation.chatSettings?.photo == nil {
                     
-                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+                    cellData.avatarOfChat = UIImage(named: "defaultPhotoOfUser") ?? UIImage()
                     
                 } else {
                     APIInteractor.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
                         cellData.avatarOfChat = result
+                        self.chatsCellData.append(cellData)
                     }
                     
                 }
@@ -82,9 +83,8 @@ class MessagesModel {
             cellData.lastMessage = item.lastMessage.text
             APIInteractor.getUserAvatar(userId: item.conversation.peer.id) { result in
                 if result[0].photo == nil {
-                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+                    cellData.avatarOfChat = UIImage(named: "defaultPhotoOfUser") ?? UIImage()
                 } else {
-                    print(result)
                     APIInteractor.downloadImage(urlOfPhoto: result[0].photo!) { res in
                         cellData.avatarOfChat = res
                     }

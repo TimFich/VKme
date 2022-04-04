@@ -12,15 +12,21 @@ class AuthViewController: UIViewController {
     
     //MARK: - Properties
     let authModel = AuthModel()
+    private let navigator = AuthorisationNavigator()
+    
+    //MARK: - UI
+    @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigator.parentViewController = self
     }
     
     @IBAction func logInButtonPressed(_ sender: Any) {
         authModel.authorize(completion: { [weak self] in
             DispatchQueue.main.async {
+                
                 self?.performSegue(withIdentifier: "enter", sender: nil)
             }
         }, onError: {
@@ -34,15 +40,10 @@ class AuthViewController: UIViewController {
             self.performSegue(withIdentifier: "enter", sender: nil)
         }
     }
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension AuthViewController: AuthorisationViewProtocol {
+    func enterButtonPressed() {
+        navigator.segueToMessages()
     }
-    */
-
 }

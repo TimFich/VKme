@@ -1,8 +1,8 @@
 //
 //  MessagesViewController.swift
-//  VKMint
+//  VKMelissa
 //
-//  Created by Ильдар Арсламбеков on 23.01.2022.
+//  Created by Ильдар Арсланов on 23.01.2025.
 //
 
 import UIKit
@@ -17,9 +17,12 @@ class MessagesViewController: UIViewController, NSUserActivityDelegate, UITableV
     
     //MARK: - Properties
     var model = MessagesModel()
+    
     private var state = State.conversation {
         didSet {
-            messagesTable.reloadData()
+            DispatchQueue.main.async {
+                self.messagesTable.reloadData()
+            }
         }
     }
     

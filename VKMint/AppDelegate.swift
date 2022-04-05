@@ -10,15 +10,12 @@ import SwiftyVK
 
 var vkDelegate : SwiftyVKDelegate?
 
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         vkDelegate = VKDelegate()
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        let moduleBuilder = AuthorisationModuleBuilder()
-        window.rootViewController = moduleBuilder.start()
+//        let window = UIWindow(frame: UIScreen.main.bounds)
         return true
     }
 

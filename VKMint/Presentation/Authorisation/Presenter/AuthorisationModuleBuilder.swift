@@ -11,9 +11,7 @@ import UIKit
 class AuthorisationModuleBuilder {
     
     func start() -> UIViewController {
-        let view = AuthorisationView()
         let vc = AuthViewController()
-        vc.view = view
         return vc
     }
 }

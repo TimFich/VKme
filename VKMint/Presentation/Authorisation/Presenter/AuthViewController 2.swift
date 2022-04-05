@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftyVK
-import SnapKit
 
 class AuthViewController: UIViewController {
     
@@ -15,23 +14,13 @@ class AuthViewController: UIViewController {
     let authModel = AuthModel()
     private let navigator = AuthorisationNavigator()
     
-    private let mainView = AuthorisationView()
-    
     //MARK: - UI
     @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
         navigator.parentViewController = self
-    }
-    
-    func setUpView() {
-        view.addSubview(mainView)
-        mainView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
     
     @IBAction func logInButtonPressed(_ sender: Any) {

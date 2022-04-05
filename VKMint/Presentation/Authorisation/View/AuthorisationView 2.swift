@@ -24,43 +24,28 @@ class AuthorisationView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     //MARK: - Make constraints
-     func setUpUI() {
+    override func draw(_ rect: CGRect) {
         logo.image = UIImage(named: "mainLogo")
-         backgroundColor = .white
-        addSubview(logo)
+        self.addSubview(logo)
         logo.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 300, height: 300))
-            make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
+            make.centerY.equalTo(self)
+            make.left.equalTo(self.snp.left).offset(70)
         }
-        addSubview(mainLabel)
-         mainLabel.tintColor = .black
+        self.addSubview(mainLabel)
         mainLabel.snp.makeConstraints { make in
             make.top.equalTo(logo).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().offset(20)
         }
-        addSubview(descriptionLabel)
+        self.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(mainLabel.snp.bottom).offset(20)
-            make.right.equalToSuperview().inset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(mainLabel).offset(20)
+            make.right.left.equalToSuperview().offset(20)
         }
-        addSubview(sigInButton)
+        self.addSubview(sigInButton)
         sigInButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(10)
+            make.right.left.bottom.equalToSuperview().offset(20)
         }
     }
     

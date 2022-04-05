@@ -20,17 +20,18 @@
 		749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E7E8627AAA92D000F5DD5 /* MessageModelDelegate.swift */; };
 		749F4E622799B77000E2958A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F4E612799B77000E2958A /* AppDelegate.swift */; };
 		749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F4E632799B77000E2958A /* SceneDelegate.swift */; };
+		749F4E662799B77000E2958A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F4E652799B77000E2958A /* ViewController.swift */; };
 		749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F4E6A2799B77000E2958A /* Assets.xcassets */; };
 		749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */; };
 		74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078D2799D5B500F7B772 /* VKDelegate.swift */; };
 		74C807902799D95900F7B772 /* APIInteractor .swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078F2799D95900F7B772 /* APIInteractor .swift */; };
 		74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C807922799DCBC00F7B772 /* AuthViewController.swift */; };
-		E52622FE27FB1D6200032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52622FD27FB1D6200032B61 /* AuthorisationModuleBuilder.swift */; };
-		E526230027FB202700032B61 /* AuthorisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52622FF27FB202700032B61 /* AuthorisationView.swift */; };
-		E526230627FB381E00032B61 /* AuthorisationNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526230527FB381E00032B61 /* AuthorisationNavigator.swift */; };
-		E526230827FB388200032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526230727FB388200032B61 /* MessagesModuleBuilder.swift */; };
-		E526230C27FB3FE000032B61 /* AuthorisationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526230B27FB3FE000032B61 /* AuthorisationViewProtocol.swift */; };
-		E5B24ED027F4617600DF83D7 /* PhotoConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B24ECF27F4617600DF83D7 /* PhotoConverter.swift */; };
+		E526231627FCB40C00032B61 /* AuthorisationNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */; };
+		E526231827FCB41F00032B61 /* AuthorisationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */; };
+		E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */; };
+		E526231C27FCB46500032B61 /* AuthorisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231B27FCB46500032B61 /* AuthorisationView.swift */; };
+		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
+		E526232227FCC2AF00032B61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E526232127FCC2AF00032B61 /* Main.storyboard */; };
 		E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7227E2335C002D177F /* DataMapper.swift */; };
 		E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* TableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
@@ -52,6 +53,7 @@
 		749F4E5E2799B77000E2958A /* VKMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749F4E612799B77000E2958A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749F4E632799B77000E2958A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		749F4E652799B77000E2958A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		749F4E6A2799B77000E2958A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749F4E6D2799B77000E2958A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		749F4E6F2799B77000E2958A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,12 +61,12 @@
 		74C8078F2799D95900F7B772 /* APIInteractor .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIInteractor .swift"; sourceTree = "<group>"; };
 		74C807922799DCBC00F7B772 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		9FCEFEF9626114B1F5A6EC43 /* Pods-VKMint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.debug.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.debug.xcconfig"; sourceTree = "<group>"; };
-		E52622FD27FB1D6200032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
-		E52622FF27FB202700032B61 /* AuthorisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationView.swift; sourceTree = "<group>"; };
-		E526230527FB381E00032B61 /* AuthorisationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationNavigator.swift; sourceTree = "<group>"; };
-		E526230727FB388200032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
-		E526230B27FB3FE000032B61 /* AuthorisationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewProtocol.swift; sourceTree = "<group>"; };
-		E5B24ECF27F4617600DF83D7 /* PhotoConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConverter.swift; sourceTree = "<group>"; };
+		E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationNavigator.swift; sourceTree = "<group>"; };
+		E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewProtocol.swift; sourceTree = "<group>"; };
+		E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
+		E526231B27FCB46500032B61 /* AuthorisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationView.swift; sourceTree = "<group>"; };
+		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
+		E526232127FCC2AF00032B61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E5C5FD7227E2335C002D177F /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* TableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
@@ -85,7 +87,8 @@
 		740969FB279B172A001A7DD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E52622FF27FB202700032B61 /* AuthorisationView.swift */,
+				E526231B27FCB46500032B61 /* AuthorisationView.swift */,
+				E526232127FCC2AF00032B61 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				7445F7C227A1A1FB00105BEA /* MessagesModel.swift */,
-				E526230727FB388200032B61 /* MessagesModuleBuilder.swift */,
+				E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				74C8078A2799D58200F7B772 /* Presentation */,
 				749F4E612799B77000E2958A /* AppDelegate.swift */,
 				749F4E632799B77000E2958A /* SceneDelegate.swift */,
+				749F4E652799B77000E2958A /* ViewController.swift */,
 				749F4E6A2799B77000E2958A /* Assets.xcassets */,
 				749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */,
 				749F4E6F2799B77000E2958A /* Info.plist */,
@@ -235,7 +239,6 @@
 				740969FC279B1731001A7DD1 /* Model */,
 				740969FB279B172A001A7DD1 /* View */,
 				74C807912799DC9500F7B772 /* Presenter */,
-				E52622FD27FB1D6200032B61 /* AuthorisationModuleBuilder.swift */,
 			);
 			path = Authorisation;
 			sourceTree = "<group>";
@@ -255,8 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				74C807922799DCBC00F7B772 /* AuthViewController.swift */,
-				E526230527FB381E00032B61 /* AuthorisationNavigator.swift */,
-				E526230B27FB3FE000032B61 /* AuthorisationViewProtocol.swift */,
+				E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */,
+				E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */,
+				E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -282,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				E5C5FD7227E2335C002D177F /* DataMapper.swift */,
-				E5B24ECF27F4617600DF83D7 /* PhotoConverter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E526232227FCC2AF00032B61 /* Main.storyboard in Resources */,
 				749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */,
 				7453BA48279D8E15008D728E /* Profile .storyboard in Resources */,
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,
@@ -406,25 +410,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */,
-				E526230C27FB3FE000032B61 /* AuthorisationViewProtocol.swift in Sources */,
-				E5B24ED027F4617600DF83D7 /* PhotoConverter.swift in Sources */,
-				E52622FE27FB1D6200032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */,
 				7445F7C627A1A2F500105BEA /* MessagesTableViewCell.swift in Sources */,
+				E526231827FCB41F00032B61 /* AuthorisationViewProtocol.swift in Sources */,
+				749F4E662799B77000E2958A /* ViewController.swift in Sources */,
 				7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */,
 				74C807902799D95900F7B772 /* APIInteractor .swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
-				E526230027FB202700032B61 /* AuthorisationView.swift in Sources */,
-				E526230627FB381E00032B61 /* AuthorisationNavigator.swift in Sources */,
 				740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */,
 				7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */,
+				E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
+				E526231C27FCB46500032B61 /* AuthorisationView.swift in Sources */,
+				E526231627FCB40C00032B61 /* AuthorisationNavigator.swift in Sources */,
 				74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */,
 				7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */,
 				74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */,
-				E526230827FB388200032B61 /* MessagesModuleBuilder.swift in Sources */,
+				E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

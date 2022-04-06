@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainController = AuthViewController() as UIViewController
         let navigationController = UINavigationController(rootViewController: mainController)
         navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.backgroundColor = .white
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }

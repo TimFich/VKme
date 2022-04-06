@@ -17,9 +17,6 @@ class AuthViewController: UIViewController {
     
     private let mainView = AuthorisationView()
     
-    //MARK: - UI
-    @IBOutlet weak var loginButton: UIButton!
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +31,23 @@ class AuthViewController: UIViewController {
         }
     }
     
-    @IBAction func logInButtonPressed(_ sender: Any) {
-        authModel.authorize(completion: { [weak self] in
-            DispatchQueue.main.async {
-                
-                self?.performSegue(withIdentifier: "enter", sender: nil)
-            }
-        }, onError: {
-        })
-        segueIfAuthorised()
-    }
-    
-    //MARK: - Private functions
-    private func segueIfAuthorised() {
-        if VKDelegate.isAuthorised() {
-            self.performSegue(withIdentifier: "enter", sender: nil)
-        }
-    }
+//    @IBAction func logInButtonPressed(_ sender: Any) {
+//        authModel.authorize(completion: { [weak self] in
+//            DispatchQueue.main.async {
+//
+//                self?.performSegue(withIdentifier: "enter", sender: nil)
+//            }
+//        }, onError: {
+//        })
+//        segueIfAuthorised()
+//    }
+//
+//    //MARK: - Private functions
+//    private func segueIfAuthorised() {
+//        if VKDelegate.isAuthorised() {
+//            self.performSegue(withIdentifier: "enter", sender: nil)
+//        }
+//    }
 }
 
 extension AuthViewController: AuthorisationViewProtocol {

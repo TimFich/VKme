@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		632C456D12FDCE53B7815974 /* Pods_VKMint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A34D1A731A493F931413D18 /* Pods_VKMint.framework */; };
 		740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740969FD279B1786001A7DD1 /* AuthModel.swift */; };
+		74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */; };
+		74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */; };
+		74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC72800B090005D3333 /* AuthPresenter.swift */; };
+		74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CCA2800B55E005D3333 /* AuthInteractor.swift */; };
+		74153CCD2800D7F3005D3333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74153CCC2800D7F3005D3333 /* Main.storyboard */; };
 		7427A41E279C1C9C004A9039 /* Messages .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7427A41D279C1C9C004A9039 /* Messages .storyboard */; };
 		7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7439DC6827A1574500506767 /* Conversation Entities.swift */; };
 		7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445F7C227A1A1FB00105BEA /* MessagesModel.swift */; };
@@ -26,12 +31,8 @@
 		74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078D2799D5B500F7B772 /* VKDelegate.swift */; };
 		74C807902799D95900F7B772 /* APIInteractor .swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078F2799D95900F7B772 /* APIInteractor .swift */; };
 		74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C807922799DCBC00F7B772 /* AuthViewController.swift */; };
-		E526231627FCB40C00032B61 /* AuthorisationNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */; };
-		E526231827FCB41F00032B61 /* AuthorisationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */; };
 		E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */; };
-		E526231C27FCB46500032B61 /* AuthorisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231B27FCB46500032B61 /* AuthorisationView.swift */; };
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
-		E526232227FCC2AF00032B61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E526232127FCC2AF00032B61 /* Main.storyboard */; };
 		E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7227E2335C002D177F /* DataMapper.swift */; };
 		E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* TableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
@@ -41,6 +42,11 @@
 		10A66D549C24673009C5BAE4 /* Pods-VKMint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.release.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.release.xcconfig"; sourceTree = "<group>"; };
 		5A34D1A731A493F931413D18 /* Pods_VKMint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKMint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		740969FD279B1786001A7DD1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		74153CC72800B090005D3333 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		74153CCA2800B55E005D3333 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
+		74153CCC2800D7F3005D3333 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7427A41D279C1C9C004A9039 /* Messages .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Messages .storyboard"; sourceTree = "<group>"; };
 		7439DC6827A1574500506767 /* Conversation Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation Entities.swift"; sourceTree = "<group>"; };
 		7445F7C227A1A1FB00105BEA /* MessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModel.swift; sourceTree = "<group>"; };
@@ -61,12 +67,8 @@
 		74C8078F2799D95900F7B772 /* APIInteractor .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIInteractor .swift"; sourceTree = "<group>"; };
 		74C807922799DCBC00F7B772 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		9FCEFEF9626114B1F5A6EC43 /* Pods-VKMint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.debug.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.debug.xcconfig"; sourceTree = "<group>"; };
-		E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationNavigator.swift; sourceTree = "<group>"; };
-		E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewProtocol.swift; sourceTree = "<group>"; };
 		E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
-		E526231B27FCB46500032B61 /* AuthorisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationView.swift; sourceTree = "<group>"; };
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
-		E526232127FCC2AF00032B61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E5C5FD7227E2335C002D177F /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* TableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
@@ -87,8 +89,7 @@
 		740969FB279B172A001A7DD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E526231B27FCB46500032B61 /* AuthorisationView.swift */,
-				E526232127FCC2AF00032B61 /* Main.storyboard */,
+				74C807922799DCBC00F7B772 /* AuthViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +100,22 @@
 				740969FD279B1786001A7DD1 /* AuthModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		74153CC228008273005D3333 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		74153CC92800B546005D3333 /* Interactor  */ = {
+			isa = PBXGroup;
+			children = (
+				74153CCA2800B55E005D3333 /* AuthInteractor.swift */,
+			);
+			path = "Interactor ";
 			sourceTree = "<group>";
 		};
 		7427A41B279C1C65004A9039 /* Messages  */ = {
@@ -208,6 +225,7 @@
 		749F4E602799B77000E2958A /* VKMint */ = {
 			isa = PBXGroup;
 			children = (
+				74153CC228008273005D3333 /* Common */,
 				E5C5FD7127E2324F002D177F /* Models */,
 				74C8078C2799D5A200F7B772 /* Entities */,
 				74C8078A2799D58200F7B772 /* Presentation */,
@@ -217,6 +235,7 @@
 				749F4E6A2799B77000E2958A /* Assets.xcassets */,
 				749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */,
 				749F4E6F2799B77000E2958A /* Info.plist */,
+				74153CCC2800D7F3005D3333 /* Main.storyboard */,
 			);
 			path = VKMint;
 			sourceTree = "<group>";
@@ -236,6 +255,9 @@
 		74C8078B2799D58E00F7B772 /* Authorisation */ = {
 			isa = PBXGroup;
 			children = (
+				74153CC92800B546005D3333 /* Interactor  */,
+				E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */,
+				74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */,
 				740969FC279B1731001A7DD1 /* Model */,
 				740969FB279B172A001A7DD1 /* View */,
 				74C807912799DC9500F7B772 /* Presenter */,
@@ -257,10 +279,7 @@
 		74C807912799DC9500F7B772 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				74C807922799DCBC00F7B772 /* AuthViewController.swift */,
-				E526231527FCB40C00032B61 /* AuthorisationNavigator.swift */,
-				E526231727FCB41F00032B61 /* AuthorisationViewProtocol.swift */,
-				E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */,
+				74153CC72800B090005D3333 /* AuthPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -350,7 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E526232227FCC2AF00032B61 /* Main.storyboard in Resources */,
+				74153CCD2800D7F3005D3333 /* Main.storyboard in Resources */,
 				749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */,
 				7453BA48279D8E15008D728E /* Profile .storyboard in Resources */,
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,
@@ -411,20 +430,21 @@
 			files = (
 				E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */,
 				E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */,
+				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
 				7445F7C627A1A2F500105BEA /* MessagesTableViewCell.swift in Sources */,
-				E526231827FCB41F00032B61 /* AuthorisationViewProtocol.swift in Sources */,
 				749F4E662799B77000E2958A /* ViewController.swift in Sources */,
 				7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */,
 				74C807902799D95900F7B772 /* APIInteractor .swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */,
 				7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */,
+				74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */,
 				E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
-				E526231C27FCB46500032B61 /* AuthorisationView.swift in Sources */,
-				E526231627FCB40C00032B61 /* AuthorisationNavigator.swift in Sources */,
+				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
+				74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */,
 				74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */,
 				7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */,
 				74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */,

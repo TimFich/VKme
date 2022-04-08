@@ -22,12 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.rootViewController = rootVc
 //        }
 //        window?.makeKeyAndVisible()
-        let mainController = AuthViewController() as UIViewController
-        let navigationController = UINavigationController(rootViewController: mainController)
-        navigationController.navigationBar.isTranslucent = false
-        window?.rootViewController = navigationController
-        window?.backgroundColor = .white
-        window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

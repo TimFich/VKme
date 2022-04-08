@@ -12,10 +12,17 @@ var vkDelegate : SwiftyVKDelegate?
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private lazy var rootFlowCoordinator: MainFlowCoordinator = {
+        let fc = MainFlowCoordinator(parentViewController: nil, finishHandler: {})
+        return fc
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         vkDelegate = VKDelegate()
-//        let window = UIWindow(frame: UIScreen.main.bounds)
+        rootFlowCoordinator.parentViewController = storyboard.instantiateInitialViewController()
+        rootFlowCoordinator.start(animated: true)
         return true
     }
 

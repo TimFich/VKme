@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fc = MainFlowCoordinator(parentViewController: nil, finishHandler: {})
         return fc
     }()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
         vkDelegate = VKDelegate()
-        rootFlowCoordinator.parentViewController = storyboard.instantiateInitialViewController()
+        rootFlowCoordinator.parentViewController = vc
         rootFlowCoordinator.start(animated: true)
         return true
     }

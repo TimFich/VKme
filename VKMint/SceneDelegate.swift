@@ -12,16 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        if VKDelegate.isAuthorised() {
-//            let storyboard = UIStoryboard.init(name: "Messages ", bundle: nil)
-//            let rootVc = storyboard.instantiateInitialViewController()
-//            window?.rootViewController = rootVc
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let rootVc = storyboard.instantiateInitialViewController()
-//            window?.rootViewController = rootVc
-//        }
-//        window?.makeKeyAndVisible()
+            let storyboard = UIStoryboard.init(name: "Messages ", bundle: nil)
+            let rootVc = storyboard.instantiateInitialViewController()
+           window?.rootViewController = rootVc
+        window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

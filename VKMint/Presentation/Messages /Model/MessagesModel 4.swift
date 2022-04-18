@@ -11,11 +11,12 @@ import SwiftyVK
 class MessagesModel {
     
     //MARK: - Properties
-    
-    let conversationApiInteractor: ConversationsApiInteractor = ConversationsApiInteractorImpl()
-    let downloader: ImageDownloader = ImageDownloaderImpl()
-    let usersApiInteractor: UsersApiInteractor = UsersApiInteracorImpl()
     var conversation: Conversation? = nil
+    
+    let apiInteractorConv: ConversationApiInteractor = ConversationApiInteractorImpl()
+    
+    let apiIneractorUser: UsersApiInteractor = UsersApiInteractorImpl()
+    
     var convCellData: [TableViewCellData] = [] {
         didSet {
             if convCellData.count == convCount {
@@ -41,7 +42,7 @@ class MessagesModel {
     }
     
     func loadData() {
-        conversationApiInteractor.getConversation(completion: { result in
+        apiInteractorConv.getConversation(completion: { result in
             self.conversation = result
             self.processData()
         })
@@ -69,7 +70,7 @@ class MessagesModel {
                     cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
                     
                 } else {
-                    downloader.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
+                    apiIneractorUser.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
                         cellData.avatarOfChat = result
                     }
                     
@@ -80,16 +81,16 @@ class MessagesModel {
     }
     
     private func loadConversation(item: Item) {
-        usersApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { user in
+        apiIneractorUser.getUserByID(userId: item.conversation.peer.id, completion: { user in
             let cellData = TableViewCellData()
             cellData.title = user.firstName + " " + user.lastName
             cellData.lastMessage = item.lastMessage.text
-            self.downloader.getUserAvatar(userId: item.conversation.peer.id) { result in
+            self.apiIneractorUser.getUserAvatar(userId: item.conversation.peer.id) { result in
                 if result[0].photo == nil {
                     cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
                 } else {
                     print(result)
-                    self.downloader.downloadImage(urlOfPhoto: result[0].photo!) { res in
+                    self.apiIneractorUser.downloadImage(urlOfPhoto: result[0].photo!) { res in
                         cellData.avatarOfChat = res
                     }
                 }

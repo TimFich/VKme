@@ -13,21 +13,18 @@ protocol AuthInteractorInput: AnyObject {
 
 protocol AuthInteractorOutput: AnyObject {
     func authorizedSuccesful()
-    func authorizedFailure()
 }
 
 class AuthInteractor {
     
-    var mainApiInteractor: MainApiInteractor = MainApiInteractorImpl()
+    let apiInteractor: MainApiInteractor = MainApiInteractorImpl()
     
     weak var output: AuthInteractorOutput!
     
     func authorize() {
-        mainApiInteractor.authorize(onSuccess: { [weak self] in
+        apiInteractor.authorize(onSuccess: { [weak self] in
             self?.output.authorizedSuccesful()
-        }, onError: { [weak self] in
-            self?.output.authorizedFailure()
-        })
+        }, onError: {})
     }
 }
 

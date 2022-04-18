@@ -28,18 +28,26 @@
 		749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749F4E6A2799B77000E2958A /* Assets.xcassets */; };
 		749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */; };
 		74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078D2799D5B500F7B772 /* VKDelegate.swift */; };
-		74C807902799D95900F7B772 /* APIInteractor .swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078F2799D95900F7B772 /* APIInteractor .swift */; };
+		74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078F2799D95900F7B772 /* MainApiInteractor.swift */; };
 		74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C807922799DCBC00F7B772 /* AuthViewController.swift */; };
 		E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */; };
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
-		E526235028020A8700032B61 /* TestsOfApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526234F28020A8700032B61 /* TestsOfApiInteractor.swift */; };
+		E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */; };
+		E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262374280D43F400032B61 /* UsersApiInteractor.swift */; };
+		E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262376280D44DA00032B61 /* ImageDownloader.swift */; };
+		E526237F280D799D00032B61 /* VKMintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526237E280D799D00032B61 /* VKMintTests.swift */; };
+		E5262387280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */; };
+		E5262389280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262388280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift */; };
+		E526238B280DF94100032B61 /* MainApiInteractorForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */; };
+		E526238D280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */; };
+		E526238F280DFBEB00032B61 /* TestOfFailerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */; };
 		E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7227E2335C002D177F /* DataMapper.swift */; };
 		E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* TableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E526235128020A8700032B61 /* PBXContainerItemProxy */ = {
+		E5262380280D799D00032B61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 749F4E562799B77000E2958A /* Project object */;
 			proxyType = 1;
@@ -73,13 +81,21 @@
 		749F4E6D2799B77000E2958A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		749F4E6F2799B77000E2958A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C8078D2799D5B500F7B772 /* VKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
-		74C8078F2799D95900F7B772 /* APIInteractor .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIInteractor .swift"; sourceTree = "<group>"; };
+		74C8078F2799D95900F7B772 /* MainApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractor.swift; sourceTree = "<group>"; };
 		74C807922799DCBC00F7B772 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		9FCEFEF9626114B1F5A6EC43 /* Pods-VKMint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.debug.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.debug.xcconfig"; sourceTree = "<group>"; };
 		E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
-		E526234D28020A8700032B61 /* TestsOfApiInteractor.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestsOfApiInteractor.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E526234F28020A8700032B61 /* TestsOfApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsOfApiInteractor.swift; sourceTree = "<group>"; };
+		E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsApiInteractor.swift; sourceTree = "<group>"; };
+		E5262374280D43F400032B61 /* UsersApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApiInteractor.swift; sourceTree = "<group>"; };
+		E5262376280D44DA00032B61 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		E526237C280D799D00032B61 /* VKMintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E526237E280D799D00032B61 /* VKMintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKMintTests.swift; sourceTree = "<group>"; };
+		E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForSuccessMock.swift; sourceTree = "<group>"; };
+		E5262388280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorOutputForSuccessMock.swift; sourceTree = "<group>"; };
+		E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForFailerMock.swift; sourceTree = "<group>"; };
+		E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorOutputForFailerMock.swift; sourceTree = "<group>"; };
+		E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOfFailerAuth.swift; sourceTree = "<group>"; };
 		E5C5FD7227E2335C002D177F /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* TableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
@@ -94,7 +110,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E526234A28020A8700032B61 /* Frameworks */ = {
+		E5262379280D799D00032B61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,7 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				749F4E602799B77000E2958A /* VKMint */,
-				E526234E28020A8700032B61 /* TestsOfApiInteractor */,
+				E526237D280D799D00032B61 /* VKMintTests */,
 				749F4E5F2799B77000E2958A /* Products */,
 				C391D7AE1E2EFD95C94C4BA4 /* Pods */,
 				97695AD8AC615D551575FE40 /* Frameworks */,
@@ -237,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				749F4E5E2799B77000E2958A /* VKMint.app */,
-				E526234D28020A8700032B61 /* TestsOfApiInteractor.xctest */,
+				E526237C280D799D00032B61 /* VKMintTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,7 +305,6 @@
 			children = (
 				7439DC6727A1565700506767 /* JsonObjects */,
 				74C8078D2799D5B500F7B772 /* VKDelegate.swift */,
-				74C8078F2799D95900F7B772 /* APIInteractor .swift */,
 				E5C5FD7427E23456002D177F /* TableViewCellData.swift */,
 			);
 			path = Entities;
@@ -320,18 +335,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E526234E28020A8700032B61 /* TestsOfApiInteractor */ = {
+		E526237D280D799D00032B61 /* VKMintTests */ = {
 			isa = PBXGroup;
 			children = (
-				E526234F28020A8700032B61 /* TestsOfApiInteractor.swift */,
+				E5262385280DECDA00032B61 /* Mock */,
+				E526237E280D799D00032B61 /* VKMintTests.swift */,
+				E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */,
 			);
-			path = TestsOfApiInteractor;
+			path = VKMintTests;
+			sourceTree = "<group>";
+		};
+		E5262385280DECDA00032B61 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */,
+				E5262388280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift */,
+				E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */,
+				E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		E5C5FD7127E2324F002D177F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E5C5FD7227E2335C002D177F /* DataMapper.swift */,
+				74C8078F2799D95900F7B772 /* MainApiInteractor.swift */,
+				E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */,
+				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
+				E5262376280D44DA00032B61 /* ImageDownloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -358,22 +390,22 @@
 			productReference = 749F4E5E2799B77000E2958A /* VKMint.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E526234C28020A8700032B61 /* TestsOfApiInteractor */ = {
+		E526237B280D799D00032B61 /* VKMintTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E526235328020A8700032B61 /* Build configuration list for PBXNativeTarget "TestsOfApiInteractor" */;
+			buildConfigurationList = E5262382280D799D00032B61 /* Build configuration list for PBXNativeTarget "VKMintTests" */;
 			buildPhases = (
-				E526234928020A8700032B61 /* Sources */,
-				E526234A28020A8700032B61 /* Frameworks */,
-				E526234B28020A8700032B61 /* Resources */,
+				E5262378280D799D00032B61 /* Sources */,
+				E5262379280D799D00032B61 /* Frameworks */,
+				E526237A280D799D00032B61 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E526235228020A8700032B61 /* PBXTargetDependency */,
+				E5262381280D799D00032B61 /* PBXTargetDependency */,
 			);
-			name = TestsOfApiInteractor;
-			productName = TestsOfApiInteractor;
-			productReference = E526234D28020A8700032B61 /* TestsOfApiInteractor.xctest */;
+			name = VKMintTests;
+			productName = VKMintTests;
+			productReference = E526237C280D799D00032B61 /* VKMintTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -389,7 +421,7 @@
 					749F4E5D2799B77000E2958A = {
 						CreatedOnToolsVersion = 13.1;
 					};
-					E526234C28020A8700032B61 = {
+					E526237B280D799D00032B61 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 749F4E5D2799B77000E2958A;
 					};
@@ -409,7 +441,7 @@
 			projectRoot = "";
 			targets = (
 				749F4E5D2799B77000E2958A /* VKMint */,
-				E526234C28020A8700032B61 /* TestsOfApiInteractor */,
+				E526237B280D799D00032B61 /* VKMintTests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,7 +461,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E526234B28020A8700032B61 /* Resources */ = {
+		E526237A280D799D00032B61 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,15 +520,18 @@
 				E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */,
 				E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
+				E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */,
 				7445F7C627A1A2F500105BEA /* MessagesTableViewCell.swift in Sources */,
+				E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */,
 				7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */,
-				74C807902799D95900F7B772 /* APIInteractor .swift in Sources */,
+				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */,
 				7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */,
 				74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */,
 				E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */,
+				E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
@@ -508,21 +543,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E526234928020A8700032B61 /* Sources */ = {
+		E5262378280D799D00032B61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E526235028020A8700032B61 /* TestsOfApiInteractor.swift in Sources */,
+				E526238B280DF94100032B61 /* MainApiInteractorForFailerMock.swift in Sources */,
+				E5262387280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift in Sources */,
+				E526237F280D799D00032B61 /* VKMintTests.swift in Sources */,
+				E5262389280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift in Sources */,
+				E526238D280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift in Sources */,
+				E526238F280DFBEB00032B61 /* TestOfFailerAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E526235228020A8700032B61 /* PBXTargetDependency */ = {
+		E5262381280D799D00032B61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 749F4E5D2799B77000E2958A /* VKMint */;
-			targetProxy = E526235128020A8700032B61 /* PBXContainerItemProxy */;
+			targetProxy = E5262380280D799D00032B61 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -710,7 +750,7 @@
 			};
 			name = Release;
 		};
-		E526235428020A8700032B61 /* Debug */ = {
+		E5262383280D799D00032B61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -724,7 +764,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.itis.TestsOfApiInteractor;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.itis.VKMintTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -733,7 +773,7 @@
 			};
 			name = Debug;
 		};
-		E526235528020A8700032B61 /* Release */ = {
+		E5262384280D799D00032B61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -747,7 +787,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.itis.TestsOfApiInteractor;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.itis.VKMintTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -777,11 +817,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E526235328020A8700032B61 /* Build configuration list for PBXNativeTarget "TestsOfApiInteractor" */ = {
+		E5262382280D799D00032B61 /* Build configuration list for PBXNativeTarget "VKMintTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E526235428020A8700032B61 /* Debug */,
-				E526235528020A8700032B61 /* Release */,
+				E5262383280D799D00032B61 /* Debug */,
+				E5262384280D799D00032B61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

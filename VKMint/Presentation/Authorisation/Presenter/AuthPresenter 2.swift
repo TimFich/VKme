@@ -31,8 +31,5 @@ extension AuthPresenter: AuthInteractorOutput {
     func authorizedSuccesful() {
         moduleOutput.moduleWantsToOpenMessages(animated: true)
     }
-    
-    func authorizedFailure() {
-    }
 }
 

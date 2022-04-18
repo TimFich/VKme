@@ -10,12 +10,13 @@ import Foundation
 class DataMapper {
     
     let defaultUser = TypeEnum.user
+    let userApiInteractor: UsersApiInteractor = UsersApiInteracorImpl()
     
     func loadTableViewCellData(item: Item, completion: @escaping(TableViewCellData) -> Void) {
         let data = TableViewCellData()
         //print(item)
         if item.conversation.peer.type.rawValue == defaultUser.rawValue {
-            APIInteractor.getUserByID(userId: item.conversation.peer.id, completion: { result in
+            userApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { result in
                 data.title = result.firstName + " " + result.lastName
                 data.lastMessage = item.lastMessage.text
                 completion(data)

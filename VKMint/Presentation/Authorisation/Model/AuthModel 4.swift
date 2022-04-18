@@ -9,10 +9,10 @@ import Foundation
 
 class AuthModel {
     
-    let mainApiInteractor: MainApiInteractor = MainApiInteractorImpl()
+    let apiInteractorMain: MainApiInteractor = MainApiInteractorImpl()
         
     //MARK: - Public functions
     func authorize(completion: @escaping () -> (), onError: @escaping () -> ()) {
-        mainApiInteractor.authorize(onSuccess: completion, onError: onError)
+        apiInteractorMain.authorize(onSuccess: completion, onError: onError)
     }
 }

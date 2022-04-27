@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDChatSettings" representedClassName=".CDChatSettings" syncable="YES">
+        <attribute name="membersCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ownerID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CDConversationClass" representedClassName=".CDConversationClass" syncable="YES">
+        <attribute name="isMarkedUnread" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="chatSettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChatSettings"/>
+        <relationship name="peer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPeer"/>
+    </entity>
+    <entity name="CDConversations" representedClassName=".CDConversations" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDItems"/>
+    </entity>
+    <entity name="CDItems" representedClassName=".CDItems" syncable="YES">
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDConversationClass"/>
+        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLastMessage"/>
+    </entity>
+    <entity name="CDLastMessage" representedClassName=".CDLastMessage" syncable="YES">
+        <attribute name="conversationMessageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fromID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="peerID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CDPeer" representedClassName=".CDPeer" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CDConversations" positionX="-356.3125" positionY="90.41015625" width="128" height="88"/>
+        <element name="CDItems" positionX="-201.74609375" positionY="74.4765625" width="128" height="73"/>
+        <element name="CDLastMessage" positionX="-137.73828125" positionY="231.65625" width="128" height="148"/>
+        <element name="CDConversationClass" positionX="18.17578125" positionY="79.26953125" width="128" height="103"/>
+        <element name="CDPeer" positionX="129.00390625" positionY="-34.59765625" width="128" height="73"/>
+        <element name="CDChatSettings" positionX="179.78515625" positionY="216.9140625" width="128" height="88"/>
+    </elements>
+</model>

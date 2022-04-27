@@ -17,12 +17,12 @@ class ConversationsApiInteractorImpl: ConversationsApiInteractor {
     private var offset: Int = 0
     
     func getConversation(offset: Int, count: Int, completion: @escaping (Conversation) -> ()) {
-        VK.API.Messages.getConversations([Parameter.count: "\(count)", Parameter.offset: "\(offset)", Parameter.fields: "[first_name, last_name]"])
+        VK.API.Messages.getConversations([Parameter.count: "\(count)", Parameter.offset: "\(offset)"])
             .onSuccess({ result in
                 do {
                     let conversation = try? JSONDecoder().decode(Conversation.self, from: result)
                     DispatchQueue.main.async {
-                        print(conversation?.items.count)
+//                        print(conversation?.items.count)
                         completion(conversation!)
                     }
                 } catch let error {

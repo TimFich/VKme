@@ -191,7 +191,6 @@ struct AudioMessage: Codable {
 }
 
 // MARK: - Encode/decode helpers
-
 class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {

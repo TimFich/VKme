@@ -16,18 +16,14 @@ protocol UsersApiInteractor {
 class UsersApiInteracorImpl: UsersApiInteractor {
     
     func getUserByID(userId: Int, completion: @escaping (UserEntities) -> ()) {
+        print("2")
+        print(userId)
         VK.API.Users.get([Parameter.userId: "\(userId)"])
             .onSuccess({ result in
-                do {
-                    let user = try! JSONDecoder().decode([UserEntities].self, from: result)
-                    if user != nil {
-                        DispatchQueue.main.async {
-                            completion(user[0])
-                        }
-                    }
-                } catch let error {
-                    print(error)
-                }
+                print(result)
+                let user = try! JSONDecoder().decode([UserEntities].self, from: result)
+                print(user)
+                    completion(user[0])
             }).send()
     }
     

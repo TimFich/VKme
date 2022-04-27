@@ -18,6 +18,7 @@ class MessagesModel {
     var conversation: Conversation? = nil
     var convCellData: [TableViewCellData] = [] {
         didSet {
+            print(convCellData.last?.title)
             if convCellData.count == convCount {
                 delegate?.didLoadConversations()
             }
@@ -41,10 +42,18 @@ class MessagesModel {
     }
     
     func loadData() {
-        conversationApiInteractor.getConversation(completion: { result in
-            self.conversation = result
-            self.processData()
-        })
+        var offset: Int = 0
+        var countOfMessages: Int = 0
+        conversationApiInteractor.getConversation(offset: 0, count: 0) { result in
+            countOfMessages = result.count
+        while (offset < countOfMessages) {
+            self.conversationApiInteractor.getConversation(offset: offset, count: 200, completion: { result in
+                self.conversation = result
+                self.processData()
+            })
+            offset += 200
+        }
+        }
     }
     
     private func processData() {
@@ -59,7 +68,10 @@ class MessagesModel {
         }
         for item in items! {
             if item.conversation.peer.type.rawValue == TypeEnum.user.rawValue {
+                print(item)
                 loadConversation(item: item)
+                sleep(3)
+                print("Indem dalshe")
             } else {
                 let cellData = TableViewCellData()
                 cellData.title = item.conversation.chatSettings?.title ?? ""
@@ -80,21 +92,23 @@ class MessagesModel {
     }
     
     private func loadConversation(item: Item) {
+        print("1")
         usersApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { user in
             let cellData = TableViewCellData()
             cellData.title = user.firstName + " " + user.lastName
             cellData.lastMessage = item.lastMessage.text
-            self.downloader.getUserAvatar(userId: item.conversation.peer.id) { result in
-                if result[0].photo == nil {
-                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                } else {
-                    print(result)
-                    self.downloader.downloadImage(urlOfPhoto: result[0].photo!) { res in
-                        cellData.avatarOfChat = res
-                    }
-                }
-                self.convCellData.append(cellData)
-            }
+//            self.downloader.getUserAvatar(userId: item.conversation.peer.id) { result in
+//                if result[0].photo == nil {
+//                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+//                } else {
+//                    print(result)
+//                    self.downloader.downloadImage(urlOfPhoto: result[0].photo!) { res in
+//                        cellData.avatarOfChat = res
+//                    }
+//                }
+//                self.convCellData.append(cellData)
+//            }
+            self.convCellData.append(cellData)
         })
     }
 }

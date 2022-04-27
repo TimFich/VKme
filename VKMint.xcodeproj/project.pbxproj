@@ -41,6 +41,7 @@
 		E526238B280DF94100032B61 /* MainApiInteractorForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */; };
 		E526238D280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */; };
 		E526238F280DFBEB00032B61 /* TestOfFailerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */; };
+		E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */; };
 		E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7227E2335C002D177F /* DataMapper.swift */; };
 		E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* TableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
@@ -96,6 +97,7 @@
 		E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForFailerMock.swift; sourceTree = "<group>"; };
 		E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorOutputForFailerMock.swift; sourceTree = "<group>"; };
 		E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOfFailerAuth.swift; sourceTree = "<group>"; };
+		E54699E12819406E00929418 /* Entities for messages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entities for messages.xcdatamodel"; sourceTree = "<group>"; };
 		E5C5FD7227E2335C002D177F /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* TableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */,
 				749F4E6F2799B77000E2958A /* Info.plist */,
 				74153CCC2800D7F3005D3333 /* Main.storyboard */,
+				E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */,
 			);
 			path = VKMint;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */,
 				E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */,
+				E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */,
 				E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
@@ -827,6 +831,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E54699E12819406E00929418 /* Entities for messages.xcdatamodel */,
+			);
+			currentVersion = E54699E12819406E00929418 /* Entities for messages.xcdatamodel */;
+			path = "Entities for messages.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 749F4E562799B77000E2958A /* Project object */;
 }

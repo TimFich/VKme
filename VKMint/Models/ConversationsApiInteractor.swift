@@ -9,17 +9,20 @@ import Foundation
 import SwiftyVK
 
 protocol ConversationsApiInteractor {
-    func getConversation(completion: @escaping (Conversation) -> ())
+    func getConversation(offset: Int, count: Int, completion: @escaping (Conversation) -> ())
 }
 
 class ConversationsApiInteractorImpl: ConversationsApiInteractor {
     
-    func getConversation(completion: @escaping (Conversation) -> ()) {
-        VK.API.Messages.getConversations(.empty)
+    private var offset: Int = 0
+    
+    func getConversation(offset: Int, count: Int, completion: @escaping (Conversation) -> ()) {
+        VK.API.Messages.getConversations([Parameter.count: "\(count)", Parameter.offset: "\(offset)", Parameter.fields: "[first_name, last_name]"])
             .onSuccess({ result in
                 do {
                     let conversation = try? JSONDecoder().decode(Conversation.self, from: result)
                     DispatchQueue.main.async {
+                        print(conversation?.items.count)
                         completion(conversation!)
                     }
                 } catch let error {

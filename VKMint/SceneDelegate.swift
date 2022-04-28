@@ -12,11 +12,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-            let storyboard = UIStoryboard.init(name: "Messages ", bundle: nil)
-            let rootVc = storyboard.instantiateInitialViewController()
-           window?.rootViewController = rootVc
-        window?.makeKeyAndVisible()
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let window = UIWindow(windowScene: windowScene)
+        let vc = UINavigationController()
+        vc.view.backgroundColor = .red
+        window.rootViewController = vc
+        self.window = window
+        window.makeKeyAndVisible()
+        
+        vc.isNavigationBarHidden = true
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.startMainFlowCoordinator(rootViewController: vc)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +54,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 

@@ -9,14 +9,19 @@ import Foundation
 
 // MARK: - UserEntities
 struct UserEntities: Codable {
+    let count: Int
+    let items: [UserItems]
+}
+
+struct UserItems: Codable {
     let id: Int
     let firstName, lastName: String
     let photo: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
-        case photo = "photo_200"
+        case photo = "photo_200_orig"
     }
 }

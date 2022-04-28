@@ -49,53 +49,53 @@ class MessagesModel {
         while (offset < countOfMessages) {
             self.conversationApiInteractor.getConversation(offset: offset, count: 200, completion: { result in
                 self.conversation = result
-                self.processData()
+//                self.processData()
             })
             offset += 200
         }
         }
     }
     
-    private func processData() {
-        let items = conversation?.items
-        guard items != nil else { return }
-        for item in items! {
-            if item.conversation.peer.type.rawValue == TypeEnum.user.rawValue {
-                convCount += 1
-            } else {
-                chatsCount += 1
-            }
-        }
-        for item in items! {
-            if item.conversation.peer.type.rawValue == TypeEnum.user.rawValue {
-                print(item)
-                loadConversation(item: item)
-                sleep(3)
-                print("Indem dalshe")
-            } else {
-                let cellData = TableViewCellData()
-                cellData.title = item.conversation.chatSettings?.title ?? ""
-                cellData.lastMessage = item.lastMessage.text
-                if item.conversation.chatSettings?.photo == nil {
-                    
-                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                    
-                } else {
-                    downloader.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
-                        cellData.avatarOfChat = result
-                    }
-                    
-                }
-                chatsCellData.append(cellData)
-            }
-        }
-    }
+//    private func processData() {
+//        let items = conversation?.items
+//        guard items != nil else { return }
+//        for item in items! {
+//            if item.conversation.peer.type.rawValue == TypeEnum.user.rawValue {
+//                convCount += 1
+//            } else {
+//                chatsCount += 1
+//            }
+//        }
+//        for item in items! {
+//            if item.conversation.peer.type.rawValue == TypeEnum.user.rawValue {
+//                print(item)
+//                loadConversation(item: item)
+//                sleep(3)
+//                print("Indem dalshe")
+//            } else {
+//                let cellData = TableViewCellData()
+//                cellData.title = item.conversation.chatSettings?.title ?? ""
+//                cellData.lastMessage = item.lastMessage.text
+//                if item.conversation.chatSettings?.photo == nil {
+//
+//                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
+//
+//                } else {
+//                    downloader.downloadImage(urlOfPhoto: item.conversation.chatSettings?.photo?.photoMini ?? "") { result in
+//                        cellData.avatarOfChat = result
+//                    }
+//
+//                }
+//                chatsCellData.append(cellData)
+//            }
+//        }
+//    }
     
     private func loadConversation(item: Item) {
         print("1")
         usersApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { user in
             let cellData = TableViewCellData()
-            cellData.title = user.firstName + " " + user.lastName
+//            cellData.title = user.firstName + " " + user.lastName
             cellData.lastMessage = item.lastMessage.text
 //            self.downloader.getUserAvatar(userId: item.conversation.peer.id) { result in
 //                if result[0].photo == nil {

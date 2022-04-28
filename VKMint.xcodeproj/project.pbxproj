@@ -30,6 +30,10 @@
 		74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078D2799D5B500F7B772 /* VKDelegate.swift */; };
 		74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8078F2799D95900F7B772 /* MainApiInteractor.swift */; };
 		74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C807922799DCBC00F7B772 /* AuthViewController.swift */; };
+		E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */; };
+		E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182177281AFF17002C1E88 /* ContactsViewController.swift */; };
+		E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */; };
+		E518217C281B0025002C1E88 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E518217A281B0025002C1E88 /* ContactsTableViewCell.xib */; };
 		E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */; };
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
 		E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */; };
@@ -98,6 +102,10 @@
 		74C8078F2799D95900F7B772 /* MainApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractor.swift; sourceTree = "<group>"; };
 		74C807922799DCBC00F7B772 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		9FCEFEF9626114B1F5A6EC43 /* Pods-VKMint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.debug.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.debug.xcconfig"; sourceTree = "<group>"; };
+		E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApiInteractor.swift; sourceTree = "<group>"; };
+		E5182177281AFF17002C1E88 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		E518217A281B0025002C1E88 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
 		E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
 		E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsApiInteractor.swift; sourceTree = "<group>"; };
@@ -213,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				7453BA42279D8CDF008D728E /* View */,
+				E5182177281AFF17002C1E88 /* ContactsViewController.swift */,
 			);
 			path = "Contacts ";
 			sourceTree = "<group>";
@@ -221,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				7453BA43279D8CFF008D728E /* Contacts.storyboard */,
+				E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */,
+				E518217A281B0025002C1E88 /* ContactsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +425,7 @@
 				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
 				E5262376280D44DA00032B61 /* ImageDownloader.swift */,
 				E5469A4428194EDD00929418 /* DataStoreManager.swift */,
+				E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -505,6 +517,7 @@
 				749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */,
 				7453BA48279D8E15008D728E /* Profile .storyboard in Resources */,
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,
+				E518217C281B0025002C1E88 /* ContactsTableViewCell.xib in Resources */,
 				7453BA44279D8CFF008D728E /* Contacts.storyboard in Resources */,
 				7427A41E279C1C9C004A9039 /* Messages .storyboard in Resources */,
 				7445F7C727A1A2F500105BEA /* MessagesTableViewCell.xib in Resources */,
@@ -581,6 +594,7 @@
 				E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				E5469A7028199F1500929418 /* CDPeer+CoreDataClass.swift in Sources */,
+				E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */,
 				740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */,
 				E5469A6B28199F1500929418 /* CDLastMessage+CoreDataProperties.swift in Sources */,
 				E5469A4528194EDD00929418 /* DataStoreManager.swift in Sources */,
@@ -594,9 +608,11 @@
 				E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
+				E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */,
 				E5469A6C28199F1500929418 /* CDChatSettings+CoreDataClass.swift in Sources */,
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
 				74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */,
+				E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */,
 				74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */,
 				7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */,
 				74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */,

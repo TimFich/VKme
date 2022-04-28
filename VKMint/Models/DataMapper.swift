@@ -17,7 +17,7 @@ class DataMapper {
         //print(item)
         if item.conversation.peer.type.rawValue == defaultUser.rawValue {
             userApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { result in
-                data.title = result.firstName + " " + result.lastName
+//                data.title = result.firstName + " " + result.lastName
                 data.lastMessage = item.lastMessage.text
                 completion(data)
             })

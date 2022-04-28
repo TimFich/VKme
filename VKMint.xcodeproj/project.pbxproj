@@ -13,7 +13,6 @@
 		74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */; };
 		74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC72800B090005D3333 /* AuthPresenter.swift */; };
 		74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CCA2800B55E005D3333 /* AuthInteractor.swift */; };
-		74153CCD2800D7F3005D3333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74153CCC2800D7F3005D3333 /* Main.storyboard */; };
 		7427A41E279C1C9C004A9039 /* Messages .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7427A41D279C1C9C004A9039 /* Messages .storyboard */; };
 		7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7439DC6827A1574500506767 /* Conversation Entities.swift */; };
 		7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445F7C227A1A1FB00105BEA /* MessagesModel.swift */; };
@@ -64,7 +63,6 @@
 		74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		74153CC72800B090005D3333 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		74153CCA2800B55E005D3333 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
-		74153CCC2800D7F3005D3333 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7427A41D279C1C9C004A9039 /* Messages .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Messages .storyboard"; sourceTree = "<group>"; };
 		7439DC6827A1574500506767 /* Conversation Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation Entities.swift"; sourceTree = "<group>"; };
 		7445F7C227A1A1FB00105BEA /* MessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModel.swift; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 				749F4E6A2799B77000E2958A /* Assets.xcassets */,
 				749F4E6C2799B77000E2958A /* LaunchScreen.storyboard */,
 				749F4E6F2799B77000E2958A /* Info.plist */,
-				74153CCC2800D7F3005D3333 /* Main.storyboard */,
 			);
 			path = VKMint;
 			sourceTree = "<group>";
@@ -451,7 +448,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74153CCD2800D7F3005D3333 /* Main.storyboard in Resources */,
 				749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */,
 				7453BA48279D8E15008D728E /* Profile .storyboard in Resources */,
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,

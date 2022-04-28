@@ -11,11 +11,11 @@ import UIKit
 class MainFlowCoordinator: FlowCoordinatorProtocol {
     
     private var finishHandler: () -> Void
-    public weak var parentViewController: UIViewController?
+    public weak var parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     
 
-    init(parentViewController: UIViewController?, finishHandler: @escaping () -> Void) {
+    init(parentViewController: UINavigationController?, finishHandler: @escaping () -> Void) {
         self.parentViewController = parentViewController
         self.finishHandler = finishHandler
     }
@@ -29,7 +29,8 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        parentViewController?.presentedViewController?.dismiss(animated: animated, completion: finishHandler)
+        // unused
+        
     }
     
     private func openMessages(animated: Bool) {
@@ -39,7 +40,8 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     private func openAuth(animated: Bool) {
         let builder = AuthorisationModuleBuilder(output: self)
         let viewController = builder.build()
-        parentViewController?.present(viewController, animated: animated, completion: nil)
+        viewController.modalPresentationStyle = .fullScreen
+        parentViewController?.pushViewController(viewController, animated: true)
     }
 }
 

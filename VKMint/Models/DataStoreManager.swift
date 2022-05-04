@@ -8,9 +8,16 @@
 import Foundation
 import CoreData
 
-class DataStoreManager {
+protocol DataStoreManagerProtocol {
+    func saveContext()
+    func fetchConversations() -> CDConversations?
+    func addCDConversation(_ conversation: Conversation)
+}
+
+class DataStoreManager: DataStoreManagerProtocol {
     
     lazy var viewContext = persistentContainer.viewContext
+    let imageDownloader: ImageDownloaderProtocol = ImageDownloader()
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
@@ -36,27 +43,63 @@ class DataStoreManager {
         }
     }
     
+    func fetchConversations() -> CDConversations? {
+        let fetchRequest = CDConversations.fetchRequest()
+        do {
+            let result = try persistentContainer.viewContext.fetch(fetchRequest)
+            return result.first
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
     func addCDConversation(_ conversation: Conversation) {
         let cdConv = CDConversations(context: viewContext)
         cdConv.count = Int64(conversation.count)
         cdConv.unreadCount = Int64(conversation.unreadCount ?? 0)
         cdConv.items = tranformItemsToSet(conversation.items)
+        cdConv.profiles = transformProfilesToSet(conversation.profiles)
     }
     
-    func tranformItemsToSet(_ items: [Item]) -> NSSet {
+    func tranformItemsToSet(_ items: [Item]) -> Set<CDItems> {
         var cdItems: [CDItems] = []
         for item in items {
             cdItems.append(addCDItem(item))
         }
-        return NSSet(array: cdItems)
+        return Set(cdItems)
     }
     
-    func addCDItem(_ item: Item) -> CDItems{
+    func transformProfilesToSet(_ profiles: [UserItems]) -> Set<CDUserItems> {
+        var cdProfiles: [CDUserItems] = []
+        for profile in profiles {
+            cdProfiles.append(addCDUserItem(profile))
+        }
+        return Set(cdProfiles)
+    }
+    
+    func addCDItem(_ item: Item) -> CDItems {
         let cdItem = CDItems(context: viewContext)
         cdItem.conversation = addCDConversationClass(item.conversation)
         cdItem.lastMessage = addCDLastMessages(item.lastMessage)
         saveContext()
         return cdItem
+    }
+    
+    func addCDUserItem(_ profile: UserItems) -> CDUserItems {
+        let cdProfile = CDUserItems(context: viewContext)
+        cdProfile.firstName = profile.firstName
+        cdProfile.lastName = profile.lastName
+        cdProfile.id = Int64(profile.id)
+        guard let photoReference = profile.photo else {
+            saveContext()
+            return cdProfile
+        }
+        imageDownloader.downloadImage(urlOfPhoto: photoReference, completion: { [self] image in
+            cdProfile.photo = NSData.init(data: image.pngData()!)
+            saveContext()
+        })
+        return cdProfile
     }
     
     func addCDConversationClass(_ conversation: ConversationClass) -> CDConversationClass {
@@ -84,7 +127,14 @@ class DataStoreManager {
         cdChatSet.ownerID = Int64(chatSet.ownerID)
         cdChatSet.membersCount = Int64(chatSet.membersCount ?? 0)
         cdChatSet.title = chatSet.title
-        saveContext()
+        guard let photoReference = chatSet.photo?.photoMini else {
+            saveContext()
+            return cdChatSet
+        }
+        imageDownloader.downloadImage(urlOfPhoto: photoReference, completion: { [self] image in
+            cdChatSet.photo = NSData(data: image.pngData()!)
+            saveContext()
+        })
         return cdChatSet
     }
     

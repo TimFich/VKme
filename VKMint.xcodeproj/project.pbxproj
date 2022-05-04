@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		632C456D12FDCE53B7815974 /* Pods_VKMint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A34D1A731A493F931413D18 /* Pods_VKMint.framework */; };
-		740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740969FD279B1786001A7DD1 /* AuthModel.swift */; };
 		74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */; };
-		74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */; };
+		74153CC6280082CC005D3333 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */; };
 		74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CC72800B090005D3333 /* AuthPresenter.swift */; };
 		74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74153CCA2800B55E005D3333 /* AuthInteractor.swift */; };
-		7427A41E279C1C9C004A9039 /* Messages .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7427A41D279C1C9C004A9039 /* Messages .storyboard */; };
 		7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7439DC6827A1574500506767 /* Conversation Entities.swift */; };
 		7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445F7C227A1A1FB00105BEA /* MessagesModel.swift */; };
-		7445F7C627A1A2F500105BEA /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445F7C427A1A2F500105BEA /* MessagesTableViewCell.swift */; };
-		7445F7C727A1A2F500105BEA /* MessagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7445F7C527A1A2F500105BEA /* MessagesTableViewCell.xib */; };
+		7448B22E281B177800B54D0C /* TapBarFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */; };
+		7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */; };
 		7453BA44279D8CFF008D728E /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7453BA43279D8CFF008D728E /* Contacts.storyboard */; };
 		7453BA48279D8E15008D728E /* Profile .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7453BA47279D8E15008D728E /* Profile .storyboard */; };
 		7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7453BA4B279D8E95008D728E /* MessagesViewController.swift */; };
+		7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480661E281D5B57002525CB /* MessagesInteractor.swift */; };
+		7480662128206F00002525CB /* TableViewCellDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662028206F00002525CB /* TableViewCellDataConverter.swift */; };
+		7480662328214B5A002525CB /* CDUserItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */; };
+		7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662428214B9F002525CB /* CDUserItems+CoreDataProperties.swift */; };
+		7480662728215680002525CB /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662628215680002525CB /* UserDefaultsKeys.swift */; };
+		748066292821AB9C002525CB /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748066282821AB9C002525CB /* MessagesPresenter.swift */; };
 		749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E7E8627AAA92D000F5DD5 /* MessageModelDelegate.swift */; };
 		749F4E622799B77000E2958A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F4E612799B77000E2958A /* AppDelegate.swift */; };
 		749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F4E632799B77000E2958A /* SceneDelegate.swift */; };
@@ -37,7 +41,7 @@
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
 		E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */; };
 		E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262374280D43F400032B61 /* UsersApiInteractor.swift */; };
-		E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262376280D44DA00032B61 /* ImageDownloader.swift */; };
+		E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */; };
 		E526237F280D799D00032B61 /* VKMintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526237E280D799D00032B61 /* VKMintTests.swift */; };
 		E5262387280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */; };
 		E5262389280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262388280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift */; };
@@ -76,19 +80,23 @@
 /* Begin PBXFileReference section */
 		10A66D549C24673009C5BAE4 /* Pods-VKMint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.release.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.release.xcconfig"; sourceTree = "<group>"; };
 		5A34D1A731A493F931413D18 /* Pods_VKMint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKMint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		740969FD279B1786001A7DD1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		74153CC72800B090005D3333 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		74153CCA2800B55E005D3333 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
-		7427A41D279C1C9C004A9039 /* Messages .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Messages .storyboard"; sourceTree = "<group>"; };
 		7439DC6827A1574500506767 /* Conversation Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation Entities.swift"; sourceTree = "<group>"; };
 		7445F7C227A1A1FB00105BEA /* MessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModel.swift; sourceTree = "<group>"; };
-		7445F7C427A1A2F500105BEA /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
-		7445F7C527A1A2F500105BEA /* MessagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesTableViewCell.xib; sourceTree = "<group>"; };
+		7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarFlowCoordinator.swift; sourceTree = "<group>"; };
+		7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		7453BA43279D8CFF008D728E /* Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		7453BA47279D8E15008D728E /* Profile .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Profile .storyboard"; sourceTree = "<group>"; };
 		7453BA4B279D8E95008D728E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		7480661E281D5B57002525CB /* MessagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesInteractor.swift; sourceTree = "<group>"; };
+		7480662028206F00002525CB /* TableViewCellDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDataConverter.swift; sourceTree = "<group>"; };
+		7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUserItems+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7480662428214B9F002525CB /* CDUserItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUserItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7480662628215680002525CB /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		748066282821AB9C002525CB /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		749E7E8627AAA92D000F5DD5 /* MessageModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModelDelegate.swift; sourceTree = "<group>"; };
 		749F4E5E2799B77000E2958A /* VKMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749F4E612799B77000E2958A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +116,7 @@
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
 		E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsApiInteractor.swift; sourceTree = "<group>"; };
 		E5262374280D43F400032B61 /* UsersApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApiInteractor.swift; sourceTree = "<group>"; };
-		E5262376280D44DA00032B61 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		E526237C280D799D00032B61 /* VKMintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E526237E280D799D00032B61 /* VKMintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKMintTests.swift; sourceTree = "<group>"; };
 		E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForSuccessMock.swift; sourceTree = "<group>"; };
@@ -162,18 +170,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		740969FC279B1731001A7DD1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				740969FD279B1786001A7DD1 /* AuthModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		74153CC228008273005D3333 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */,
 				74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */,
+				7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */,
+				7480662628215680002525CB /* UserDefaultsKeys.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -189,9 +192,12 @@
 		7427A41B279C1C65004A9039 /* Messages  */ = {
 			isa = PBXGroup;
 			children = (
-				7453BA4A279D8E6E008D728E /* Controller */,
+				7448B234281B438B00B54D0C /* Presenter */,
+				7448B233281B438000B54D0C /* Interactor */,
+				E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */,
 				7453BA49279D8E65008D728E /* Model */,
 				7427A41C279C1C8F004A9039 /* View */,
+				7480662028206F00002525CB /* TableViewCellDataConverter.swift */,
 			);
 			path = "Messages ";
 			sourceTree = "<group>";
@@ -199,9 +205,8 @@
 		7427A41C279C1C8F004A9039 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7427A41D279C1C9C004A9039 /* Messages .storyboard */,
-				7445F7C427A1A2F500105BEA /* MessagesTableViewCell.swift */,
-				7445F7C527A1A2F500105BEA /* MessagesTableViewCell.xib */,
+				7453BA4B279D8E95008D728E /* MessagesViewController.swift */,
+				7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +218,22 @@
 				E5C5FD7627E23C3F002D177F /* UserEntities.swift */,
 			);
 			path = JsonObjects;
+			sourceTree = "<group>";
+		};
+		7448B233281B438000B54D0C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7480661E281D5B57002525CB /* MessagesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7448B234281B438B00B54D0C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				748066282821AB9C002525CB /* MessagesPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		7453BA41279D8CD3008D728E /* Contacts  */ = {
@@ -254,17 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				7445F7C227A1A1FB00105BEA /* MessagesModel.swift */,
-				E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7453BA4A279D8E6E008D728E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7453BA4B279D8E95008D728E /* MessagesViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		749E7E8527AAA916000F5DD5 /* Protocols */ = {
@@ -328,8 +340,6 @@
 			children = (
 				74153CC92800B546005D3333 /* Interactor  */,
 				E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */,
-				74153CC5280082CC005D3333 /* AuthFlowCoordinator.swift */,
-				740969FC279B1731001A7DD1 /* Model */,
 				740969FB279B172A001A7DD1 /* View */,
 				74C807912799DC9500F7B772 /* Presenter */,
 			);
@@ -409,6 +419,8 @@
 				E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */,
 				E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */,
 				E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */,
+				7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */,
+				7480662428214B9F002525CB /* CDUserItems+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -420,7 +432,7 @@
 				74C8078F2799D95900F7B772 /* MainApiInteractor.swift */,
 				E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */,
 				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
-				E5262376280D44DA00032B61 /* ImageDownloader.swift */,
+				E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */,
 				E5469A4428194EDD00929418 /* DataStoreManager.swift */,
 				E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */,
 			);
@@ -515,8 +527,6 @@
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,
 				E518217C281B0025002C1E88 /* ContactsTableViewCell.xib in Resources */,
 				7453BA44279D8CFF008D728E /* Contacts.storyboard in Resources */,
-				7427A41E279C1C9C004A9039 /* Messages .storyboard in Resources */,
-				7445F7C727A1A2F500105BEA /* MessagesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,22 +590,26 @@
 				E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */,
 				E5469A6E28199F1500929418 /* CDConversationClass+CoreDataClass.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
-				E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */,
-				7445F7C627A1A2F500105BEA /* MessagesTableViewCell.swift in Sources */,
+				E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */,
+				7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */,
 				E5469A7528199F1500929418 /* CDConversations+CoreDataProperties.swift in Sources */,
+				7480662328214B5A002525CB /* CDUserItems+CoreDataClass.swift in Sources */,
+				748066292821AB9C002525CB /* MessagesPresenter.swift in Sources */,
 				E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */,
 				7445F7C327A1A1FB00105BEA /* MessagesModel.swift in Sources */,
 				E5469A6D28199F1500929418 /* CDChatSettings+CoreDataProperties.swift in Sources */,
+				7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */,
 				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
 				E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				E5469A7028199F1500929418 /* CDPeer+CoreDataClass.swift in Sources */,
 				E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */,
-				740969FE279B1786001A7DD1 /* AuthModel.swift in Sources */,
+				7448B22E281B177800B54D0C /* TapBarFlowCoordinator.swift in Sources */,
 				E5469A6B28199F1500929418 /* CDLastMessage+CoreDataProperties.swift in Sources */,
 				E5469A4528194EDD00929418 /* DataStoreManager.swift in Sources */,
 				7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */,
-				74153CC6280082CC005D3333 /* AuthFlowCoordinator.swift in Sources */,
+				74153CC6280082CC005D3333 /* MainFlowCoordinator.swift in Sources */,
+				7480662728215680002525CB /* UserDefaultsKeys.swift in Sources */,
 				E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */,
 				749E7E8727AAA92D000F5DD5 /* MessageModelDelegate.swift in Sources */,
 				E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */,
@@ -604,6 +618,7 @@
 				E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
+				7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */,
 				E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */,
 				E5469A6C28199F1500929418 /* CDChatSettings+CoreDataClass.swift in Sources */,
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
@@ -612,6 +627,7 @@
 				74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */,
 				7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */,
 				74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */,
+				7480662128206F00002525CB /* TableViewCellDataConverter.swift in Sources */,
 				E5469A7228199F1500929418 /* CDItems+CoreDataClass.swift in Sources */,
 				E5469A7328199F1500929418 /* CDItems+CoreDataProperties.swift in Sources */,
 				E5469A7128199F1500929418 /* CDPeer+CoreDataProperties.swift in Sources */,

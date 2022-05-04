@@ -18,7 +18,7 @@ extension CDConversationClass {
 
     @NSManaged public var isMarkedUnread: Bool
     @NSManaged public var unreadCount: Int64
-    @NSManaged public var peer: CDPeer?
+    @NSManaged public var peer: CDPeer
     @NSManaged public var chatSettings: CDChatSettings?
 
 }

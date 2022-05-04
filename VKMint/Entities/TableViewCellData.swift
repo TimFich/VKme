@@ -9,8 +9,16 @@ import Foundation
 import UIKit
 
 class TableViewCellData {
-    var title = String()
-    var avatarOfChat = UIImage()
-    var lastMessage = String()
     
+    public let title: String
+    public var avatarOfChat: UIImage
+    public let lastMessage: String
+    public let type: TypeEnum
+    
+    init(title: String, avatarOfChat: UIImage, lastMessage: String, type: TypeEnum) {
+        self.title = title
+        self.avatarOfChat = avatarOfChat
+        self.lastMessage = lastMessage
+        self.type = type
+    }
 }

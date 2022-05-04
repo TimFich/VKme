@@ -29,7 +29,7 @@ extension AuthPresenter: AuthViewOutput {
 
 extension AuthPresenter: AuthInteractorOutput {
     func authorizedSuccesful() {
-        moduleOutput.moduleWantsToOpenMessages(animated: true)
+        moduleOutput.moduleWantsToOpenTapBar(animated: true)
     }
     
     func authorizedFailure() {

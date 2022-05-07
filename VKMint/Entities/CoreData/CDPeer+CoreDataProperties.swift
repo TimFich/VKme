@@ -17,7 +17,7 @@ extension CDPeer {
     }
 
     @NSManaged public var id: Int64
-    @NSManaged public var type: String?
+    @NSManaged public var type: String
 
 }
 

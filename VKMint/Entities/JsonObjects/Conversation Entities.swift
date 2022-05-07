@@ -12,10 +12,11 @@ struct Conversation: Codable {
     let unreadCount: Int?
     let count: Int
     let items: [Item]
-
+    let profiles: [UserItems]
+    
     enum CodingKeys: String, CodingKey {
         case unreadCount = "unread_count"
-        case count, items
+        case count, items, profiles
     }
 }
 

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol AuthModuleOutput: AnyObject {
-    func moduleWantsToOpenMessages(animated: Bool)
+    func moduleWantsToOpenTapBar(animated: Bool)
 }
 
 class AuthorisationModuleBuilder {

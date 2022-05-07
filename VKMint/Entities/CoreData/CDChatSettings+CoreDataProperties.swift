@@ -19,6 +19,7 @@ extension CDChatSettings {
     @NSManaged public var ownerID: Int64
     @NSManaged public var membersCount: Int64
     @NSManaged public var title: String?
+    @NSManaged public var photo: NSData?
 
 }
 

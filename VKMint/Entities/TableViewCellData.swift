@@ -9,8 +9,18 @@ import Foundation
 import UIKit
 
 class TableViewCellData {
-    var title = String()
-    var avatarOfChat = UIImage()
-    var lastMessage = String()
     
+    public let title: String
+    public var avatarOfChat: UIImage
+    public let lastMessage: String
+    public let type: TypeEnum
+    public let peerId: Int
+    
+    init(peerId: Int, title: String, avatarOfChat: UIImage, lastMessage: String, type: TypeEnum) {
+        self.peerId = peerId
+        self.title = title
+        self.avatarOfChat = avatarOfChat
+        self.lastMessage = lastMessage
+        self.type = type
+    }
 }

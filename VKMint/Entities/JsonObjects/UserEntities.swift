@@ -17,11 +17,29 @@ struct UserItems: Codable {
     let id: Int
     let firstName, lastName: String
     let photo: String?
+    let sex: Int?
+    let screenName: String?
+    let photo_100: String?
+    let onlineInfo: OnlineInfo?
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id, photo_100, sex
         case firstName = "first_name"
         case lastName = "last_name"
         case photo = "photo_200_orig"
+        case screenName = "screen_name"
+        case onlineInfo = "online_info"
+    }
+}
+
+struct OnlineInfo: Codable {
+    let lastSeen: Int?
+    let isOnline: Bool?
+    let isMobile: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case lastSeen = "last_seen"
+        case isOnline = "is_online"
+        case isMobile = "is_mobile"
     }
 }

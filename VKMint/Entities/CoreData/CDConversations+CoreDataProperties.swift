@@ -18,7 +18,8 @@ extension CDConversations {
 
     @NSManaged public var unreadCount: Int64
     @NSManaged public var count: Int64
-    @NSManaged public var items: NSSet?
+    @NSManaged public var items: Set<CDItems>
+    @NSManaged public var profiles: Set<CDUserItems>
 
 }
 
@@ -32,10 +33,22 @@ extension CDConversations {
     @NSManaged public func removeFromItems(_ value: CDItems)
 
     @objc(addItems:)
-    @NSManaged public func addToItems(_ values: NSSet)
+    @NSManaged public func addToItems(_ values: Set<CDItems>)
 
     @objc(removeItems:)
-    @NSManaged public func removeFromItems(_ values: NSSet)
+    @NSManaged public func removeFromItems(_ values: Set<CDItems>)
+    
+    @objc(addProfilesObject:)
+    @NSManaged public func addToProfiles(_ value: CDUserItems)
+
+    @objc(removeProfilesObject:)
+    @NSManaged public func removeFromProfiles(_ value: CDUserItems)
+
+    @objc(addProfiles:)
+    @NSManaged public func addToProfiles(_ values: Set<CDUserItems>)
+
+    @objc(removeProfiles:)
+    @NSManaged public func removeFromProfiles(_ values: Set<CDUserItems>)
 
 }
 

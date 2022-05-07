@@ -17,7 +17,7 @@ extension CDItems {
     }
 
     @NSManaged public var lastMessage: CDLastMessage?
-    @NSManaged public var conversation: CDConversationClass?
+    @NSManaged public var conversation: CDConversationClass
 
 }
 

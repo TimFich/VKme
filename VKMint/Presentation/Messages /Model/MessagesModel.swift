@@ -94,8 +94,8 @@ class MessagesModel {
     
     private func loadConversation(item: Item) {
         usersApiInteractor.getUserByID(userId: item.conversation.peer.id, completion: { user in
-            let cellData = TableViewCellData()
-            cellData.lastMessage = item.lastMessage.text
+            //let cellData = TableViewCellData()
+            //cellData.lastMessage = item.lastMessage.text
 //            self.downloader.getUserAvatar(userId: item.conversation.peer.id) { result in
 //                if result[0].photo == nil {
 //                    cellData.avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
@@ -107,7 +107,7 @@ class MessagesModel {
 //                }
 //                self.convCellData.append(cellData)
 //            }
-            self.convCellData.append(cellData)
+            //self.convCellData.append(cellData)
         })
     }
 }

@@ -8,13 +8,14 @@
 import Foundation
 
 protocol MessagesInteractorInput: AnyObject {
-    func loadConversations(completion: @escaping ([TableViewCellData]) -> Void)
+    func getStoredOrLoadConversations(completion: @escaping ([TableViewCellData]) -> Void)
+    func downloadConversations(offset: Int, completion: @escaping ([TableViewCellData]) -> Void)
 }
 
 protocol MessagesInteractorOutput: AnyObject {
     func didStartUpdatingConversations()
     func didEndUpdatingConversations()
-    func needToUpdateConversations(updatedData: [TableViewCellData], newMessagesCount: Int)
+    func needToUpdateConversations(updatedData: [TableViewCellData], unreadMessagesCount: Int)
 }
 
 class MessagesInteractor: MessagesInteractorInput {
@@ -23,14 +24,10 @@ class MessagesInteractor: MessagesInteractorInput {
     let conversationInteractor: ConversationsApiInteractor = ConversationsApiInteractorImpl()
     let dataStoreManager: DataStoreManagerProtocol = DataStoreManager()
     let cellDataConverter: TableViewCellDataConverterProtocol = TableViewCellDataConverter()
-    weak var output: MessagesInteractorOutput?
-    
-    init(output: MessagesInteractorOutput) {
-        self.output = output
-    }
+    weak var output: MessagesInteractorOutput!
     
     //MARK: - Public functions
-    func loadConversations(completion: @escaping ([TableViewCellData]) -> Void) {
+    func getStoredOrLoadConversations(completion: @escaping ([TableViewCellData]) -> Void) {
         let result = dataStoreManager.fetchConversations()
         guard let result = result else {
             conversationInteractor.getConversation(offset: 0, count: 200, completion: { [self] conv in
@@ -45,9 +42,10 @@ class MessagesInteractor: MessagesInteractorInput {
         updateConversations()
     }
     
-    private func downloadConversations(offset: Int, completion: @escaping (Conversation) -> Void) {
+    func downloadConversations(offset: Int, completion: @escaping ([TableViewCellData]) -> Void) {
         conversationInteractor.getConversation(offset: offset, count: 200, completion: { conv in
-            completion(conv)
+            let cellData = self.cellDataConverter.convertToCellData(conversation: conv)
+            completion(cellData)
         })
     }
     
@@ -65,8 +63,7 @@ class MessagesInteractor: MessagesInteractorInput {
         conversationInteractor.getConversation(offset: 0, count: 200, completion: { conv in
             self.dataStoreManager.addCDConversation(conv)
             let cellData = self.cellDataConverter.convertToCellData(conversation: conv)
-            self.output?.needToUpdateConversations(updatedData: cellData, newMessagesCount: conv.unreadCount ?? 0)
+            self.output?.needToUpdateConversations(updatedData: cellData, unreadMessagesCount: conv.unreadCount ?? 0)
         })
     }
 }
-

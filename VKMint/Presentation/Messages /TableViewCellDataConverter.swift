@@ -27,7 +27,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 let title = item.conversation.chatSettings?.title ?? ""
                 let lastMessage = item.lastMessage.text
                 let avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                let cellData = TableViewCellData(title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: item.conversation.peer.id,title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
                 result.append(cellData)
                 if item.conversation.chatSettings?.photo != nil {
                     imageDownloader.downloadImage(urlOfPhoto: (item.conversation.chatSettings?.photo!.photoMini)!, completion: { image in
@@ -36,7 +36,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 }
             case .group:
                 // TODO: Made groups
-                print("need to process groups")
+                print("--need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id
                 let profile = conversation.profiles.first(where: {
@@ -44,15 +44,15 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 })
                 guard let profile = profile else { return [] }
                 let fullName = profile.firstName + " "  + profile.lastName
-                let avatarOfChat = UIImage(named: "VK_Logo")!
+                var avatarOfChat = UIImage(named: "VK_Logo")!
                 let lastMessage = item.lastMessage.text
-                let cellData = TableViewCellData(title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: item.conversation.peer.id, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
                 result.append(cellData)
-                if profile.photo != nil {
-                    imageDownloader.downloadImage(urlOfPhoto: profile.photo_100!, completion: { image in
+                let photo = imageDownloader.getUserAvatar(userId: profile.id, completion: { users in
+                    imageDownloader.downloadImage(urlOfPhoto: users[0].items[0].photo_100!, completion: { image in
                         cellData.avatarOfChat = image
                     })
-                }
+                })
             }
         }
         return result
@@ -69,7 +69,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 let title = item.conversation.chatSettings?.title ?? ""
                 let lastMessage = item.lastMessage?.text ?? ""
                 let avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                let cellData = TableViewCellData(title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
                 result.append(cellData)
                 if item.conversation.chatSettings?.photo != nil {
                     let data = Data(referencing: (item.conversation.chatSettings?.photo)!)
@@ -88,7 +88,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 let data = Data(referencing: profile.photo)
                 let avatarOfChat = UIImage(data: data)!
                 let lastMessage = item.lastMessage?.text ?? ""
-                let cellData = TableViewCellData(title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
                 result.append(cellData)
             }
         }

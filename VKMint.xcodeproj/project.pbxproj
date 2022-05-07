@@ -19,6 +19,7 @@
 		7453BA44279D8CFF008D728E /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7453BA43279D8CFF008D728E /* Contacts.storyboard */; };
 		7453BA48279D8E15008D728E /* Profile .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7453BA47279D8E15008D728E /* Profile .storyboard */; };
 		7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7453BA4B279D8E95008D728E /* MessagesViewController.swift */; };
+		7476B5C22824546200AF112D /* MessagesNextButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476B5C12824546200AF112D /* MessagesNextButtonTableViewCell.swift */; };
 		7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480661E281D5B57002525CB /* MessagesInteractor.swift */; };
 		7480662128206F00002525CB /* TableViewCellDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662028206F00002525CB /* TableViewCellDataConverter.swift */; };
 		7480662328214B5A002525CB /* CDUserItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */; };
@@ -62,7 +63,6 @@
 		E5469A7328199F1500929418 /* CDItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6728199F1500929418 /* CDItems+CoreDataProperties.swift */; };
 		E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */; };
 		E5469A7528199F1500929418 /* CDConversations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */; };
-		E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7227E2335C002D177F /* DataMapper.swift */; };
 		E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* TableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +91,7 @@
 		7453BA43279D8CFF008D728E /* Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		7453BA47279D8E15008D728E /* Profile .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Profile .storyboard"; sourceTree = "<group>"; };
 		7453BA4B279D8E95008D728E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		7476B5C12824546200AF112D /* MessagesNextButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesNextButtonTableViewCell.swift; sourceTree = "<group>"; };
 		7480661E281D5B57002525CB /* MessagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesInteractor.swift; sourceTree = "<group>"; };
 		7480662028206F00002525CB /* TableViewCellDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDataConverter.swift; sourceTree = "<group>"; };
 		7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUserItems+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		E5469A6728199F1500929418 /* CDItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversations+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E5C5FD7227E2335C002D177F /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* TableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +207,7 @@
 			children = (
 				7453BA4B279D8E95008D728E /* MessagesViewController.swift */,
 				7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */,
+				7476B5C12824546200AF112D /* MessagesNextButtonTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,7 +429,6 @@
 		E5C5FD7127E2324F002D177F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E5C5FD7227E2335C002D177F /* DataMapper.swift */,
 				74C8078F2799D95900F7B772 /* MainApiInteractor.swift */,
 				E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */,
 				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
@@ -586,7 +586,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C5FD7327E2335C002D177F /* DataMapper.swift in Sources */,
 				E5C5FD7527E23456002D177F /* TableViewCellData.swift in Sources */,
 				E5469A6E28199F1500929418 /* CDConversationClass+CoreDataClass.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
@@ -617,6 +616,7 @@
 				E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */,
 				E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
+				7476B5C22824546200AF112D /* MessagesNextButtonTableViewCell.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
 				7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */,
 				E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */,

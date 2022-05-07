@@ -9,15 +9,14 @@ import Foundation
 import UIKit
 
 class MessagesModuleBuilder {
-    
+        
     func build() -> UIViewController {
-        let interactor = AuthInteractor()
-        let presenter = AuthPresenter(interactor: interactor, moduleOutput: output!)
-        let vc = AuthViewController()
-        vc.presenter = presenter
+        let interactor = MessagesInteractor()
+        let view = MessagesViewController()
+        let presenter = MessagesPresenter(interactor: interactor, view: view)
         interactor.output = presenter
-        presenter.view = vc
-        return vc
+        view.presenter = presenter
+        return view
     }
 }
 

@@ -11,9 +11,9 @@ import SnapKit
 class MessagesTableViewCell: UITableViewCell {
     
     //MARK: - IBOutlets
-    var convImage: UIImageView!
-    var titleLabel: UILabel!
-    var lastMessageLabel: UILabel!
+    var convImage = UIImageView()
+    var titleLabel = UILabel()
+    var lastMessageLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +25,7 @@ class MessagesTableViewCell: UITableViewCell {
     
     //MARK: - Public functions
     func configure(cellData: TableViewCellData) {
+        self.convImage.image = cellData.avatarOfChat
         self.convImage.layer.cornerRadius = self.convImage.frame.height / 2
         self.convImage.image = cellData.avatarOfChat
         self.titleLabel.text = cellData.title

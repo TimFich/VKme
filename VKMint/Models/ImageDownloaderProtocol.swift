@@ -21,6 +21,7 @@ class ImageDownloader: ImageDownloaderProtocol {
             let users = try! JSONDecoder().decode([UserEntities].self, from: result)
             
             DispatchQueue.main.async {
+                print("loaded")
                 completion(users)
             }
        }).send()

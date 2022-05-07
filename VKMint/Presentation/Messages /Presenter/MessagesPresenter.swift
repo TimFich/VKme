@@ -7,22 +7,41 @@
 
 import Foundation
 
-protocol MessagesPresenterInput {
-    
-}
-
-protocol MessagesPresenterOutput {
-    
-}
-
-
 class MessagesPresenter {
     
+    init(interactor: MessagesInteractor, view: MessagesViewController) {
+        self.interactor = interactor
+        self.view = view
+    }
+    
+    private var interactor: MessagesInteractor!
+    weak var view: MessagesViewController!
+    //private weak var moduleOutput: AuthModuleOutput!
 }
 
-extension MessagesPresenter: MessagesInteractorInput {
+extension MessagesPresenter: MessagesViewOutputProtocol {
+    func nextButtonPressed(offset: Int) {
+        interactor.downloadConversations(offset: offset, completion: { cellsData in
+            self.view.dataFetched(data: cellsData)
+        })
+    }
     
-    func loadConversations(completion: @escaping ([TableViewCellData]) -> Void) {
-        <#code#>
+    func viewDidLoad() {
+        interactor.getStoredOrLoadConversations(completion: { cellsData in
+            self.view.dataFetched(data: cellsData)
+        })
+    }
+}
+
+extension MessagesPresenter: MessagesInteractorOutput {
+    func needToUpdateConversations(updatedData: [TableViewCellData], unreadMessagesCount: Int) {
+    }
+    
+    func didStartUpdatingConversations() {
+        //TODO: Animation
+    }
+    
+    func didEndUpdatingConversations() {
+        //TODO: Animation
     }
 }

@@ -19,7 +19,7 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-    
+        setUp()
         parentViewController?.pushViewController(tapBar, animated: true)
     }
     
@@ -27,11 +27,14 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     private func setUp() {
-        
+        let messagesVC = buildMessages()
+        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: nil, tag: 1)
+        tapBar.addChild(messagesVC)
     }
     
     private func buildMessages() -> UIViewController {
-        return UIViewController()
+        let builder = MessagesModuleBuilder()
+        return builder.build()
     }
     
     private func buildFriends() -> UIViewController {

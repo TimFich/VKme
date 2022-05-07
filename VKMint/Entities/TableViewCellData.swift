@@ -14,8 +14,10 @@ class TableViewCellData {
     public var avatarOfChat: UIImage
     public let lastMessage: String
     public let type: TypeEnum
+    public let peerId: Int
     
-    init(title: String, avatarOfChat: UIImage, lastMessage: String, type: TypeEnum) {
+    init(peerId: Int, title: String, avatarOfChat: UIImage, lastMessage: String, type: TypeEnum) {
+        self.peerId = peerId
         self.title = title
         self.avatarOfChat = avatarOfChat
         self.lastMessage = lastMessage

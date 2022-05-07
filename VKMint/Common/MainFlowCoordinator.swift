@@ -22,7 +22,7 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     
     func start(animated: Bool) {
         if VKDelegate.isAuthorised() {
-            openMessages(animated: animated)
+            openTapBar(animated: animated)
         } else {
             openAuth(animated: animated)
         }
@@ -32,8 +32,11 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
         // unused
     }
     
-    private func openMessages(animated: Bool) {
-        //TODO: Made messages module
+    private func openTapBar(animated: Bool) {
+        print("--messages")
+        let tapBarFC = TapBarFlowCoordinator(parentViewController: parentViewController!)
+        childCoordinators.append(tapBarFC)
+        tapBarFC.start(animated: true)
     }
     
     private func openAuth(animated: Bool) {
@@ -46,5 +49,6 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
 
 extension MainFlowCoordinator: AuthModuleOutput {
     func moduleWantsToOpenTapBar(animated: Bool) {
+        openTapBar(animated: animated)
     }
 }

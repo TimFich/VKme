@@ -26,21 +26,19 @@ class MessagesTableViewCell: UITableViewCell {
     
     //MARK: - Public functions
     func configure(cellData: TableViewCellData) {
+        convImage.clipsToBounds = true
         self.convImage.image = cellData.avatarOfChat
-        convImage.layer.cornerRadius = 10
+        convImage.layer.cornerRadius = convImage.frame.height / 2
         self.titleLabel.text = cellData.title
         self.lastMessageLabel.text = cellData.lastMessage
         if cellData.unreadCount != 0 {
+            unreadCountLabel.backgroundColor = .systemBlue
             unreadCountLabel.text = cellData.unreadCount.description
         }
         setUpUI()
     }
     
     private func setUpUI(){
-        contentView.addSubview(unreadCountLabel)
-        unreadCountLabel.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 15, height: 15))
-        }
         contentView.addSubview(convImage)
         convImage.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(10)
@@ -53,13 +51,24 @@ class MessagesTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(convImage.snp.right).offset(10)
             make.top.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(10)
+            make.right.equalToSuperview().inset(50)
+        }
+        
+        contentView.addSubview(unreadCountLabel)
+        unreadCountLabel.textAlignment = .center
+        unreadCountLabel.layer.cornerRadius = unreadCountLabel.frame.size.height / 2
+        unreadCountLabel.clipsToBounds = true
+        unreadCountLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.size.equalTo(CGSize(width: 20, height: 20))
+            make.right.equalToSuperview().inset(5)
+            make.left.equalTo(titleLabel.snp.right).offset(10)
         }
         
         contentView.addSubview(lastMessageLabel)
         lastMessageLabel.snp.makeConstraints { make in
             make.left.equalTo(convImage.snp.right).offset(10)
-            make.right.equalToSuperview().inset(10)
+            make.right.equalToSuperview().inset(50)
             make.bottom.equalToSuperview().inset(10)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
         }

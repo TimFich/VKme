@@ -28,7 +28,8 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     
     private func setUp() {
         let messagesVC = buildMessages()
-        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: nil, tag: 1)
+        let messagesImage: UIImage = UIImage(systemName: "message.fill")!
+        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: messagesImage, tag: 1)
         tapBar.addChild(messagesVC)
     }
     

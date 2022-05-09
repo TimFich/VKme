@@ -37,7 +37,7 @@ class AuthViewController: UIViewController {
     //MARK: - Make constraints
      func setUpUI() {
          view.addSubview(logo)
-         logo.image = UIImage(named: "vk_logo")
+         logo.image = UIImage(named: "VK_Logo")
          view.backgroundColor = .white
          logo.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 300, height: 300))

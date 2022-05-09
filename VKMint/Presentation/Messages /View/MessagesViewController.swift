@@ -55,6 +55,12 @@ class MessagesViewController: UIViewController {
         }
     }
     
+    private func setUpUIForLoader() {
+        activityIndicator.snp.makeConstraints { make in
+            make.centerY.centerX.equalToSuperview()
+        }
+    }
+    
     private func makePeerIdDict() {
         for (index, element) in data.enumerated() {
             peerIdToIndexDict[element.peerId] = index
@@ -76,6 +82,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView.addSubview(activityIndicator)
+        setUpUIForLoader()
         return headerView
     }
 }

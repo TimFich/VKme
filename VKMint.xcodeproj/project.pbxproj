@@ -427,9 +427,9 @@
 				E5469A6728199F1500929418 /* CDItems+CoreDataProperties.swift */,
 				E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */,
 				E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */,
-				E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */,
 				7480662228214B5A002525CB /* CDUserItems+CoreDataClass.swift */,
 				7480662428214B9F002525CB /* CDUserItems+CoreDataProperties.swift */,
+				E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

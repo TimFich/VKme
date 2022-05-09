@@ -8,16 +8,16 @@
 import Foundation
 import SwiftyVK
 
-protocol FriendsApiInteractor {
-    func getFriends(completion: @escaping (UserEntities) -> ())
+protocol FriendsApiInteractorProtocol {
+    func getFriends(completion: @escaping (FriendEntity) -> ())
 }
 
-class FriendsApiInteractorImpl: FriendsApiInteractor {
+class FriendsApiInteractor: FriendsApiInteractorProtocol {
     
-    func getFriends(completion: @escaping (UserEntities) -> ()) {
-        VK.API.Friends.get([Parameter.fields: "photo_200_orig"]).onSuccess ({ result in
+    func getFriends(completion: @escaping (FriendEntity) -> ()) {
+        VK.API.Friends.get([Parameter.fields: "last_seen, photo_100,online", Parameter.order: "hints"]).onSuccess ({ result in
             do {
-                let users = try! JSONDecoder().decode(UserEntities.self, from: result)
+                let users = try! JSONDecoder().decode(FriendEntity.self, from: result)
                 DispatchQueue.main.async {
                     completion(users)
                 }

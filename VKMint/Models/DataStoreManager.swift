@@ -14,6 +14,8 @@ protocol DataStoreManagerProtocol {
     func addCDConversation(_ conversation: Conversation)
     func deleteConversations()
     func replaceLastMessage(lastMessage: LastMessage)
+    func fetchContacts() -> [CDContacts]
+    func addContacts(contacts: FriendEntity)
 }
 
 class DataStoreManager: DataStoreManagerProtocol {
@@ -56,6 +58,49 @@ class DataStoreManager: DataStoreManagerProtocol {
         } catch {
             
         }
+    }
+    
+    func fetchContacts() -> [CDContacts] {
+        let fetchRequest = CDContacts.fetchRequest()
+        do {
+            let result = try persistentContainer.viewContext.fetch(fetchRequest)
+            return result
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
+    func addContacts(contacts: FriendEntity) {
+        let fetchRequest = CDContacts.fetchRequest()
+        do {
+            let results = try persistentContainer.viewContext.fetch(fetchRequest)
+            for result in results {
+                viewContext.delete(result)
+            }
+            for contact in contacts.items {
+                if contact.deactivated != nil {
+                    continue
+                }
+                let cdContact = CDContacts(context: viewContext)
+                let isOnline = contact.online == 1 ? true : false
+                cdContact.id = Int64(contact.id)
+                cdContact.firstName = contact.firstName
+                cdContact.lastName = contact.lastName
+                cdContact.isOnline = isOnline
+                cdContact.platform = Int64(contact.lastSeen!.platform)
+                cdContact.lastSeen = Int64(contact.lastSeen!.time)
+                imageDownloader.downloadImage(urlOfPhoto: contact.photo100, completion: { image in
+                    cdContact.photo = NSData.init(data: image.pngData()!)
+                    self.saveContext()
+                })
+                saveContext()
+            }
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
     }
     
     func fetchConversations() -> CDConversations? {
@@ -106,11 +151,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         cdProfile.firstName = profile.firstName
         cdProfile.lastName = profile.lastName
         cdProfile.id = Int64(profile.id)
-        guard let photoReference = profile.photo_100 else {
-            saveContext()
-            return cdProfile
-        }
-        imageDownloader.downloadImage(urlOfPhoto: photoReference, completion: { [self] image in
+        imageDownloader.downloadImage(urlOfPhoto: profile.photo_100!, completion: { [self] image in
             cdProfile.photo = NSData.init(data: image.pngData()!)
             saveContext()
         })
@@ -146,7 +187,6 @@ class DataStoreManager: DataStoreManagerProtocol {
             saveContext()
             return cdChatSet
         }
-        print("--дошло")
         imageDownloader.downloadImage(urlOfPhoto: photoReference, completion: { [self] image in
             cdChatSet.photo = NSData(data: image.pngData()!)
             saveContext()

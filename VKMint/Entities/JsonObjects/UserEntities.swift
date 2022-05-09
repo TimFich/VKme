@@ -20,7 +20,6 @@ struct UserItems: Codable {
     let sex: Int?
     let screenName: String?
     let photo_100: String?
-    let onlineInfo: OnlineInfo?
     
     enum CodingKeys: String, CodingKey {
         case id, photo_100, sex
@@ -28,18 +27,41 @@ struct UserItems: Codable {
         case lastName = "last_name"
         case photo = "photo_200_orig"
         case screenName = "screen_name"
-        case onlineInfo = "online_info"
     }
 }
 
-struct OnlineInfo: Codable {
-    let lastSeen: Int?
-    let isOnline: Bool?
-    let isMobile: Bool?
-    
+
+// MARK: - Response
+struct FriendEntity: Codable {
+    let count: Int
+    let items: [FriendItem]
+}
+
+// MARK: - Item
+struct FriendItem: Codable {
+    let id: Int
+    let firstName, lastName: String
+    let photo100: String
+    let deactivated: Deactivated?
+    let online: Int
+    let lastSeen: LastSeen?
+
     enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case photo100 = "photo_100"
+        case online
         case lastSeen = "last_seen"
-        case isOnline = "is_online"
-        case isMobile = "is_mobile"
+        case deactivated
+    }
+    
+    struct LastSeen: Codable {
+        let platform, time: Int
+    }
+
+    enum Deactivated: String, Codable {
+        case banned = "banned"
+        case deleted = "deleted"
     }
 }

@@ -33,7 +33,6 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     private func openTapBar(animated: Bool) {
-        print("--messages")
         let tapBarFC = TapBarFlowCoordinator(parentViewController: parentViewController!)
         childCoordinators.append(tapBarFC)
         tapBarFC.start(animated: true)

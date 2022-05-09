@@ -6,14 +6,58 @@
 //
 
 import UIKit
+import SnapKit
 
 class ContactsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var avatarOfUser: UIImageView!
-    @IBOutlet weak var nameOfUser: UILabel!
+    var lastSeenLabel = UILabel()
+    var onlineStatus = UIImageView()
+    var nameOfUserLabel = UILabel()
+    var avatarOfUser = UIImageView()
     
-    func configure(name: String, avatar: UIImage) {
+    func configure(name: String, avatar: UIImage, lastSeen: Int, platform: Int, isOnline: Bool) {
         avatarOfUser.image = avatar
-        nameOfUser.text = name
+        avatarOfUser.layer.cornerRadius = avatarOfUser.frame.height / 2
+        nameOfUserLabel.text = name
+        if isOnline {
+            onlineStatus.isHidden = false
+            let platformImage = PlatformImageGenerator().generateImage(platform: platform)
+            onlineStatus.image = platformImage
+        } else {
+            onlineStatus.isHidden = true
+        }
+        lastSeenLabel.text = Date(timeIntervalSince1970: TimeInterval(lastSeen)).description
+        setUpUI()
+    }
+    
+    private func setUpUI() {
+        contentView.addSubview(avatarOfUser)
+        avatarOfUser.snp.makeConstraints({ make in
+            make.left.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(5)
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        })
+        
+        avatarOfUser.addSubview(onlineStatus)
+        onlineStatus.snp.makeConstraints({ make in
+            make.right.equalToSuperview().inset(0)
+            make.bottom.equalToSuperview().inset(0)
+            make.size.equalTo(CGSize(width: 19, height: 19))
+        })
+        
+        contentView.addSubview(nameOfUserLabel)
+        nameOfUserLabel.snp.makeConstraints({ make in
+            make.left.equalTo(avatarOfUser.snp.right).offset(10)
+            make.top.equalToSuperview().offset(5)
+            make.right.equalToSuperview().inset(10)
+        })
+        
+        contentView.addSubview(lastSeenLabel)
+        lastSeenLabel.snp.makeConstraints({ make in
+            make.left.equalTo(avatarOfUser.snp.right).offset(10)
+            make.top.equalTo(nameOfUserLabel.snp.bottom).offset(10)
+            make.left.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
+        })
     }
 }

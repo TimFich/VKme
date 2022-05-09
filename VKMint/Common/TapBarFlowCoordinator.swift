@@ -27,10 +27,15 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     private func setUp() {
+        let contactsVC = buildContacts()
+        
         let messagesVC = buildMessages()
-        let messagesImage: UIImage = UIImage(systemName: "message.fill")!
-        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: messagesImage, tag: 1)
+        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(systemName: "message.fill"), tag: 1)
         tapBar.addChild(messagesVC)
+        
+        contactsVC.tabBarItem = UITabBarItem(title: "Contacts", image: UIImage(systemName: "person.2.fill")!, tag: 0)
+        tapBar.addChild(contactsVC)
+
     }
     
     private func buildMessages() -> UIViewController {
@@ -38,8 +43,9 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
         return builder.build()
     }
     
-    private func buildFriends() -> UIViewController {
-        return UIViewController()
+    private func buildContacts() -> UIViewController {
+        let builder = ContactsModuleBuilder()
+        return builder.build()
     }
     
     private func buildSettings() -> UIViewController {

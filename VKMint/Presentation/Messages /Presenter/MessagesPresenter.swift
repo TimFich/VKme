@@ -38,7 +38,7 @@ extension MessagesPresenter: MessagesInteractorOutput {
         view.updateLastMessage(message: message)
     }
     
-    func needToUpdateConversations(updatedData: [TableViewCellData]) {
+    func needToUpdateConversations(updatedData: [MessageTableViewCellData]) {
         view.dataFetched(data: updatedData)
     }
     

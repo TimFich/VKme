@@ -25,15 +25,18 @@ class MessagesTableViewCell: UITableViewCell {
     }
     
     //MARK: - Public functions
-    func configure(cellData: TableViewCellData) {
+    func configure(cellData: MessageTableViewCellData) {
         convImage.clipsToBounds = true
         self.convImage.image = cellData.avatarOfChat
         convImage.layer.cornerRadius = convImage.frame.height / 2
         self.titleLabel.text = cellData.title
         self.lastMessageLabel.text = cellData.lastMessage
         if cellData.unreadCount != 0 {
+            unreadCountLabel.isHidden = false
             unreadCountLabel.backgroundColor = .systemBlue
             unreadCountLabel.text = cellData.unreadCount.description
+        } else {
+            unreadCountLabel.isHidden = true
         }
         setUpUI()
     }
@@ -64,7 +67,7 @@ class MessagesTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(5)
             make.left.equalTo(titleLabel.snp.right).offset(10)
         }
-        
+
         contentView.addSubview(lastMessageLabel)
         lastMessageLabel.snp.makeConstraints { make in
             make.left.equalTo(convImage.snp.right).offset(10)

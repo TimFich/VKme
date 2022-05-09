@@ -6,6 +6,15 @@
         <attribute name="photo" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CDContacts" representedClassName=".CDContacts" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isOnline" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="lastSeen" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <attribute name="platform" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+    </entity>
     <entity name="CDConversationClass" representedClassName=".CDConversationClass" syncable="YES">
         <attribute name="isMarkedUnread" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -40,6 +49,7 @@
     </entity>
     <elements>
         <element name="CDChatSettings" positionX="179.78515625" positionY="216.9140625" width="128" height="103"/>
+        <element name="CDContacts" positionX="-209.484375" positionY="-65.72265625" width="128" height="134"/>
         <element name="CDConversationClass" positionX="18.17578125" positionY="79.26953125" width="128" height="89"/>
         <element name="CDConversations" positionX="-381.46875" positionY="30.41796875" width="128" height="89"/>
         <element name="CDItems" positionX="-201.74609375" positionY="74.4765625" width="128" height="73"/>

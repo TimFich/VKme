@@ -9,14 +9,14 @@ import Foundation
 import SwiftyVK
 
 protocol MessagesInteractorInput: AnyObject {
-    func getStoredOrLoadConversations(completion: @escaping ([TableViewCellData]) -> Void)
-    func downloadConversations(offset: Int, completion: @escaping ([TableViewCellData]) -> Void)
+    func getStoredOrLoadConversations(completion: @escaping ([MessageTableViewCellData]) -> Void)
+    func downloadConversations(offset: Int, completion: @escaping ([MessageTableViewCellData]) -> Void)
 }
 
 protocol MessagesInteractorOutput: AnyObject {
     func didStartUpdatingConversations()
     func didEndUpdatingConversations()
-    func needToUpdateConversations(updatedData: [TableViewCellData])
+    func needToUpdateConversations(updatedData: [MessageTableViewCellData])
     func newMessageReceived(message: LastMessage)
 }
 
@@ -25,22 +25,23 @@ class MessagesInteractor: MessagesInteractorInput {
     //MARK: - Properties
     let conversationInteractor: ConversationsApiInteractor = ConversationsApiInteractorImpl()
     let dataStoreManager: DataStoreManagerProtocol = DataStoreManager()
-    let cellDataConverter: TableViewCellDataConverterProtocol = TableViewCellDataConverter()
+    let cellDataConverter: MessageTableViewCellDataConverterProtocol = MessageTableViewCellDataConverter()
     let longPollManager = LongPollManager.shared
     weak var output: MessagesInteractorOutput!
     
     //MARK: - Public functions
-    func getStoredOrLoadConversations(completion: @escaping ([TableViewCellData]) -> Void) {
+    func getStoredOrLoadConversations(completion: @escaping ([MessageTableViewCellData]) -> Void) {
         let result = dataStoreManager.fetchConversations()
         guard let result = result else {
             output.didStartUpdatingConversations()
             conversationInteractor.getConversation(offset: 0, count: 200, completion: { [self] conv in
-                let cellData = cellDataConverter.convertToCellData(conversation: conv)
-                completion(cellData)
-                output.didEndUpdatingConversations()
-                dataStoreManager.addCDConversation(conv)
+                cellDataConverter.convertToCellData(conversation: conv, completion: { result in
+                    completion(result)
+                    output.didEndUpdatingConversations()
+                    dataStoreManager.addCDConversation(conv)
+                    startLongPolling()
+                })
             })
-            startLongPolling()
             return
         }
         let cellData = cellDataConverter.convertToCellData(conversation: result)
@@ -49,10 +50,11 @@ class MessagesInteractor: MessagesInteractorInput {
         saveUpdatedConversation()
     }
     
-    func downloadConversations(offset: Int, completion: @escaping ([TableViewCellData]) -> Void) {
+    func downloadConversations(offset: Int, completion: @escaping ([MessageTableViewCellData]) -> Void) {
         conversationInteractor.getConversation(offset: offset, count: 200, completion: { conv in
-            let cellData = self.cellDataConverter.convertToCellData(conversation: conv)
-            completion(cellData)
+            self.cellDataConverter.convertToCellData(conversation: conv, completion: { result in
+                completion(result)
+            })
         })
     }
     
@@ -60,17 +62,18 @@ class MessagesInteractor: MessagesInteractorInput {
         dataStoreManager.deleteConversations()
         conversationInteractor.getConversation(offset: 0, count: 200, completion: { conv in
             self.dataStoreManager.addCDConversation(conv)
-            let cellData = self.cellDataConverter.convertToCellData(conversation: conv)
-            self.output?.needToUpdateConversations(updatedData: cellData)
-            self.output.didEndUpdatingConversations()
-            self.startLongPolling()
+            self.cellDataConverter.convertToCellData(conversation: conv, completion: { result in
+                self.output?.needToUpdateConversations(updatedData: result)
+                self.output.didEndUpdatingConversations()
+                self.startLongPolling()
+            })
         })
     }
     
     private func startLongPolling() {
         longPollManager.start()
         longPollManager.addOnReceiveCompletion(eventNumber: 4,completion: { data in
-            var data = try! JSONSerialization.jsonObject(with: data, options: []) as! Array<Any>
+            let data = try! JSONSerialization.jsonObject(with: data, options: []) as! Array<Any>
             let peerId = data[2] as! Int
             let text = data[5] as! String
             let id = data[1] as! Int

@@ -22,7 +22,6 @@ class ConversationsApiInteractorImpl: ConversationsApiInteractor {
                 do {
                     let conversation = try? JSONDecoder().decode(Conversation.self, from: result)
                     DispatchQueue.main.async {
-//                        print(conversation?.items.count)
                         completion(conversation!)
                     }
                 } catch let error {

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol MessagesViewInputProtocol {
-    func dataFetched(data: [TableViewCellData])
+    func dataFetched(data: [MessageTableViewCellData])
     func didStartUpdatingConversations()
     func didEndUpdatingConversations()
     func updateLastMessage(message: LastMessage)
@@ -22,7 +22,7 @@ protocol MessagesViewOutputProtocol {
 
 class MessagesViewController: UIViewController {
     
-    var data: [TableViewCellData] = []
+    var data: [MessageTableViewCellData] = []
     var peerIdToIndexDict: [Int: Int] = [:]
     var presenter: MessagesPresenter!
     var offset = 0
@@ -46,7 +46,7 @@ class MessagesViewController: UIViewController {
     }
     
     //MARK: - Configure UI
-    func configureTable() {
+    private func configureTable() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(0)
@@ -55,15 +55,15 @@ class MessagesViewController: UIViewController {
         }
     }
     
-    private func setUpUIForLoader() {
-        activityIndicator.snp.makeConstraints { make in
-            make.centerY.centerX.equalToSuperview()
-        }
-    }
-    
     private func makePeerIdDict() {
         for (index, element) in data.enumerated() {
             peerIdToIndexDict[element.peerId] = index
+        }
+    }
+    
+    private func setUpUIForLoader() {
+        activityIndicator.snp.makeConstraints { make in
+            make.centerY.centerX.equalToSuperview()
         }
     }
 }
@@ -85,15 +85,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
         setUpUIForLoader()
         return headerView
     }
-}
-
-extension MessagesViewController: MessagesNextButtonCellOutputProtocol {
-    func nextPressed() {
-        offset += 200
-        presenter.nextButtonPressed(offset: offset)
-    }
-}
-    
+}    
 
 extension MessagesViewController: MessagesViewInputProtocol {
     
@@ -105,7 +97,7 @@ extension MessagesViewController: MessagesViewInputProtocol {
         activityIndicator.stopAnimating()
     }
     
-    func dataFetched(data: [TableViewCellData]) {
+    func dataFetched(data: [MessageTableViewCellData]) {
         self.data = data
         makePeerIdDict()
         tableView.reloadData()

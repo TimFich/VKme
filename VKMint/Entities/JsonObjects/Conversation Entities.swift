@@ -134,29 +134,14 @@ struct PushSettings: Codable {
 
 // MARK: - LastMessage
 struct LastMessage: Codable {
-    let peerID, id, date, fromID: Int
+    let peerID, id, date: Int
     let text: String
-    let randomID: Int
-    let isHidden: Bool
-    let out: Int
-    let fwdMessages: [JSONAny]
-    let important: Bool
-    let conversationMessageID: Int
-    let attachments: [Attachments]?
 
     enum CodingKeys: String, CodingKey {
         case peerID = "peer_id"
         case id = "id"
         case date = "date"
-        case fromID = "from_id"
         case text = "text"
-        case randomID = "random_id"
-        case isHidden = "is_hidden"
-        case out = "out"
-        case fwdMessages = "fwd_messages"
-        case important = "important"
-        case conversationMessageID = "conversation_message_id"
-        case attachments = "attachments"
     }
 }
 

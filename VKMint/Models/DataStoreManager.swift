@@ -12,6 +12,8 @@ protocol DataStoreManagerProtocol {
     func saveContext()
     func fetchConversations() -> CDConversations?
     func addCDConversation(_ conversation: Conversation)
+    func deleteConversations()
+    func replaceLastMessage(lastMessage: LastMessage)
 }
 
 class DataStoreManager: DataStoreManagerProtocol {
@@ -43,6 +45,19 @@ class DataStoreManager: DataStoreManagerProtocol {
         }
     }
     
+    func deleteConversations() {
+        let fetchRequest = CDConversations.fetchRequest()
+        do {
+            let results = try persistentContainer.viewContext.fetch(fetchRequest)
+            for model in results {
+                viewContext.delete(model)
+            }
+            saveContext()
+        } catch {
+            
+        }
+    }
+    
     func fetchConversations() -> CDConversations? {
         let fetchRequest = CDConversations.fetchRequest()
         do {
@@ -62,20 +77,20 @@ class DataStoreManager: DataStoreManagerProtocol {
         cdConv.profiles = transformProfilesToSet(conversation.profiles)
     }
     
-    func tranformItemsToSet(_ items: [Item]) -> Set<CDItems> {
+    func tranformItemsToSet(_ items: [Item]) -> NSOrderedSet {
         var cdItems: [CDItems] = []
         for item in items {
             cdItems.append(addCDItem(item))
         }
-        return Set(cdItems)
+        return NSOrderedSet(array: cdItems)
     }
     
-    func transformProfilesToSet(_ profiles: [UserItems]) -> Set<CDUserItems> {
+    func transformProfilesToSet(_ profiles: [UserItems]) -> NSOrderedSet {
         var cdProfiles: [CDUserItems] = []
         for profile in profiles {
             cdProfiles.append(addCDUserItem(profile))
         }
-        return Set(cdProfiles)
+        return NSOrderedSet(array: cdProfiles)
     }
     
     func addCDItem(_ item: Item) -> CDItems {
@@ -91,7 +106,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         cdProfile.firstName = profile.firstName
         cdProfile.lastName = profile.lastName
         cdProfile.id = Int64(profile.id)
-        guard let photoReference = profile.photo else {
+        guard let photoReference = profile.photo_100 else {
             saveContext()
             return cdProfile
         }
@@ -131,6 +146,7 @@ class DataStoreManager: DataStoreManagerProtocol {
             saveContext()
             return cdChatSet
         }
+        print("--дошло")
         imageDownloader.downloadImage(urlOfPhoto: photoReference, completion: { [self] image in
             cdChatSet.photo = NSData(data: image.pngData()!)
             saveContext()
@@ -141,13 +157,27 @@ class DataStoreManager: DataStoreManagerProtocol {
     func addCDLastMessages(_ lastMessage: LastMessage) -> CDLastMessage {
         let cdLastMess = CDLastMessage(context: viewContext)
         cdLastMess.id = Int64(lastMessage.id)
-        cdLastMess.fromID = Int64(lastMessage.fromID)
         cdLastMess.peerID = Int64(lastMessage.peerID)
         cdLastMess.text = lastMessage.text
-        cdLastMess.isHidden = lastMessage.isHidden
-        cdLastMess.conversationMessageID = Int64(lastMessage.conversationMessageID)
         cdLastMess.date = Date(timeIntervalSince1970: TimeInterval(lastMessage.date))
         saveContext()
         return cdLastMess
+    }
+    
+    func replaceLastMessage(lastMessage: LastMessage) {
+        let fetchRequest = CDLastMessage.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "peerID == %@", NSNumber(value: lastMessage.peerID))
+        do {
+            let results = try persistentContainer.viewContext.fetch(fetchRequest)
+            for result in results {
+                result.date =  Date(timeIntervalSince1970: TimeInterval(lastMessage.date))
+                result.text = lastMessage.text
+                result.id = Int64(lastMessage.id)
+            }
+            saveContext()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
     }
 }

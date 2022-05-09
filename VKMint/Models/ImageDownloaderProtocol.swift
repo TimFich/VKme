@@ -21,10 +21,12 @@ class ImageDownloader: ImageDownloaderProtocol {
             let users = try! JSONDecoder().decode([UserEntities].self, from: result)
             
             DispatchQueue.main.async {
-                print("loaded")
+                print("--loaded")
                 completion(users)
             }
-       }).send()
+        }).onError ({_ in
+           print("--error")
+        }).send()
     }
     
     func downloadImage(urlOfPhoto: String, completion: @escaping((UIImage) -> ())) {

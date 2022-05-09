@@ -24,9 +24,13 @@ class AuthInteractor {
     
     func authorize() {
         mainApiInteractor.authorize(onSuccess: { [weak self] in
-            self?.output.authorizedSuccesful()
+            DispatchQueue.main.async {
+                self?.output.authorizedSuccesful()
+            }
         }, onError: { [weak self] in
-            self?.output.authorizedFailure()
+            DispatchQueue.main.async {
+                self?.output.authorizedFailure()
+            }
         })
     }
 }

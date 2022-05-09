@@ -19,11 +19,7 @@ extension CDLastMessage {
     @NSManaged public var peerID: Int64
     @NSManaged public var id: Int64
     @NSManaged public var date: Date
-    @NSManaged public var fromID: Int64
     @NSManaged public var text: String?
-    @NSManaged public var isHidden: Bool
-    @NSManaged public var conversationMessageID: Int64
-
 }
 
 extension CDLastMessage : Identifiable {

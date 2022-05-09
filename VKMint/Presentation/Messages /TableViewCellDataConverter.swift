@@ -24,10 +24,11 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
             guard let type = type else { return [] }
             switch type {
             case .chat:
+                let unreadCount = item.conversation.unreadCount ?? 0
                 let title = item.conversation.chatSettings?.title ?? ""
                 let lastMessage = item.lastMessage.text
                 let avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                let cellData = TableViewCellData(peerId: item.conversation.peer.id,title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: item.conversation.peer.id,title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type, unreadCount: unreadCount)
                 result.append(cellData)
                 if item.conversation.chatSettings?.photo != nil {
                     imageDownloader.downloadImage(urlOfPhoto: (item.conversation.chatSettings?.photo!.photoMini)!, completion: { image in
@@ -44,14 +45,16 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 })
                 guard let profile = profile else { return [] }
                 let fullName = profile.firstName + " "  + profile.lastName
-                var avatarOfChat = UIImage(named: "VK_Logo")!
+                let avatarOfChat = UIImage(named: "VK_Logo")!
+                let unreadCount = item.conversation.unreadCount ?? 0
                 let lastMessage = item.lastMessage.text
-                let cellData = TableViewCellData(peerId: item.conversation.peer.id, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let cellData = TableViewCellData(peerId: item.conversation.peer.id, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type, unreadCount: unreadCount)
                 result.append(cellData)
-                let photo = imageDownloader.getUserAvatar(userId: profile.id, completion: { users in
-                    imageDownloader.downloadImage(urlOfPhoto: users[0].items[0].photo_100!, completion: { image in
-                        cellData.avatarOfChat = image
-                    })
+                guard let photoRef = profile.photo_100 else {
+                    continue
+                }
+                imageDownloader.downloadImage(urlOfPhoto: photoRef, completion: { image in
+                    cellData.avatarOfChat = image
                 })
             }
         }
@@ -60,7 +63,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
     
     func convertToCellData(conversation: CDConversations) -> [TableViewCellData] {
         var result: [TableViewCellData] = []
-        let items = Array(conversation.items)
+        let items = Array(conversation.items) as! Array<CDItems>
         for item in items {
             let type = TypeEnum(rawValue: item.conversation.peer.type)
             guard let type = type else { return [] }
@@ -69,7 +72,8 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 let title = item.conversation.chatSettings?.title ?? ""
                 let lastMessage = item.lastMessage?.text ?? ""
                 let avatarOfChat = UIImage(named: "VK_Logo") ?? UIImage()
-                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let unreadCount = item.conversation.unreadCount
+                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: title, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type, unreadCount: Int(unreadCount))
                 result.append(cellData)
                 if item.conversation.chatSettings?.photo != nil {
                     let data = Data(referencing: (item.conversation.chatSettings?.photo)!)
@@ -80,7 +84,8 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 print("need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id
-                let profile = conversation.profiles.first(where: {
+                let profiles = Array(conversation.profiles) as! Array<CDUserItems>
+                let profile = profiles.first(where: {
                     $0.id == peerId
                 })
                 guard let profile = profile else { return [] }
@@ -88,7 +93,8 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                 let data = Data(referencing: profile.photo)
                 let avatarOfChat = UIImage(data: data)!
                 let lastMessage = item.lastMessage?.text ?? ""
-                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type)
+                let unreadCount = item.conversation.unreadCount
+                let cellData = TableViewCellData(peerId: Int(exactly: item.conversation.peer.id)!, title: fullName, avatarOfChat: avatarOfChat, lastMessage: lastMessage, type: type, unreadCount: Int(unreadCount))
                 result.append(cellData)
             }
         }

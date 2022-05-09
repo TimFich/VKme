@@ -9,25 +9,22 @@
     <entity name="CDConversationClass" representedClassName=".CDConversationClass" syncable="YES">
         <attribute name="isMarkedUnread" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="chatSettings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChatSettings"/>
-        <relationship name="peer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPeer"/>
+        <relationship name="chatSettings" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDChatSettings"/>
+        <relationship name="peer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPeer"/>
     </entity>
     <entity name="CDConversations" representedClassName=".CDConversations" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="unreadCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDItems"/>
-        <relationship name="profiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUserItems"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CDItems"/>
+        <relationship name="profiles" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CDUserItems"/>
     </entity>
     <entity name="CDItems" representedClassName=".CDItems" syncable="YES">
-        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDConversationClass"/>
-        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLastMessage"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDConversationClass"/>
+        <relationship name="lastMessage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDLastMessage"/>
     </entity>
     <entity name="CDLastMessage" representedClassName=".CDLastMessage" syncable="YES">
-        <attribute name="conversationMessageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="fromID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="isHidden" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="peerID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
@@ -35,7 +32,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="CDUserItems" representedClassName="CDUserItems" syncable="YES">
+    <entity name="CDUserItems" representedClassName=".CDUserItems" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
@@ -43,10 +40,10 @@
     </entity>
     <elements>
         <element name="CDChatSettings" positionX="179.78515625" positionY="216.9140625" width="128" height="103"/>
-        <element name="CDConversationClass" positionX="18.17578125" positionY="79.26953125" width="128" height="103"/>
-        <element name="CDConversations" positionX="-356.3125" positionY="90.41015625" width="128" height="103"/>
+        <element name="CDConversationClass" positionX="18.17578125" positionY="79.26953125" width="128" height="89"/>
+        <element name="CDConversations" positionX="-381.46875" positionY="30.41796875" width="128" height="89"/>
         <element name="CDItems" positionX="-201.74609375" positionY="74.4765625" width="128" height="73"/>
-        <element name="CDLastMessage" positionX="-137.73828125" positionY="231.65625" width="128" height="148"/>
+        <element name="CDLastMessage" positionX="-137.73828125" positionY="231.65625" width="128" height="89"/>
         <element name="CDPeer" positionX="129.00390625" positionY="-34.59765625" width="128" height="73"/>
         <element name="CDUserItems" positionX="-388.828125" positionY="293.5625" width="128" height="103"/>
     </elements>

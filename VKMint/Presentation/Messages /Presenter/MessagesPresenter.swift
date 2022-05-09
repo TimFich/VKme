@@ -34,14 +34,19 @@ extension MessagesPresenter: MessagesViewOutputProtocol {
 }
 
 extension MessagesPresenter: MessagesInteractorOutput {
-    func needToUpdateConversations(updatedData: [TableViewCellData], unreadMessagesCount: Int) {
+    func newMessageReceived(message: LastMessage) {
+        view.updateLastMessage(message: message)
+    }
+    
+    func needToUpdateConversations(updatedData: [TableViewCellData]) {
+        view.dataFetched(data: updatedData)
     }
     
     func didStartUpdatingConversations() {
-        //TODO: Animation
+        view.didStartUpdatingConversations()
     }
     
     func didEndUpdatingConversations() {
-        //TODO: Animation
+        view.didEndUpdatingConversations()
     }
 }

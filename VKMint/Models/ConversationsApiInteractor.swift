@@ -17,7 +17,7 @@ class ConversationsApiInteractorImpl: ConversationsApiInteractor {
     private var offset: Int = 0
     
     func getConversation(offset: Int, count: Int, completion: @escaping (Conversation) -> ()) {
-        VK.API.Messages.getConversations([Parameter.count: "\(count)", Parameter.offset: "\(offset)", Parameter.extended: "1", Parameter.fields : "first_name"])
+        VK.API.Messages.getConversations([Parameter.count: "\(count)", Parameter.offset: "\(offset)", Parameter.extended: "1", Parameter.fields: "photo_100"])
             .onSuccess({ result in
                 do {
                     let conversation = try? JSONDecoder().decode(Conversation.self, from: result)

@@ -10,6 +10,9 @@ import SnapKit
 
 protocol MessagesViewInputProtocol {
     func dataFetched(data: [TableViewCellData])
+    func didStartUpdatingConversations()
+    func didEndUpdatingConversations()
+    func updateLastMessage(message: LastMessage)
 }
 
 protocol MessagesViewOutputProtocol {
@@ -20,6 +23,7 @@ protocol MessagesViewOutputProtocol {
 class MessagesViewController: UIViewController {
     
     var data: [TableViewCellData] = []
+    var peerIdToIndexDict: [Int: Int] = [:]
     var presenter: MessagesPresenter!
     var offset = 0
     var unreadCount = 0
@@ -27,6 +31,8 @@ class MessagesViewController: UIViewController {
     
     //MARK: - UI
     private let tableView = UITableView()
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    let headerView = UIView()
     private let kCellIdentifier = "cell"
         
     //MARK: - View life cyrcle
@@ -35,12 +41,8 @@ class MessagesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MessagesTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
-        presenter.viewDidLoad()
         configureTable()
-    }
-    
-    func updateConversation(updatedData: [TableViewCellData], unreadMessagesCount: Int) {
-        
+        presenter.viewDidLoad()
     }
     
     //MARK: - Configure UI
@@ -50,6 +52,12 @@ class MessagesViewController: UIViewController {
             make.left.equalToSuperview().offset(0)
             make.top.equalToSuperview().offset(0)
             make.right.bottom.equalToSuperview().inset(0)
+        }
+    }
+    
+    private func makePeerIdDict() {
+        for (index, element) in data.enumerated() {
+            peerIdToIndexDict[element.peerId] = index
         }
     }
 }
@@ -65,6 +73,11 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(cellData: data[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        headerView.addSubview(activityIndicator)
+        return headerView
+    }
 }
 
 extension MessagesViewController: MessagesNextButtonCellOutputProtocol {
@@ -76,8 +89,28 @@ extension MessagesViewController: MessagesNextButtonCellOutputProtocol {
     
 
 extension MessagesViewController: MessagesViewInputProtocol {
+    
+    func didStartUpdatingConversations() {
+        activityIndicator.startAnimating()
+    }
+    
+    func didEndUpdatingConversations() {
+        activityIndicator.stopAnimating()
+    }
+    
     func dataFetched(data: [TableViewCellData]) {
-        self.data.append(contentsOf: data)
+        self.data = data
+        makePeerIdDict()
+        tableView.reloadData()
+    }
+    
+    func updateLastMessage(message: LastMessage) {
+        let index = peerIdToIndexDict[message.peerID]
+        guard let index = index else {
+            return
+        }
+        data[index].lastMessage = message.text
+        data[index].unreadCount += 1
         tableView.reloadData()
     }
 }

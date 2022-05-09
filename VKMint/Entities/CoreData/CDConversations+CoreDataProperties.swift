@@ -18,8 +18,8 @@ extension CDConversations {
 
     @NSManaged public var unreadCount: Int64
     @NSManaged public var count: Int64
-    @NSManaged public var items: Set<CDItems>
-    @NSManaged public var profiles: Set<CDUserItems>
+    @NSManaged public var items: NSOrderedSet
+    @NSManaged public var profiles: NSOrderedSet
 
 }
 

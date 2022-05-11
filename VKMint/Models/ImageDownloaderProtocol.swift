@@ -8,12 +8,12 @@
 import Foundation
 import SwiftyVK
 
-protocol ImageDownloaderProtocol {
+protocol ImageDownloader {
     func getUserAvatar(userId: Int, completion: @escaping ([UserEntities]) -> Void)
     func downloadImage(urlOfPhoto: String, completion: @escaping ((UIImage) -> ()))
 }
 
-class ImageDownloader: ImageDownloaderProtocol {
+class ImageDownloaderImpl: ImageDownloader {
     
     func getUserAvatar(userId: Int, completion: @escaping ([UserEntities]) -> Void) {
         VK.API.Users.get([Parameter.userId: "\(userId)", Parameter.fields: "photo_200"]).onSuccess ({ result in

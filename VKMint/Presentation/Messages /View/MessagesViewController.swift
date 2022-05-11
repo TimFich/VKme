@@ -87,6 +87,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }    
 
+//MARK: - MessagesViewInputProtocol
 extension MessagesViewController: MessagesViewInputProtocol {
     
     func didStartUpdatingConversations() {

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftyVK
-import UIKit
 
 protocol MainApiInteractor {
     func authorize(onSuccess: @escaping () -> (), onError: @escaping () -> ())
@@ -15,7 +14,6 @@ protocol MainApiInteractor {
 
 class MainApiInteractorImpl: MainApiInteractor {
     
-    //MARK: - Public functions
     func authorize(onSuccess: @escaping () -> (), onError: @escaping () -> ()) {
         VK.sessions.default.logIn(onSuccess: {
             _ in

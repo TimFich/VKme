@@ -13,13 +13,14 @@ struct UserEntities: Codable {
     let items: [UserItems]
 }
 
-struct UserItems: Codable {
+struct UserItems: Codable, Hashable {
     let id: Int
     let firstName, lastName: String
     let photo: String?
     let sex: Int?
     let screenName: String?
     let photo_100: String?
+    let about: String?
     
     enum CodingKeys: String, CodingKey {
         case id, photo_100, sex
@@ -27,6 +28,7 @@ struct UserItems: Codable {
         case lastName = "last_name"
         case photo = "photo_200_orig"
         case screenName = "screen_name"
+        case about = "about"
     }
 }
 

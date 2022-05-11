@@ -16,7 +16,7 @@ protocol MessageTableViewCellDataConverterProtocol {
 
 class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtocol {
     func convertToCellData(conversation: Conversation, completion: @escaping ([MessageTableViewCellData]) -> Void) {
-        let imageDownloader = ImageDownloader()
+        let imageDownloader: ImageDownloader = ImageDownloaderImpl()
         let helper = EscapingClosureHelper<MessageTableViewCellData>(count: conversation.items.count)
         let items = conversation.items
         for item in items {

@@ -10,6 +10,7 @@ import SwiftyVK
 
 class LongPollManager {
     
+    //MARK: - Properties
     static let shared = LongPollManager()
     private var onReceiveEvent: [Int: [(Data) -> ()]] = [:]
     

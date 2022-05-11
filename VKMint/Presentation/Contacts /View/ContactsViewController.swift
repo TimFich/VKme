@@ -49,6 +49,7 @@ class ContactsViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource, UITableViewDelegate
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,6 +83,9 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             headerView.addSubview(activityIndicator)
+            activityIndicator.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+            }
             return headerView
         } else {
             return nil
@@ -94,11 +98,12 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let section = indexPath.section
         let cellData = section == 0 ? data[indexPath.row] : data[indexPath.row + 5]
-        cell.configure(name: cellData.firstName + cellData.lastName, avatar: cellData.photo, lastSeen: cellData.lastSeen, platform: cellData.platform, isOnline: cellData.isOnline)
+        cell.configure(name: cellData.firstName + " " + cellData.lastName, avatar: cellData.photo, lastSeen: cellData.lastSeen, platform: cellData.platform, isOnline: cellData.isOnline)
         return cell
     }
 }
 
+//MARK: - ContactsViewInput
 extension ContactsViewController: ContactsViewInput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData]) {
         data = updatedData

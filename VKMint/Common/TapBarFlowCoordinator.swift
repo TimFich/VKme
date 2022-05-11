@@ -10,7 +10,7 @@ import UIKit
 
 class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     
-    private let tapBar = UITabBarController()
+    private let tabBar = UITabBarController()
     private let parentViewController: UINavigationController?
     
     
@@ -20,7 +20,7 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
     
     func start(animated: Bool) {
         setUp()
-        parentViewController?.pushViewController(tapBar, animated: true)
+        parentViewController?.pushViewController(tabBar, animated: true)
     }
     
     func finish(animated: Bool) {
@@ -30,11 +30,17 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
         let contactsVC = buildContacts()
         
         let messagesVC = buildMessages()
-        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(systemName: "message.fill"), tag: 1)
-        tapBar.addChild(messagesVC)
         
-        contactsVC.tabBarItem = UITabBarItem(title: "Contacts", image: UIImage(systemName: "person.2.fill")!, tag: 0)
-        tapBar.addChild(contactsVC)
+        let profileVC = buildProfile()
+        
+        contactsVC.tabBarItem = UITabBarItem(title: "Contacts", image: UIImage(systemName: "person.2.fill"), tag: 0)
+        tabBar.addChild(contactsVC)
+        
+        messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(systemName: "message.fill"), tag: 1)
+        tabBar.addChild(messagesVC)
+        
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
+        tabBar.addChild(profileVC)
 
     }
     
@@ -48,7 +54,8 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
         return builder.build()
     }
     
-    private func buildSettings() -> UIViewController {
-        return UIViewController()
+    private func buildProfile() -> UIViewController {
+        let builder = ProfileModuleBuilder()
+        return builder.build()
     }
 }

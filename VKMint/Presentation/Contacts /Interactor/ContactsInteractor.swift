@@ -25,6 +25,7 @@ class СontactsInteractor {
     weak var output: ContactsInteractorOutput!
 }
 
+//MARK: - ContactsInteractorInput
 extension СontactsInteractor: ContactsInteractorInput {
     func fetchUsers(completion: @escaping ([ContactsTableViewCellData]) -> Void) {
         let converter = ContactsTableViewCellConverter()

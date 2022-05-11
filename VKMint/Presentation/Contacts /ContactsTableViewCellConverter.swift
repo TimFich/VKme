@@ -11,7 +11,7 @@ import UIKit
 class ContactsTableViewCellConverter {
     
     func convertToCellData(contacts: FriendEntity, completion: @escaping ([ContactsTableViewCellData]) -> Void) {
-        let imageDownloader = ImageDownloader()
+        let imageDownloader: ImageDownloader = ImageDownloaderImpl()
         let helper = EscapingClosureHelper<ContactsTableViewCellData>(count: contacts.items.count)
         let contacts = contacts.items
         for contact in contacts {
@@ -26,9 +26,9 @@ class ContactsTableViewCellConverter {
                 firstName: contact.firstName,
                 lastName: contact.lastName,
                 photo: avatar,
-                lastSeen: contact.lastSeen!.time,
+                lastSeen: contact.lastSeen?.time ?? 0,
                 isOnline: isOnline,
-                platform: contact.lastSeen!.platform
+                platform: contact.lastSeen?.platform ?? 0
             )
             helper.result.append(cellData)
             imageDownloader.downloadImage(urlOfPhoto: contact.photo100, completion: { image in
@@ -49,7 +49,7 @@ class ContactsTableViewCellConverter {
                 id: Int(contact.id),
                 firstName: contact.firstName,
                 lastName: contact.lastName,
-                photo: UIImage(data: data)!,
+                photo: UIImage(data: data) ?? UIImage(),
                 lastSeen: Int(contact.lastSeen),
                 isOnline: contact.isOnline,
                 platform: Int(contact.platform)

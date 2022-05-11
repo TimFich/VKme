@@ -8,7 +8,8 @@
 import Foundation
 
 class ContactsPresenter {
-        
+    
+    //MARK: - Properties
     private var interactor: СontactsInteractor
     weak var view: ContactsViewController?
 
@@ -18,12 +19,14 @@ class ContactsPresenter {
     }
 }
 
+//MARK: - ContactsInteractorInput
 extension ContactsPresenter: ContactsInteractorInput {
     func fetchUsers(completion: @escaping ([ContactsTableViewCellData]) -> Void) {
         
     }
 }
 
+//MARK: - ContactsViewOutput
 extension ContactsPresenter: ContactsViewOutput {
     func viewDidLoad() {
         interactor.fetchUsers(completion: { cellData in
@@ -32,6 +35,7 @@ extension ContactsPresenter: ContactsViewOutput {
     }
 }
 
+//MARK: - ContactsInteractorOutput
 extension ContactsPresenter: ContactsInteractorOutput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData]) {
         view?.needToUpdateContacts(updatedData: updatedData)

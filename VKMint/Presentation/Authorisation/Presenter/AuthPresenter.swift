@@ -21,12 +21,14 @@ class AuthPresenter {
     }
 }
 
+//MARK: - AuthViewOutput
 extension AuthPresenter: AuthViewOutput {
     func signInButtonPressed() {
         interactor.signIn()
     }
 }
 
+//MARK: - AuthInteractorOutput
 extension AuthPresenter: AuthInteractorOutput {
     func authorizedSuccesful() {
         moduleOutput.moduleWantsToOpenTapBar(animated: true)

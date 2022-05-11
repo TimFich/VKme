@@ -10,6 +10,7 @@ import UIKit
 
 class MainFlowCoordinator: FlowCoordinatorProtocol {
     
+    //MARK: - Properties
     private var finishHandler: () -> Void
     public weak var parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
@@ -46,6 +47,7 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
 }
 
+//MARK: - AuthModuleOutput
 extension MainFlowCoordinator: AuthModuleOutput {
     func moduleWantsToOpenTapBar(animated: Bool) {
         openTapBar(animated: animated)

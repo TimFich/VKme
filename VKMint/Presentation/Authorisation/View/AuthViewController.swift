@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftyVK
 import SnapKit
 
 protocol AuthViewOutput: AnyObject {
@@ -75,6 +74,7 @@ class AuthViewController: UIViewController {
         }
     }
     
+    //MARK: - Actions
     @objc
     func registration() {
         presenter.signInButtonPressed()

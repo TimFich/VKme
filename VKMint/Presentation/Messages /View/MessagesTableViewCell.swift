@@ -10,19 +10,11 @@ import SnapKit
 
 class MessagesTableViewCell: UITableViewCell {
     
-    //MARK: - IBOutlets
+    //MARK: - UI
     var convImage = UIImageView()
     var titleLabel = UILabel()
     var lastMessageLabel = UILabel()
     var unreadCountLabel = UILabel()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     //MARK: - Public functions
     func configure(cellData: MessageTableViewCellData) {

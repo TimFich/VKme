@@ -21,7 +21,7 @@ protocol DataStoreManagerProtocol {
 class DataStoreManager: DataStoreManagerProtocol {
     
     lazy var viewContext = persistentContainer.viewContext
-    let imageDownloader: ImageDownloaderProtocol = ImageDownloader()
+    let imageDownloader: ImageDownloader = ImageDownloaderImpl()
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
@@ -88,8 +88,8 @@ class DataStoreManager: DataStoreManagerProtocol {
                 cdContact.firstName = contact.firstName
                 cdContact.lastName = contact.lastName
                 cdContact.isOnline = isOnline
-                cdContact.platform = Int64(contact.lastSeen!.platform)
-                cdContact.lastSeen = Int64(contact.lastSeen!.time)
+                cdContact.platform = Int64(contact.lastSeen?.platform ?? 0)
+                cdContact.lastSeen = Int64(contact.lastSeen?.time ?? 0)
                 imageDownloader.downloadImage(urlOfPhoto: contact.photo100, completion: { image in
                     cdContact.photo = NSData.init(data: image.pngData()!)
                     self.saveContext()

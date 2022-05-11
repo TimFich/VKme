@@ -16,7 +16,6 @@ class MessagesPresenter {
     
     private var interactor: MessagesInteractor!
     weak var view: MessagesViewController!
-    //private weak var moduleOutput: AuthModuleOutput!
 }
 
 extension MessagesPresenter: MessagesViewOutputProtocol {
@@ -33,6 +32,7 @@ extension MessagesPresenter: MessagesViewOutputProtocol {
     }
 }
 
+//MARK: - MessagesInteractorOutput
 extension MessagesPresenter: MessagesInteractorOutput {
     func newMessageReceived(message: LastMessage) {
         view.updateLastMessage(message: message)

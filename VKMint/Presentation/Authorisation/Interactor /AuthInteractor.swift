@@ -35,6 +35,7 @@ class AuthInteractor {
     }
 }
 
+//MARK: - AuthInteractorInput
 extension AuthInteractor: AuthInteractorInput {
     func signIn() {
         authorize()

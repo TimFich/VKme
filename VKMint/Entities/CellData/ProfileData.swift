@@ -13,12 +13,14 @@ class ProfileData {
     public let firstName: String
     public let lastName: String
     public let photo: UIImage
-    public var about: String = ""
+    public var nickname: String? = ""
+    public var number: String? = ""
     
-    init(firstName: String, lastName: String, photo: UIImage, about: String) {
+    init(firstName: String, lastName: String, photo: UIImage, number: String?, nickname: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.photo = photo
-        self.about = about
+        self.number = number
+        self.nickname = nickname
     }
 }

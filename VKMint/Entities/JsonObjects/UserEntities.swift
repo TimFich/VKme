@@ -20,15 +20,16 @@ struct UserItems: Codable, Hashable {
     let sex: Int?
     let screenName: String?
     let photo_100: String?
-    let about: String?
+    var domain: String?
+    let phoneNumber: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, photo_100, sex
+        case id, photo_100, sex, domain
         case firstName = "first_name"
         case lastName = "last_name"
         case photo = "photo_200_orig"
         case screenName = "screen_name"
-        case about = "about"
+        case phoneNumber = "mobile_phone"
     }
 }
 
@@ -59,7 +60,7 @@ struct FriendItem: Codable {
     }
     
     struct LastSeen: Codable {
-        let platform, time: Int
+        let platform, time: Int?
     }
 
     enum Deactivated: String, Codable {

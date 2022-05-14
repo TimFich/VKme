@@ -21,8 +21,6 @@ class ContactsTableViewCell: UITableViewCell {
     
     func configure(name: String, avatar: UIImage, lastSeen: Int, platform: Int, isOnline: Bool) {
         avatarOfUser.image = avatar
-        avatarOfUser.clipsToBounds = true
-        avatarOfUser.layer.cornerRadius = avatarOfUser.frame.height / 2
         nameOfUserLabel.text = name
         if isOnline {
             onlineStatus.isHidden = false
@@ -37,6 +35,8 @@ class ContactsTableViewCell: UITableViewCell {
     
     private func setUpUI() {
         contentView.addSubview(avatarOfUser)
+        avatarOfUser.clipsToBounds = true
+        avatarOfUser.layer.cornerRadius = 25
         avatarOfUser.snp.makeConstraints({ make in
             make.left.equalToSuperview().offset(10)
             make.top.equalToSuperview().offset(5)
@@ -58,6 +58,7 @@ class ContactsTableViewCell: UITableViewCell {
         })
         
         contentView.addSubview(lastSeenLabel)
+        
         lastSeenLabel.snp.makeConstraints({ make in
             make.left.equalTo(avatarOfUser.snp.right).offset(10)
             make.top.equalTo(nameOfUserLabel.snp.bottom).offset(10)

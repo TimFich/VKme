@@ -23,7 +23,7 @@
 		743446682829251600DAF818 /* ContactsTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743446672829251600DAF818 /* ContactsTableViewCellData.swift */; };
 		7434466B28295F6F00DAF818 /* ContactsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7434466A28295F6F00DAF818 /* ContactsModuleBuilder.swift */; };
 		7439DC6927A1574500506767 /* Conversation Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7439DC6827A1574500506767 /* Conversation Entities.swift */; };
-		7448B22E281B177800B54D0C /* TapBarFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */; };
+		7448B22E281B177800B54D0C /* TabBarFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */; };
 		7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */; };
 		7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7453BA4B279D8E95008D728E /* MessagesViewController.swift */; };
 		7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7480661E281D5B57002525CB /* MessagesInteractor.swift */; };
@@ -76,6 +76,8 @@
 		E5AE25A7282AC16400D514D3 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE25A6282AC16400D514D3 /* ProfileData.swift */; };
 		E5AE25A9282AC93600D514D3 /* ProfileApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE25A8282AC93600D514D3 /* ProfileApiInteractor.swift */; };
 		E5AE25AB282ACB0100D514D3 /* ProfileDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE25AA282ACB0100D514D3 /* ProfileDataConverter.swift */; };
+		E5B9EC80282FAB500081FDD7 /* StackVerticalSpacingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9EC7F282FAB500081FDD7 /* StackVerticalSpacingView.swift */; };
+		E5B9EC82282FB05A0081FDD7 /* ProfileSettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9EC81282FB05A0081FDD7 /* ProfileSettingsItemView.swift */; };
 		E5C5FD7527E23456002D177F /* MessageTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
 /* End PBXBuildFile section */
@@ -107,7 +109,7 @@
 		743446672829251600DAF818 /* ContactsTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCellData.swift; sourceTree = "<group>"; };
 		7434466A28295F6F00DAF818 /* ContactsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModuleBuilder.swift; sourceTree = "<group>"; };
 		7439DC6827A1574500506767 /* Conversation Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation Entities.swift"; sourceTree = "<group>"; };
-		7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarFlowCoordinator.swift; sourceTree = "<group>"; };
+		7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarFlowCoordinator.swift; sourceTree = "<group>"; };
 		7448B231281B22CD00B54D0C /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		7453BA4B279D8E95008D728E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		7480661E281D5B57002525CB /* MessagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesInteractor.swift; sourceTree = "<group>"; };
@@ -164,6 +166,8 @@
 		E5AE25A6282AC16400D514D3 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		E5AE25A8282AC93600D514D3 /* ProfileApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileApiInteractor.swift; sourceTree = "<group>"; };
 		E5AE25AA282ACB0100D514D3 /* ProfileDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataConverter.swift; sourceTree = "<group>"; };
+		E5B9EC7F282FAB500081FDD7 /* StackVerticalSpacingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVerticalSpacingView.swift; sourceTree = "<group>"; };
+		E5B9EC81282FB05A0081FDD7 /* ProfileSettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsItemView.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,7 +205,7 @@
 			children = (
 				74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */,
 				74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */,
-				7448B22D281B177800B54D0C /* TapBarFlowCoordinator.swift */,
+				7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */,
 				7434465728282D9C00DAF818 /* LongPollManager.swift */,
 			);
 			path = Common;
@@ -325,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				E5AE25A2282AA7CB00D514D3 /* ProfileViewController.swift */,
+				E5B9EC7F282FAB500081FDD7 /* StackVerticalSpacingView.swift */,
+				E5B9EC81282FB05A0081FDD7 /* ProfileSettingsItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -682,9 +688,10 @@
 				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
 				E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
+				E5B9EC82282FB05A0081FDD7 /* ProfileSettingsItemView.swift in Sources */,
 				E5469A7028199F1500929418 /* CDPeer+CoreDataClass.swift in Sources */,
 				E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */,
-				7448B22E281B177800B54D0C /* TapBarFlowCoordinator.swift in Sources */,
+				7448B22E281B177800B54D0C /* TabBarFlowCoordinator.swift in Sources */,
 				E5469A6B28199F1500929418 /* CDLastMessage+CoreDataProperties.swift in Sources */,
 				E5AE259F282AA4EB00D514D3 /* ProfileModuleBuilder.swift in Sources */,
 				74DDD5932829ADBA008D0045 /* PlatformImageGenerator.swift in Sources */,
@@ -699,6 +706,7 @@
 				E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */,
 				74DDD59128299FE0008D0045 /* EscapingClosureHelper.swift in Sources */,
 				74344660282918E500DAF818 /* ContactsInteractor.swift in Sources */,
+				E5B9EC80282FAB500081FDD7 /* StackVerticalSpacingView.swift in Sources */,
 				7434466B28295F6F00DAF818 /* ContactsModuleBuilder.swift in Sources */,
 				E5AE25A5282AA7FF00D514D3 /* ProfileInteractor.swift in Sources */,
 				7434466228291EF000DAF818 /* CDContacts+CoreDataClass.swift in Sources */,

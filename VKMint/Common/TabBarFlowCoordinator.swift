@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TapBarFlowCoordinator: FlowCoordinatorProtocol {
+class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     
     private let tabBar = UITabBarController()
     private let parentViewController: UINavigationController?
@@ -39,7 +39,7 @@ class TapBarFlowCoordinator: FlowCoordinatorProtocol {
         messagesVC.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(systemName: "message.fill"), tag: 1)
         tabBar.addChild(messagesVC)
         
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         tabBar.addChild(profileVC)
 
     }

@@ -18,9 +18,7 @@ class MessagesTableViewCell: UITableViewCell {
     
     //MARK: - Public functions
     func configure(cellData: MessageTableViewCellData) {
-        convImage.clipsToBounds = true
         self.convImage.image = cellData.avatarOfChat
-        convImage.layer.cornerRadius = convImage.frame.height / 2
         self.titleLabel.text = cellData.title
         self.lastMessageLabel.text = cellData.lastMessage
         if cellData.unreadCount != 0 {
@@ -35,6 +33,8 @@ class MessagesTableViewCell: UITableViewCell {
     
     private func setUpUI(){
         contentView.addSubview(convImage)
+        convImage.layer.cornerRadius = 30
+        convImage.clipsToBounds = true
         convImage.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().inset(10)
@@ -51,7 +51,7 @@ class MessagesTableViewCell: UITableViewCell {
         
         contentView.addSubview(unreadCountLabel)
         unreadCountLabel.textAlignment = .center
-        unreadCountLabel.layer.cornerRadius = unreadCountLabel.frame.size.height / 2
+        unreadCountLabel.layer.cornerRadius = 10
         unreadCountLabel.clipsToBounds = true
         unreadCountLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()

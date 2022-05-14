@@ -18,7 +18,14 @@ class ProfileDataConverter {
         let users = photoUser.keys
         let user = users.first
         let image = images.first
+        var newDomain = ""
         
-        completion(ProfileData(firstName: user!.firstName, lastName: user!.lastName, photo: image ?? UIImage(), about: user?.about ?? ""))
+        if user?.domain == "" {
+             newDomain = "\(user?.id)"
+        } else {
+            newDomain = user!.domain ?? ""
+        }
+        
+        completion(ProfileData(firstName: user!.firstName, lastName: user!.lastName, photo: image ?? UIImage(), number: user!.phoneNumber, nickname: user?.domain))
     }
 }

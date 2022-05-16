@@ -68,6 +68,15 @@
 		E5469A7328199F1500929418 /* CDItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6728199F1500929418 /* CDItems+CoreDataProperties.swift */; };
 		E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */; };
 		E5469A7528199F1500929418 /* CDConversations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */; };
+		E57A5BE8283132A500051988 /* AppearanceModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BE7283132A500051988 /* AppearanceModuleBuilder.swift */; };
+		E57A5BEA283132BC00051988 /* AboutModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BE9283132BC00051988 /* AboutModuleBuilder.swift */; };
+		E57A5BEC283133A700051988 /* AppearanceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BEB283133A700051988 /* AppearanceInteractor.swift */; };
+		E57A5BEE283133D000051988 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BED283133D000051988 /* AppearanceViewController.swift */; };
+		E57A5BF0283133E700051988 /* AppearancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BEF283133E700051988 /* AppearancePresenter.swift */; };
+		E57A5BF228321EDE00051988 /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF128321EDE00051988 /* SettingsFlowCoordinator.swift */; };
+		E57A5BF42832274200051988 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF32832274200051988 /* AboutInteractor.swift */; };
+		E57A5BF62832275700051988 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF52832275700051988 /* AboutViewController.swift */; };
+		E57A5BF82832276900051988 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF72832276900051988 /* AboutPresenter.swift */; };
 		E5AE259B2829BFF400D514D3 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259A2829BFF400D514D3 /* DateConverter.swift */; };
 		E5AE259F282AA4EB00D514D3 /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */; };
 		E5AE25A1282AA7A200D514D3 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE25A0282AA7A200D514D3 /* ProfilePresenter.swift */; };
@@ -158,6 +167,15 @@
 		E5469A6728199F1500929418 /* CDItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5469A6828199F1500929418 /* CDConversations+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E5469A6928199F1500929418 /* CDConversations+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDConversations+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E57A5BE7283132A500051988 /* AppearanceModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceModuleBuilder.swift; sourceTree = "<group>"; };
+		E57A5BE9283132BC00051988 /* AboutModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModuleBuilder.swift; sourceTree = "<group>"; };
+		E57A5BEB283133A700051988 /* AppearanceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceInteractor.swift; sourceTree = "<group>"; };
+		E57A5BED283133D000051988 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		E57A5BEF283133E700051988 /* AppearancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePresenter.swift; sourceTree = "<group>"; };
+		E57A5BF128321EDE00051988 /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
+		E57A5BF32832274200051988 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
+		E57A5BF52832275700051988 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		E57A5BF72832276900051988 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		E5AE259A2829BFF400D514D3 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
 		E5AE25A0282AA7A200D514D3 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -207,6 +225,7 @@
 				74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */,
 				7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */,
 				7434465728282D9C00DAF818 /* LongPollManager.swift */,
+				E57A5BF128321EDE00051988 /* SettingsFlowCoordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -316,6 +335,7 @@
 		7453BA45279D8D76008D728E /* Profile  */ = {
 			isa = PBXGroup;
 			children = (
+				E57A5BDD2831320000051988 /* Settings */,
 				E5AE259C282AA46D00D514D3 /* Interactor */,
 				E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */,
 				E5AE259D282AA47A00D514D3 /* Presenter */,
@@ -482,6 +502,85 @@
 				7434466328291F0400DAF818 /* CDContacts+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E57A5BDD2831320000051988 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BE02831321700051988 /* Appearance */,
+				E57A5BDE2831320800051988 /* About */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E57A5BDE2831320800051988 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BE62831328400051988 /* Interactor */,
+				E57A5BE9283132BC00051988 /* AboutModuleBuilder.swift */,
+				E57A5BE52831327E00051988 /* Presenter */,
+				E57A5BE42831327700051988 /* View */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		E57A5BE02831321700051988 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BE12831323900051988 /* Interactor */,
+				E57A5BE7283132A500051988 /* AppearanceModuleBuilder.swift */,
+				E57A5BE22831325400051988 /* Presenter */,
+				E57A5BE32831325A00051988 /* View */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		E57A5BE12831323900051988 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BEB283133A700051988 /* AppearanceInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E57A5BE22831325400051988 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BEF283133E700051988 /* AppearancePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E57A5BE32831325A00051988 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BED283133D000051988 /* AppearanceViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E57A5BE42831327700051988 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BF52832275700051988 /* AboutViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E57A5BE52831327E00051988 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BF72832276900051988 /* AboutPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E57A5BE62831328400051988 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E57A5BF32832274200051988 /* AboutInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		E5AE259C282AA46D00D514D3 /* Interactor */ = {
@@ -671,21 +770,27 @@
 				743446682829251600DAF818 /* ContactsTableViewCellData.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
 				E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */,
+				E57A5BEA283132BC00051988 /* AboutModuleBuilder.swift in Sources */,
 				7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */,
 				E5AE25A9282AC93600D514D3 /* ProfileApiInteractor.swift in Sources */,
 				E5469A7528199F1500929418 /* CDConversations+CoreDataProperties.swift in Sources */,
 				7480662328214B5A002525CB /* CDUserItems+CoreDataClass.swift in Sources */,
 				E5AE25A3282AA7CB00D514D3 /* ProfileViewController.swift in Sources */,
 				748066292821AB9C002525CB /* MessagesPresenter.swift in Sources */,
+				E57A5BEE283133D000051988 /* AppearanceViewController.swift in Sources */,
 				E5AE25A1282AA7A200D514D3 /* ProfilePresenter.swift in Sources */,
 				E5AE25AB282ACB0100D514D3 /* ProfileDataConverter.swift in Sources */,
+				E57A5BF0283133E700051988 /* AppearancePresenter.swift in Sources */,
 				7434465828282D9C00DAF818 /* LongPollManager.swift in Sources */,
 				E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */,
 				E5469A6D28199F1500929418 /* CDChatSettings+CoreDataProperties.swift in Sources */,
 				7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */,
 				7434465A28284CE600DAF818 /* LongPollEntities.swift in Sources */,
 				7434466428291F0400DAF818 /* CDContacts+CoreDataProperties.swift in Sources */,
+				E57A5BF228321EDE00051988 /* SettingsFlowCoordinator.swift in Sources */,
 				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
+				E57A5BF62832275700051988 /* AboutViewController.swift in Sources */,
+				E57A5BE8283132A500051988 /* AppearanceModuleBuilder.swift in Sources */,
 				E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */,
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				E5B9EC82282FB05A0081FDD7 /* ProfileSettingsItemView.swift in Sources */,
@@ -709,6 +814,8 @@
 				E5B9EC80282FAB500081FDD7 /* StackVerticalSpacingView.swift in Sources */,
 				7434466B28295F6F00DAF818 /* ContactsModuleBuilder.swift in Sources */,
 				E5AE25A5282AA7FF00D514D3 /* ProfileInteractor.swift in Sources */,
+				E57A5BEC283133A700051988 /* AppearanceInteractor.swift in Sources */,
+				E57A5BF42832274200051988 /* AboutInteractor.swift in Sources */,
 				7434466228291EF000DAF818 /* CDContacts+CoreDataClass.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
@@ -723,6 +830,7 @@
 				74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */,
 				7453BA4C279D8E95008D728E /* MessagesViewController.swift in Sources */,
 				74C8078E2799D5B500F7B772 /* VKDelegate.swift in Sources */,
+				E57A5BF82832276900051988 /* AboutPresenter.swift in Sources */,
 				7480662128206F00002525CB /* MessageTableViewCellDataConverter.swift in Sources */,
 				E5469A7228199F1500929418 /* CDItems+CoreDataClass.swift in Sources */,
 				E5469A7328199F1500929418 /* CDItems+CoreDataProperties.swift in Sources */,

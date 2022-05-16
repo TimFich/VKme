@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 protocol ProfileViewOutput {
-    func viewDidLoad() 
+    func viewDidLoad()
+    func signOutPressed()
+    func itemPressed(parentViewController: UINavigationController, flag: Bool)
 }
 
 protocol ProfileViewInput {
@@ -38,7 +40,6 @@ class ProfileViewController: UIViewController {
     private lazy var fullNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.lineBreakMode = .byWordWrapping
-        label.textColor = .white
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
@@ -86,11 +87,13 @@ class ProfileViewController: UIViewController {
                 StackVerticalSpacingView(size: 40, color: .clear),
                 ProfileSettingsItemView(
                     title: "Appearance",
-                    image: UIImage(systemName: "paintpalette")!
+                    image: UIImage(systemName: "paintpalette")!,
+                    output: self
                 ),
                 ProfileSettingsItemView(
                     title: "About the application",
-                    image: UIImage(systemName: "exclamationmark.circle")!
+                    image: UIImage(systemName: "exclamationmark.circle")!,
+                    output: self
                 ),
                 StackVerticalSpacingView(
                     size: 1,
@@ -108,6 +111,7 @@ class ProfileViewController: UIViewController {
         button.contentHorizontalAlignment = .center
         button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
+        button.addTarget(nil, action: #selector(didClickSigOutButton), for: .touchUpInside)
         return button
     }()
     
@@ -121,6 +125,7 @@ class ProfileViewController: UIViewController {
         configureUI()
     }
     
+    //MARK: - Configure UI
     private func configureUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -162,10 +167,21 @@ class ProfileViewController: UIViewController {
         nickName.text = "@" + person.nickname!
         number.text = person.number
     }
+    
+    @objc
+    func didClickSigOutButton() {
+        presenter.signOutPressed()
+    }
 }
 
 extension ProfileViewController: ProfileViewInput {
     func needToUpdateProfile(person: ProfileData) {
         updateProfile(person: person)
+    }
+}
+
+extension ProfileViewController: ProfileSettingsItemOutput {
+    func buttonTaped(flag: Bool) {
+        presenter.itemPressed(parentViewController: self.navigationController!, flag: flag)
     }
 }

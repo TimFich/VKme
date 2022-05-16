@@ -10,6 +10,7 @@ import UIKit
 
 class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     
+    
     private let tabBar = UITabBarController()
     private let parentViewController: UINavigationController?
     

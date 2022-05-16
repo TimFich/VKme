@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol ProfileSettingsItemOutput: AnyObject {
+    func buttonTaped(flag: Bool)
+}
+
 class ProfileSettingsItemView: UIView {
     
     //MARK: - UI
@@ -18,13 +22,11 @@ class ProfileSettingsItemView: UIView {
         return imageView
     }()
     
-    private lazy var title: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.lineBreakMode = .byWordWrapping
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        return label
+    private lazy var title: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.addTarget(nil, action: #selector(touchItem), for: .touchUpInside)
+        button.contentHorizontalAlignment = .left
+        return button
     }()
     
     private lazy var imageOfArrow: UIImageView = {
@@ -33,9 +35,12 @@ class ProfileSettingsItemView: UIView {
         return imageView
     }()
     
-    init(title: String, image: UIImage) {
+    private var output: ProfileSettingsItemOutput
+    
+    init(title: String, image: UIImage, output: ProfileSettingsItemOutput) {
+        self.output = output
         super.init(frame: .zero)
-        self.title.text = title
+        self.title.setTitle(title, for: .normal)
         self.imageView.image = image
         setUpUI()
     }
@@ -65,6 +70,15 @@ class ProfileSettingsItemView: UIView {
             make.size.equalTo(CGSize(width: 20, height: 20))
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().inset(10)
+        }
+    }
+    
+    @objc
+    func touchItem() {
+        if title.currentTitle == "Appearance" {
+            output.buttonTaped(flag: true)
+        } else {
+            output.buttonTaped(flag: false)
         }
     }
 }

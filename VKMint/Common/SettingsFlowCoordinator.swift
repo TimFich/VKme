@@ -20,7 +20,9 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
     
     func start(animated: Bool) {
         let vc = setUp(flag: flag)
-        parentViewController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            self.parentViewController?.pushViewController(vc, animated: true)
+        }
     }
     
     func finish(animated: Bool) {
@@ -30,8 +32,7 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
         if flag {
             let builder = AppearanceModuleBuilder()
             return builder.build()
-        }
-        else {
+        } else {
             let builder = AboutModuleBuilder()
             return builder.build()
         }

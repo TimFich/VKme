@@ -38,6 +38,7 @@ class MessagesViewController: UIViewController {
     //MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Chats"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MessagesTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)

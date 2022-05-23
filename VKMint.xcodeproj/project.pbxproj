@@ -43,6 +43,11 @@
 		E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */; };
 		E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182177281AFF17002C1E88 /* ContactsViewController.swift */; };
 		E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */; };
+		E52463DD283C2A4B009AF0F0 /* Second_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E52463D8283C2A4B009AF0F0 /* Second_Logo.png */; };
+		E52463DE283C2A4B009AF0F0 /* Fourth_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E52463D9283C2A4B009AF0F0 /* Fourth_Logo.png */; };
+		E52463DF283C2A4B009AF0F0 /* First_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E52463DA283C2A4B009AF0F0 /* First_Logo.png */; };
+		E52463E0283C2A4B009AF0F0 /* Third_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E52463DB283C2A4B009AF0F0 /* Third_Logo.png */; };
+		E52463E1283C2A4B009AF0F0 /* Fifth_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E52463DC283C2A4B009AF0F0 /* Fifth_Logo.png */; };
 		E526231A27FCB42E00032B61 /* AuthorisationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */; };
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
 		E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */; };
@@ -77,6 +82,7 @@
 		E57A5BF42832274200051988 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF32832274200051988 /* AboutInteractor.swift */; };
 		E57A5BF62832275700051988 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF52832275700051988 /* AboutViewController.swift */; };
 		E57A5BF82832276900051988 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF72832276900051988 /* AboutPresenter.swift */; };
+		E5AD819B283B9F1100D2A3A2 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AD819A283B9F1100D2A3A2 /* LogoCollectionViewCell.swift */; };
 		E5AE259B2829BFF400D514D3 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259A2829BFF400D514D3 /* DateConverter.swift */; };
 		E5AE259F282AA4EB00D514D3 /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */; };
 		E5AE25A1282AA7A200D514D3 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE25A0282AA7A200D514D3 /* ProfilePresenter.swift */; };
@@ -141,6 +147,11 @@
 		E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApiInteractor.swift; sourceTree = "<group>"; };
 		E5182177281AFF17002C1E88 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		E52463D8283C2A4B009AF0F0 /* Second_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Second_Logo.png; sourceTree = "<group>"; };
+		E52463D9283C2A4B009AF0F0 /* Fourth_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fourth_Logo.png; sourceTree = "<group>"; };
+		E52463DA283C2A4B009AF0F0 /* First_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = First_Logo.png; sourceTree = "<group>"; };
+		E52463DB283C2A4B009AF0F0 /* Third_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Third_Logo.png; sourceTree = "<group>"; };
+		E52463DC283C2A4B009AF0F0 /* Fifth_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fifth_Logo.png; sourceTree = "<group>"; };
 		E526231927FCB42E00032B61 /* AuthorisationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationModuleBuilder.swift; sourceTree = "<group>"; };
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
 		E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsApiInteractor.swift; sourceTree = "<group>"; };
@@ -176,6 +187,7 @@
 		E57A5BF32832274200051988 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		E57A5BF52832275700051988 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E57A5BF72832276900051988 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
+		E5AD819A283B9F1100D2A3A2 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5AE259A2829BFF400D514D3 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
 		E5AE25A0282AA7A200D514D3 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
@@ -378,6 +390,7 @@
 		749F4E602799B77000E2958A /* VKMint */ = {
 			isa = PBXGroup;
 			children = (
+				E52463D7283C29CA009AF0F0 /* App Icons */,
 				74DDD58F28299FD0008D0045 /* Helpers */,
 				74153CC228008273005D3333 /* Common */,
 				E5C5FD7127E2324F002D177F /* Models */,
@@ -457,6 +470,18 @@
 				10A66D549C24673009C5BAE4 /* Pods-VKMint.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E52463D7283C29CA009AF0F0 /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				E52463DA283C2A4B009AF0F0 /* First_Logo.png */,
+				E52463D8283C2A4B009AF0F0 /* Second_Logo.png */,
+				E52463DB283C2A4B009AF0F0 /* Third_Logo.png */,
+				E52463D9283C2A4B009AF0F0 /* Fourth_Logo.png */,
+				E52463DC283C2A4B009AF0F0 /* Fifth_Logo.png */,
+			);
+			path = "App Icons";
 			sourceTree = "<group>";
 		};
 		E526237D280D799D00032B61 /* VKMintTests */ = {
@@ -555,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				E57A5BED283133D000051988 /* AppearanceViewController.swift */,
+				E5AD819A283B9F1100D2A3A2 /* LogoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -703,8 +729,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52463DE283C2A4B009AF0F0 /* Fourth_Logo.png in Resources */,
 				749F4E6E2799B77000E2958A /* LaunchScreen.storyboard in Resources */,
 				749F4E6B2799B77000E2958A /* Assets.xcassets in Resources */,
+				E52463E0283C2A4B009AF0F0 /* Third_Logo.png in Resources */,
+				E52463DD283C2A4B009AF0F0 /* Second_Logo.png in Resources */,
+				E52463E1283C2A4B009AF0F0 /* Fifth_Logo.png in Resources */,
+				E52463DF283C2A4B009AF0F0 /* First_Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +826,7 @@
 				E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */,
 				E5B9EC82282FB05A0081FDD7 /* ProfileSettingsItemView.swift in Sources */,
 				E5469A7028199F1500929418 /* CDPeer+CoreDataClass.swift in Sources */,
+				E5AD819B283B9F1100D2A3A2 /* LogoCollectionViewCell.swift in Sources */,
 				E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */,
 				7448B22E281B177800B54D0C /* TabBarFlowCoordinator.swift in Sources */,
 				E5469A6B28199F1500929418 /* CDLastMessage+CoreDataProperties.swift in Sources */,

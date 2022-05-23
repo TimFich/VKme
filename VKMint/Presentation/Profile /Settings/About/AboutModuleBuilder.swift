@@ -16,6 +16,7 @@ class AboutModuleBuilder {
         let presenter = AboutPresenter(interactor: interactor, view: view)
         interactor.output = presenter
         view.presenter = presenter
+        
         return view
     }
 }

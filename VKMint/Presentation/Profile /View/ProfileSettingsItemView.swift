@@ -15,6 +15,9 @@ protocol ProfileSettingsItemOutput: AnyObject {
 
 class ProfileSettingsItemView: UIView {
     
+    private var flagOfChange = true
+    var traintCollection = UITraitCollection()
+    
     //MARK: - UI
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: nil)
@@ -50,7 +53,6 @@ class ProfileSettingsItemView: UIView {
     }
     
     private func setUpUI() {
-        
         self.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 25, height: 25))
@@ -73,6 +75,14 @@ class ProfileSettingsItemView: UIView {
         }
     }
     
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        
+//        if traintCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+//            title.setTitleColor(.black, for: .normal)
+//        }
+//    }
+//
     @objc
     func touchItem() {
         if title.currentTitle == "Appearance" {

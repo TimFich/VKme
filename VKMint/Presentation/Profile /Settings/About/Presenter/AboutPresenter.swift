@@ -9,9 +9,15 @@ import Foundation
 
 class AboutPresenter {
     
-    //MARK: - Properties
+    //MARK: - Private Properties
+    
     private var interactor: AboutInteractor
+    
+    //MARK: - Properties
+    
     weak var view: AboutViewController?
+    
+    //MARK: - Life cycle
     
     init(interactor: AboutInteractor, view: AboutViewController) {
         self.interactor = interactor
@@ -19,13 +25,19 @@ class AboutPresenter {
     }
 }
 
+//MARK: - AboutInteractorInput
+
 extension AboutPresenter: AboutInteractorInput {
     
 }
 
+//MARK: - AboutInteractorOutput
+
 extension AboutPresenter: AboutInteractorOutput {
     
 }
+
+//MARK: - AboutViewOutput
 
 extension AboutPresenter: AboutViewOutput {
     

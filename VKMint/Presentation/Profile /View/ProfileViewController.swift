@@ -125,6 +125,10 @@ class ProfileViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     //MARK: - Configure UI
     private func configureUI() {
         view.addSubview(scrollView)

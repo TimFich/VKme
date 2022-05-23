@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftyVK
 
 class ProfilePresenter {
     
     //MARK: - Properties
     private var interactor: ProfileInteractor
     weak var view: ProfileViewController?
+    private weak var moduleOutput: ProfileModuleOutput!
     
     init(interactor: ProfileInteractor, view: ProfileViewController) {
         self.interactor = interactor
@@ -21,6 +23,14 @@ class ProfilePresenter {
 
 //MARK: - ProfileInteractorInput
 extension ProfilePresenter: ProfileInteractorInput {
+    func performViewController(parentViewController: UINavigationController, flag: Bool) {
+        
+    }
+    
+    func logout() {
+        
+    }
+    
     func getDataOfUser(completion: @escaping (ProfileData) -> Void) {
         
     }
@@ -28,11 +38,22 @@ extension ProfilePresenter: ProfileInteractorInput {
 
 //MARK: - ProfileInteractorOutput
 extension ProfilePresenter: ProfileInteractorOutput {
-    
+    func logoutSuccess() {
+        //TODO: - свзать с MainFlowCoordinator
+        
+    }
 }
 
 //MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
+    func itemPressed(parentViewController: UINavigationController, flag: Bool) {
+        interactor.performViewController(parentViewController: parentViewController, flag: flag)
+    }
+    
+    func signOutPressed() {
+        interactor.logout()
+    }
+    
     func viewDidLoad() {
         interactor.getDataOfUser { result in
             self.view?.needToUpdateProfile(person: result)

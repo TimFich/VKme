@@ -6,18 +6,22 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ProfileInteractorInput: AnyObject {
     func getDataOfUser(completion: @escaping (ProfileData) -> Void)
+    func logout()
+    func performViewController(parentViewController: UINavigationController, flag: Bool)
 }
 
 protocol ProfileInteractorOutput: AnyObject {
-    
+    func logoutSuccess()
 }
 
 class ProfileInteractor {
     private let profileInteractor: ProfileApiInteractor = ProfileApiInteractorImpl()
     private let downloader: ImageDownloader = ImageDownloaderImpl()
+    private let mainInteractor: MainApiInteractor = MainApiInteractorImpl()
     weak var output: ProfileInteractorOutput!
 }
 
@@ -30,5 +34,15 @@ extension ProfileInteractor: ProfileInteractorInput {
                 completion(res)
             }
         }
+    }
+    
+    func logout() {
+        mainInteractor.sigout()
+        output.logoutSuccess()
+    }
+    
+    func performViewController(parentViewController: UINavigationController, flag: Bool) {
+        let coordinator = SettingsFlowCoordinator(parentViewController: parentViewController, flag: flag)
+        coordinator.start(animated: true)
     }
 }

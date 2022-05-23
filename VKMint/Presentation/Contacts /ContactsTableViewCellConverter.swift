@@ -19,7 +19,7 @@ class ContactsTableViewCellConverter {
                 helper.photosCount -= 1
                 continue
             }
-            var avatar = UIImage(named: "VK_Logo")!
+            let avatar = UIImage(named: "VK_Logo")!
             let isOnline = contact.online == 1 ? true : false
             let cellData = ContactsTableViewCellData(
                 id: contact.id,

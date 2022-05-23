@@ -10,6 +10,7 @@ import SwiftyVK
 
 protocol MainApiInteractor {
     func authorize(onSuccess: @escaping () -> (), onError: @escaping () -> ())
+    func sigout()
 }
 
 class MainApiInteractorImpl: MainApiInteractor {
@@ -22,5 +23,9 @@ class MainApiInteractorImpl: MainApiInteractor {
             _ in
             onError()
         })
+    }
+    
+    func sigout() {
+        VK.sessions.default.logOut()
     }
 }

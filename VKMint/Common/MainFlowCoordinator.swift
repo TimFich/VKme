@@ -53,3 +53,9 @@ extension MainFlowCoordinator: AuthModuleOutput {
         openTapBar(animated: animated)
     }
 }
+
+extension MainFlowCoordinator: ProfileInteractorOutput {
+    func logoutSuccess() {
+        openAuth(animated: true)
+    }
+}

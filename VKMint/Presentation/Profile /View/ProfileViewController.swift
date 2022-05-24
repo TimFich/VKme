@@ -11,7 +11,7 @@ import UIKit
 protocol ProfileViewOutput {
     func viewDidLoad()
     func signOutPressed()
-    func itemPressed(parentViewController: UINavigationController, flag: Bool)
+    func itemPressed(parentViewController: UINavigationController, flag: Int)
 }
 
 protocol ProfileViewInput {
@@ -90,6 +90,10 @@ class ProfileViewController: UIViewController {
                     image: UIImage(systemName: "paintpalette")!,
                     output: self
                 ),
+                ProfileSettingsItemView(
+                    title: "Security",
+                    image: UIImage(systemName: "lock")!,
+                    output: self),
                 ProfileSettingsItemView(
                     title: "About the application",
                     image: UIImage(systemName: "exclamationmark.circle")!,
@@ -185,7 +189,7 @@ extension ProfileViewController: ProfileViewInput {
 }
 
 extension ProfileViewController: ProfileSettingsItemOutput {
-    func buttonTaped(flag: Bool) {
+    func buttonTaped(flag: Int) {
         presenter.itemPressed(parentViewController: self.navigationController!, flag: flag)
     }
 }

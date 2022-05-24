@@ -22,14 +22,18 @@ protocol ContactsViewInput {
 
 class ContactsViewController: UIViewController {
     
+    //MARK: - Properties
     var presenter: ContactsPresenter!
+    private var data: [ContactsTableViewCellData] = []
+    
+    //MARK: - UI
     lazy var tableView: UITableView = {
         return UITableView(frame: view.frame, style: .insetGrouped)
     }()
     let headerView = UIView()
-    private var data: [ContactsTableViewCellData] = []
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
+    //MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self

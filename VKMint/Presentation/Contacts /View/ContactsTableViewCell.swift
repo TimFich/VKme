@@ -22,14 +22,14 @@ class ContactsTableViewCell: UITableViewCell {
     func configure(name: String, avatar: UIImage, lastSeen: Int, platform: Int, isOnline: Bool) {
         avatarOfUser.image = avatar
         nameOfUserLabel.text = name
-        if isOnline {
+        lastSeenLabel.text = dateConverter.convert(lastSeen)
+        if lastSeenLabel.text == "online" {
             onlineStatus.isHidden = false
             let platformImage = PlatformImageGenerator().generateImage(platform: platform)
             onlineStatus.image = platformImage
         } else {
             onlineStatus.isHidden = true
         }
-        lastSeenLabel.text = dateConverter.convert(lastSeen)
         setUpUI()
     }
     

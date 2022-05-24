@@ -95,6 +95,10 @@
 		E5B9EC82282FB05A0081FDD7 /* ProfileSettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9EC81282FB05A0081FDD7 /* ProfileSettingsItemView.swift */; };
 		E5C5FD7527E23456002D177F /* MessageTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
+		E5E0C7FC283CC52200607DD3 /* SecurityModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0C7FB283CC52200607DD3 /* SecurityModuleBuilder.swift */; };
+		E5E0C7FE283CC5AD00607DD3 /* SecurityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0C7FD283CC5AD00607DD3 /* SecurityInteractor.swift */; };
+		E5E0C800283CC5D800607DD3 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0C7FF283CC5D800607DD3 /* SecurityViewController.swift */; };
+		E5E0C802283CC64800607DD3 /* SecurityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0C801283CC64800607DD3 /* SecurityPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +204,10 @@
 		E5B9EC81282FB05A0081FDD7 /* ProfileSettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsItemView.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
+		E5E0C7FB283CC52200607DD3 /* SecurityModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityModuleBuilder.swift; sourceTree = "<group>"; };
+		E5E0C7FD283CC5AD00607DD3 /* SecurityInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityInteractor.swift; sourceTree = "<group>"; };
+		E5E0C7FF283CC5D800607DD3 /* SecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
+		E5E0C801283CC64800607DD3 /* SecurityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				E57A5BE02831321700051988 /* Appearance */,
+				E5E0C7F7283CC4F600607DD3 /* Security */,
 				E57A5BDE2831320800051988 /* About */,
 			);
 			path = Settings;
@@ -638,6 +647,41 @@
 				E5AE259A2829BFF400D514D3 /* DateConverter.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E5E0C7F7283CC4F600607DD3 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0C7FA283CC50E00607DD3 /* Interactor */,
+				E5E0C7FB283CC52200607DD3 /* SecurityModuleBuilder.swift */,
+				E5E0C7F9283CC50900607DD3 /* Presenter */,
+				E5E0C7F8283CC50200607DD3 /* View */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		E5E0C7F8283CC50200607DD3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0C7FF283CC5D800607DD3 /* SecurityViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5E0C7F9283CC50900607DD3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0C801283CC64800607DD3 /* SecurityPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E5E0C7FA283CC50E00607DD3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0C7FD283CC5AD00607DD3 /* SecurityInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -801,6 +845,7 @@
 				743446682829251600DAF818 /* ContactsTableViewCellData.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
 				E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */,
+				E5E0C802283CC64800607DD3 /* SecurityPresenter.swift in Sources */,
 				E57A5BEA283132BC00051988 /* AboutModuleBuilder.swift in Sources */,
 				7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */,
 				E5AE25A9282AC93600D514D3 /* ProfileApiInteractor.swift in Sources */,
@@ -852,9 +897,12 @@
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
 				7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */,
+				E5E0C7FC283CC52200607DD3 /* SecurityModuleBuilder.swift in Sources */,
 				E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */,
+				E5E0C7FE283CC5AD00607DD3 /* SecurityInteractor.swift in Sources */,
 				E5469A6C28199F1500929418 /* CDChatSettings+CoreDataClass.swift in Sources */,
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
+				E5E0C800283CC5D800607DD3 /* SecurityViewController.swift in Sources */,
 				7434465D2829186200DAF818 /* ContactsPresenter.swift in Sources */,
 				74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */,
 				E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */,

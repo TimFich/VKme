@@ -11,9 +11,9 @@ import UIKit
 class SettingsFlowCoordinator: FlowCoordinatorProtocol {
     
     private let parentViewController: UINavigationController?
-    private let flag: Bool
+    private let flag: Int
     
-    init(parentViewController: UINavigationController, flag: Bool) {
+    init(parentViewController: UINavigationController, flag: Int) {
         self.parentViewController = parentViewController
         self.flag = flag
     }
@@ -28,9 +28,12 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
     func finish(animated: Bool) {
     }
     
-    private func setUp(flag: Bool) -> UIViewController {
-        if flag {
+    private func setUp(flag: Int) -> UIViewController {
+        if flag == 1 {
             let builder = AppearanceModuleBuilder()
+            return builder.build()
+        } else if flag == 2 {
+            let builder = SecurityModuleBuilder()
             return builder.build()
         } else {
             let builder = AboutModuleBuilder()

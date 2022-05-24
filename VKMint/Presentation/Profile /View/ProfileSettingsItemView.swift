@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol ProfileSettingsItemOutput: AnyObject {
-    func buttonTaped(flag: Bool)
+    func buttonTaped(flag: Int)
 }
 
 class ProfileSettingsItemView: UIView {
@@ -86,9 +86,11 @@ class ProfileSettingsItemView: UIView {
     @objc
     func touchItem() {
         if title.currentTitle == "Appearance" {
-            output.buttonTaped(flag: true)
+            output.buttonTaped(flag: 1)
+        } else if title.currentTitle == "Security" {
+            output.buttonTaped(flag: 2)
         } else {
-            output.buttonTaped(flag: false)
+            output.buttonTaped(flag: 3)
         }
     }
 }

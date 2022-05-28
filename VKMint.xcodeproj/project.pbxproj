@@ -40,6 +40,8 @@
 		74C807932799DCBC00F7B772 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C807922799DCBC00F7B772 /* AuthViewController.swift */; };
 		74DDD59128299FE0008D0045 /* EscapingClosureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDD59028299FE0008D0045 /* EscapingClosureHelper.swift */; };
 		74DDD5932829ADBA008D0045 /* PlatformImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDD5922829ADBA008D0045 /* PlatformImageGenerator.swift */; };
+		E510CAD1283E2B4200D8FE9A /* LockModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510CAD0283E2B4200D8FE9A /* LockModuleBuilder.swift */; };
+		E510CAD3283E2C5500D8FE9A /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510CAD2283E2C5500D8FE9A /* LockViewController.swift */; };
 		E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */; };
 		E5182178281AFF17002C1E88 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182177281AFF17002C1E88 /* ContactsViewController.swift */; };
 		E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */; };
@@ -59,6 +61,10 @@
 		E526238B280DF94100032B61 /* MainApiInteractorForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */; };
 		E526238D280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */; };
 		E526238F280DFBEB00032B61 /* TestOfFailerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */; };
+		E5339ADB283FCA480050C082 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADA283FCA480050C082 /* KeychainManager.swift */; };
+		E5339ADD283FDFCD0050C082 /* LockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADC283FDFCD0050C082 /* LockInteractor.swift */; };
+		E5339ADF283FDFE00050C082 /* LockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADE283FDFE00050C082 /* LockPresenter.swift */; };
+		E5339AE1284007420050C082 /* LockScreenFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */; };
 		E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */; };
 		E5469A4528194EDD00929418 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A4428194EDD00929418 /* DataStoreManager.swift */; };
 		E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */; };
@@ -148,6 +154,8 @@
 		74DDD59028299FE0008D0045 /* EscapingClosureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapingClosureHelper.swift; sourceTree = "<group>"; };
 		74DDD5922829ADBA008D0045 /* PlatformImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformImageGenerator.swift; sourceTree = "<group>"; };
 		9FCEFEF9626114B1F5A6EC43 /* Pods-VKMint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKMint.debug.xcconfig"; path = "Target Support Files/Pods-VKMint/Pods-VKMint.debug.xcconfig"; sourceTree = "<group>"; };
+		E510CAD0283E2B4200D8FE9A /* LockModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockModuleBuilder.swift; sourceTree = "<group>"; };
+		E510CAD2283E2C5500D8FE9A /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
 		E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApiInteractor.swift; sourceTree = "<group>"; };
 		E5182177281AFF17002C1E88 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		E5182179281B0025002C1E88 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +176,10 @@
 		E526238A280DF94100032B61 /* MainApiInteractorForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForFailerMock.swift; sourceTree = "<group>"; };
 		E526238C280DFA8E00032B61 /* AuthInteractorOutputForFailerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorOutputForFailerMock.swift; sourceTree = "<group>"; };
 		E526238E280DFBEB00032B61 /* TestOfFailerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOfFailerAuth.swift; sourceTree = "<group>"; };
+		E5339ADA283FCA480050C082 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		E5339ADC283FDFCD0050C082 /* LockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockInteractor.swift; sourceTree = "<group>"; };
+		E5339ADE283FDFE00050C082 /* LockPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPresenter.swift; sourceTree = "<group>"; };
+		E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenFlowCoordinator.swift; sourceTree = "<group>"; };
 		E54699E12819406E00929418 /* Entities for messages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entities for messages.xcdatamodel"; sourceTree = "<group>"; };
 		E5469A4428194EDD00929418 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDLastMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -241,11 +253,12 @@
 		74153CC228008273005D3333 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */,
 				74153CC328008288005D3333 /* FlowCoordinatorProtocol.swift */,
+				74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */,
 				7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */,
-				7434465728282D9C00DAF818 /* LongPollManager.swift */,
 				E57A5BF128321EDE00051988 /* SettingsFlowCoordinator.swift */,
+				E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */,
+				7434465728282D9C00DAF818 /* LongPollManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -416,6 +429,7 @@
 		74C8078A2799D58200F7B772 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E510CACC283E2AF400D8FE9A /* Lock Screen */,
 				7453BA45279D8D76008D728E /* Profile  */,
 				7453BA41279D8CD3008D728E /* Contacts  */,
 				7427A41B279C1C65004A9039 /* Messages  */,
@@ -478,6 +492,41 @@
 				10A66D549C24673009C5BAE4 /* Pods-VKMint.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E510CACC283E2AF400D8FE9A /* Lock Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E510CACD283E2B0900D8FE9A /* Interactor */,
+				E510CAD0283E2B4200D8FE9A /* LockModuleBuilder.swift */,
+				E510CACE283E2B1000D8FE9A /* View */,
+				E510CACF283E2B1500D8FE9A /* Presenter */,
+			);
+			path = "Lock Screen";
+			sourceTree = "<group>";
+		};
+		E510CACD283E2B0900D8FE9A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E5339ADC283FDFCD0050C082 /* LockInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E510CACE283E2B1000D8FE9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E510CAD2283E2C5500D8FE9A /* LockViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E510CACF283E2B1500D8FE9A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E5339ADE283FDFE00050C082 /* LockPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E52463D7283C29CA009AF0F0 /* App Icons */ = {
@@ -645,6 +694,7 @@
 				E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */,
 				E5AE25A8282AC93600D514D3 /* ProfileApiInteractor.swift */,
 				E5AE259A2829BFF400D514D3 /* DateConverter.swift */,
+				E5339ADA283FCA480050C082 /* KeychainManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -845,6 +895,8 @@
 				743446682829251600DAF818 /* ContactsTableViewCellData.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
 				E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */,
+				E510CAD3283E2C5500D8FE9A /* LockViewController.swift in Sources */,
+				E5339ADB283FCA480050C082 /* KeychainManager.swift in Sources */,
 				E5E0C802283CC64800607DD3 /* SecurityPresenter.swift in Sources */,
 				E57A5BEA283132BC00051988 /* AboutModuleBuilder.swift in Sources */,
 				7448B232281B22CD00B54D0C /* MessagesTableViewCell.swift in Sources */,
@@ -855,6 +907,7 @@
 				748066292821AB9C002525CB /* MessagesPresenter.swift in Sources */,
 				E57A5BEE283133D000051988 /* AppearanceViewController.swift in Sources */,
 				E5AE25A1282AA7A200D514D3 /* ProfilePresenter.swift in Sources */,
+				E510CAD1283E2B4200D8FE9A /* LockModuleBuilder.swift in Sources */,
 				E5AE25AB282ACB0100D514D3 /* ProfileDataConverter.swift in Sources */,
 				E57A5BF0283133E700051988 /* AppearancePresenter.swift in Sources */,
 				7434465828282D9C00DAF818 /* LongPollManager.swift in Sources */,
@@ -864,6 +917,7 @@
 				7434465A28284CE600DAF818 /* LongPollEntities.swift in Sources */,
 				7434466428291F0400DAF818 /* CDContacts+CoreDataProperties.swift in Sources */,
 				E57A5BF228321EDE00051988 /* SettingsFlowCoordinator.swift in Sources */,
+				E5339AE1284007420050C082 /* LockScreenFlowCoordinator.swift in Sources */,
 				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
 				E57A5BF62832275700051988 /* AboutViewController.swift in Sources */,
 				E57A5BE8283132A500051988 /* AppearanceModuleBuilder.swift in Sources */,
@@ -904,6 +958,7 @@
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,
 				E5E0C800283CC5D800607DD3 /* SecurityViewController.swift in Sources */,
 				7434465D2829186200DAF818 /* ContactsPresenter.swift in Sources */,
+				E5339ADD283FDFCD0050C082 /* LockInteractor.swift in Sources */,
 				74153CC428008288005D3333 /* FlowCoordinatorProtocol.swift in Sources */,
 				E518217B281B0025002C1E88 /* ContactsTableViewCell.swift in Sources */,
 				74344666282924E100DAF818 /* ContactsTableViewCellConverter.swift in Sources */,
@@ -914,6 +969,7 @@
 				7480662128206F00002525CB /* MessageTableViewCellDataConverter.swift in Sources */,
 				E5469A7228199F1500929418 /* CDItems+CoreDataClass.swift in Sources */,
 				E5469A7328199F1500929418 /* CDItems+CoreDataProperties.swift in Sources */,
+				E5339ADF283FDFE00050C082 /* LockPresenter.swift in Sources */,
 				E5469A7128199F1500929418 /* CDPeer+CoreDataProperties.swift in Sources */,
 				E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */,
 			);

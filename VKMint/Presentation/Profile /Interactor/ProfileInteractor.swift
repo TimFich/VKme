@@ -42,7 +42,7 @@ extension ProfileInteractor: ProfileInteractorInput {
     }
     
     func performViewController(parentViewController: UINavigationController, flag: Int) {
-        let coordinator = SettingsFlowCoordinator(parentViewController: parentViewController, flag: flag)
+        let coordinator = SettingsFlowCoordinator(parentViewController: parentViewController, flag: flag, door: false)
         coordinator.start(animated: true)
     }
 }

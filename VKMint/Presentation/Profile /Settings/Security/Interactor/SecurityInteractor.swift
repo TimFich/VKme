@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SecurityInteractorInput: AnyObject {
-    
+    func performPinCodeScreen(parentViewController: UINavigationController, flag: Bool)
 }
 
 protocol SecurityInteractorOutput: AnyObject {
@@ -22,7 +23,10 @@ class SecurityInteractor {
 
 //MARK: - SecurityInteractorInput
 extension SecurityInteractor: SecurityInteractorInput {
-    
+    func performPinCodeScreen(parentViewController: UINavigationController, flag: Bool) {
+        let coordinator = LockScreenFlowCoordinator(parentViewController: parentViewController, flag: flag)
+        coordinator.start(animated: true)
+    }
 }
 
 

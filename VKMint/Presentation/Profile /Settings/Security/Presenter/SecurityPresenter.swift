@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SecurityPresenter {
     
@@ -19,16 +20,13 @@ class SecurityPresenter {
     }
 }
 
-//MARK: - SecurityInteractorInput
-extension SecurityPresenter: SecurityInteractorInput {
-    
-}
-
 //MARK: - SecurityInteractorOutput
 extension SecurityPresenter: SecurityInteractorOutput {
     
 }
 
 extension SecurityPresenter: SecurityViewOutput {
-    
+    func addPinCodePressed(parentViewController: UINavigationController, flag: Bool) {
+        interactor.performPinCodeScreen(parentViewController: parentViewController, flag: flag)
+    }
 }

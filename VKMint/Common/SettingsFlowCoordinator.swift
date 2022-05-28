@@ -12,10 +12,15 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
     
     private let parentViewController: UINavigationController?
     private let flag: Int
+    private var door = false
+    private let keyChainManager = KeychainManager()
+    private var isExistPassword = false
     
-    init(parentViewController: UINavigationController, flag: Int) {
+    init(parentViewController: UINavigationController, flag: Int, door: Bool) {
         self.parentViewController = parentViewController
         self.flag = flag
+        self.door = door
+        isExistPassword = keyChainManager.isExist()
     }
     
     func start(animated: Bool) {
@@ -33,8 +38,15 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
             let builder = AppearanceModuleBuilder()
             return builder.build()
         } else if flag == 2 {
-            let builder = SecurityModuleBuilder()
-            return builder.build()
+            if !isExistPassword || door {
+                print("Open Security screen")
+                let builder = SecurityModuleBuilder()
+                return builder.build()
+            } else {
+                print("Open Lock screen")
+                let builder = LockModuleBuilder()
+                return builder.build()
+            }
         } else {
             let builder = AboutModuleBuilder()
             return builder.build()

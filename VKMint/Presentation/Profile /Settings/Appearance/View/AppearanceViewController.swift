@@ -49,7 +49,7 @@ class AppearanceViewController: UIViewController {
             collectionView
         ])
         stackView.axis = .vertical
-        stackView.alignment = .center
+        stackView.alignment = .fill
         stackView.spacing = interItemSpacing
         return stackView
     }()

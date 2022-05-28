@@ -23,7 +23,7 @@ class ProfilePresenter {
 
 //MARK: - ProfileInteractorInput
 extension ProfilePresenter: ProfileInteractorInput {
-    func performViewController(parentViewController: UINavigationController, flag: Bool) {
+    func performViewController(parentViewController: UINavigationController, flag: Int) {
         
     }
     
@@ -46,7 +46,7 @@ extension ProfilePresenter: ProfileInteractorOutput {
 
 //MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
-    func itemPressed(parentViewController: UINavigationController, flag: Bool) {
+    func itemPressed(parentViewController: UINavigationController, flag: Int) {
         interactor.performViewController(parentViewController: parentViewController, flag: flag)
     }
     

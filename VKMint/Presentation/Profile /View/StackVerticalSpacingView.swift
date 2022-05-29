@@ -8,6 +8,7 @@
 import UIKit
 
 final class StackVerticalSpacingView: UIView {
+    
     private let size: CGFloat
     
     init(size: CGFloat, color: UIColor) {

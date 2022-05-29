@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileModuleOutput: AnyObject {
     func moduleWantsToOpenAuthScreen()
+    func moduleWantsToOpenSetting(flag: Int)
 }
 
 class ProfileModuleBuilder {
@@ -20,13 +21,10 @@ class ProfileModuleBuilder {
         self.output = output
     }
     
-    init () {
-        
-    }
     func build() -> UIViewController {
         let interactor = ProfileInteractor()
         let view = ProfileViewController()
-        let presenter = ProfilePresenter(interactor: interactor, view: view)
+        let presenter = ProfilePresenter(interactor: interactor, view: view, output: output!)
         interactor.output = presenter
         view.presenter = presenter
         return view

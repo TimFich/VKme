@@ -12,6 +12,7 @@ protocol AboutViewInput: AnyObject {
 }
 
 protocol AboutViewOutput: AnyObject {
+    func viewWantsToClose()
     
 }
 
@@ -85,6 +86,11 @@ class AboutViewController: UIViewController {
         title = "About the application"
         view.backgroundColor = .systemBackground
         setUpView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter.viewWantsToClose()
     }
     
     //MARK: - Configure UI

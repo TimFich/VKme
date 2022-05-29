@@ -8,15 +8,23 @@
 import Foundation
 import UIKit
 
+protocol TabBarFlowCoordinatorOutput: AnyObject {
+    func tabBarWantsToClose(completion: () -> Void)
+    func tabBarWantsToOpenAuth()
+}
+
 class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     
     
     private let tabBar = UITabBarController()
+    private weak var output: TabBarFlowCoordinatorOutput?
     private let parentViewController: UINavigationController?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
     
-    init(parentViewController: UINavigationController) {
+    init(parentViewController: UINavigationController, output: TabBarFlowCoordinatorOutput) {
         self.parentViewController = parentViewController
+        self.output = output
     }
     
     func start(animated: Bool) {
@@ -24,10 +32,20 @@ class TabBarFlowCoordinator: FlowCoordinatorProtocol {
         parentViewController?.pushViewController(tabBar, animated: true)
     }
     
-    func finish(animated: Bool) {
+    func finish(animated: Bool, completion: () -> Void) {
+        output?.tabBarWantsToClose(completion: completion)
+    }
+    
+    func finish() {
+        // unused
+    }
+    
+    deinit {
+        print("---TabBar sdox")
     }
     
     private func setUp() {
+        
         let contactsVC = buildContacts()
         
         let messagesVC = buildMessages()
@@ -56,7 +74,29 @@ class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     private func buildProfile() -> UIViewController {
-        let builder = ProfileModuleBuilder()
+        let builder = ProfileModuleBuilder(output: self)
         return builder.build()
+    }
+}
+
+extension TabBarFlowCoordinator: ProfileModuleOutput {
+    func moduleWantsToOpenSetting(flag: Int) {
+        let setFC = SettingsFlowCoordinator(parentViewController: parentViewController!, flag: flag, output: self)
+        childCoordinators.append(setFC)
+        setFC.start(animated: true)
+    }
+    
+    func moduleWantsToOpenAuthScreen() {
+        finish(animated: true, completion: {
+            output?.tabBarWantsToOpenAuth()
+        })
+    }
+}
+
+extension TabBarFlowCoordinator: SettingsFlowCoordinatorOutput {
+    func settingsWantsToClose() {
+        childCoordinators.removeAll(where: { coordinator in
+            coordinator is SettingsFlowCoordinator
+        })
     }
 }

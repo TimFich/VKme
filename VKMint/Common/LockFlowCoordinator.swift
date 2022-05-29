@@ -8,28 +8,31 @@
 import Foundation
 import UIKit
 
-class LockScreenFlowCoordinator: FlowCoordinatorProtocol {
+class LockFlowCoordinator: FlowCoordinatorProtocol {
     
     private let parentViewController: UINavigationController?
-    private let flag: Bool
     
-    init(parentViewController: UINavigationController, flag: Bool) {
+    init(parentViewController: UINavigationController) {
         self.parentViewController = parentViewController
-        self.flag = flag
     }
     
     func start(animated: Bool) {
-        let vc = setUp(flag: flag)
+        let vc = setUp()
         DispatchQueue.main.async {
-            self.parentViewController?.pushViewController(vc, animated: true)
+            vc.modalPresentationStyle = .fullScreen
+            self.parentViewController?.present(vc, animated: true)
         }
     }
     
-    func finish(animated: Bool) {
+    func finish() {
         
     }
     
-    private func setUp(flag: Bool) -> UIViewController {
+    deinit {
+        print("---Lock sdox")
+    }
+    
+    private func setUp() -> UIViewController {
         let builder = LockModuleBuilder()
         return builder.build()
     }

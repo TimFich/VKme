@@ -15,46 +15,33 @@ class ProfilePresenter {
     weak var view: ProfileViewController?
     private weak var moduleOutput: ProfileModuleOutput!
     
-    init(interactor: ProfileInteractor, view: ProfileViewController) {
+    init(interactor: ProfileInteractor, view: ProfileViewController, output: ProfileModuleOutput) {
         self.interactor = interactor
         self.view = view
-    }
-}
-
-//MARK: - ProfileInteractorInput
-extension ProfilePresenter: ProfileInteractorInput {
-    func performViewController(parentViewController: UINavigationController, flag: Int) {
-        
-    }
-    
-    func logout() {
-        
-    }
-    
-    func getDataOfUser(completion: @escaping (ProfileData) -> Void) {
-        
+        self.moduleOutput = output
     }
 }
 
 //MARK: - ProfileInteractorOutput
 extension ProfilePresenter: ProfileInteractorOutput {
     func logoutSuccess() {
-        //TODO: - свзать с MainFlowCoordinator
-        
+        view?.dismiss(animated: true, completion: {
+            self.moduleOutput.moduleWantsToOpenAuthScreen()
+        })
     }
 }
 
 //MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
-    func itemPressed(parentViewController: UINavigationController, flag: Int) {
-        interactor.performViewController(parentViewController: parentViewController, flag: flag)
+    func itemPressed(flag: Int) {
+        moduleOutput.moduleWantsToOpenSetting(flag: flag)
     }
     
     func signOutPressed() {
         interactor.logout()
     }
     
-    func viewDidLoad() {
+    func needToLoadData() {
         interactor.getDataOfUser { result in
             self.view?.needToUpdateProfile(person: result)
         }

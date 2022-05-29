@@ -20,22 +20,13 @@ class LockPresenter {
     }
 }
 
-//MARK: - LockInteractorInput
-extension LockPresenter: LockInteractorInput {
-    func perform(parentViewController: UINavigationController) {
-        
-    }
-    
-    
-}
-
 //MARK: - SecurityInteractorOutput
 extension LockPresenter: LockInteractorOutput {
     
 }
 
 extension LockPresenter: LockViewOutput {
-    func needToPerformNewScreen(parentViewController: UINavigationController) {
-        interactor.perform(parentViewController: parentViewController)
+    func needPassword() -> String {
+        interactor.needPassword()
     }
 }

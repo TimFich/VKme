@@ -12,15 +12,13 @@ class AppearancePresenter {
     //MARK: - Properties
     private var interactor: AppearanceInteractor
     weak var view: AppearanceViewController?
+    private weak var moduleOutput: AppearanceModuleOutput!
     
-    init(interactor: AppearanceInteractor, view: AppearanceViewController) {
+    init(interactor: AppearanceInteractor, view: AppearanceViewController, output: AppearanceModuleOutput) {
         self.interactor = interactor
         self.view = view
+        self.moduleOutput = output
     }
-}
-
-extension AppearancePresenter: AppearanceInteractorInput {
-    
 }
 
 extension AppearancePresenter: AppearanceInteractorOutput {
@@ -28,5 +26,7 @@ extension AppearancePresenter: AppearanceInteractorOutput {
 }
 
 extension AppearancePresenter: AppearanceViewOutput {
-    
+    func viewWantsToClose() {
+        moduleOutput?.appearenceWantsToClose()
+    }
 }

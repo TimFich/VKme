@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 protocol ProfileViewOutput {
-    func viewDidLoad()
+    func needToLoadData()
     func signOutPressed()
-    func itemPressed(parentViewController: UINavigationController, flag: Int)
+    func itemPressed(flag: Int)
 }
 
 protocol ProfileViewInput {
@@ -19,6 +19,9 @@ protocol ProfileViewInput {
 }
 
 class ProfileViewController: UIViewController {
+    
+    //MARK: - Properties
+    var presenter: ProfilePresenter!
     
     //MARK: - UI
     private let interItemSpacing = CGFloat(10)
@@ -118,14 +121,12 @@ class ProfileViewController: UIViewController {
         button.addTarget(nil, action: #selector(didClickSigOutButton), for: .touchUpInside)
         return button
     }()
-    
-    //MARK: - Properties
-    var presenter: ProfilePresenter!
-    
+
+    //MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        presenter.viewDidLoad()
+        presenter.needToLoadData()
         configureUI()
     }
     
@@ -176,20 +177,23 @@ class ProfileViewController: UIViewController {
         number.text = person.number
     }
     
+    //MARK: - Action
     @objc
     func didClickSigOutButton() {
         presenter.signOutPressed()
     }
 }
 
+//MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
     func needToUpdateProfile(person: ProfileData) {
         updateProfile(person: person)
     }
 }
 
+//MARK: - ProfileSettingsItemOutput
 extension ProfileViewController: ProfileSettingsItemOutput {
     func buttonTaped(flag: Int) {
-        presenter.itemPressed(parentViewController: self.navigationController!, flag: flag)
+        presenter.itemPressed(flag: flag)
     }
 }

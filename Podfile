@@ -8,5 +8,6 @@ target 'VKMint' do
   # Pods for VKMint
 	 pod 'SwiftyVK'
    pod 'SnapKit'
-pod 'SmileLock'	
+pod 'SmileLock'
+pod 'MessageKit'	
 end

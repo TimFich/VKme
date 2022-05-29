@@ -13,10 +13,12 @@ class SecurityPresenter {
     //MARK: - Properties
     private var interactor: SecurityInteractor
     weak var view: SecurityViewController?
+    private weak var moduleOutput: SecurityModuleOutput!
     
-    init(interactor: SecurityInteractor, view: SecurityViewController) {
+    init(interactor: SecurityInteractor, view: SecurityViewController, output: SecurityModuleOutput) {
         self.interactor = interactor
         self.view = view
+        self.moduleOutput = output
     }
 }
 
@@ -26,7 +28,15 @@ extension SecurityPresenter: SecurityInteractorOutput {
 }
 
 extension SecurityPresenter: SecurityViewOutput {
-    func addPinCodePressed(parentViewController: UINavigationController, flag: Bool) {
-        interactor.performPinCodeScreen(parentViewController: parentViewController, flag: flag)
+    func isExist() -> Bool {
+        interactor.isExist()
+    }
+    
+    func viewWantsToClose() {
+        moduleOutput?.securityWantsToClose()
+    }
+    
+    func openLockScreen() {
+        moduleOutput.openLockScreen()
     }
 }

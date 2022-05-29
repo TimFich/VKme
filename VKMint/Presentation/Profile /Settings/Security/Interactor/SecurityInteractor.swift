@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SecurityInteractorInput: AnyObject {
-    func performPinCodeScreen(parentViewController: UINavigationController, flag: Bool)
+    func isExist() -> Bool
 }
 
 protocol SecurityInteractorOutput: AnyObject {
@@ -19,13 +19,13 @@ protocol SecurityInteractorOutput: AnyObject {
 class SecurityInteractor {
     
     weak var output: SecurityInteractorOutput!
+    private let keychainManager = KeychainManager()
 }
 
 //MARK: - SecurityInteractorInput
 extension SecurityInteractor: SecurityInteractorInput {
-    func performPinCodeScreen(parentViewController: UINavigationController, flag: Bool) {
-        let coordinator = LockScreenFlowCoordinator(parentViewController: parentViewController, flag: flag)
-        coordinator.start(animated: true)
+    func isExist() -> Bool {
+        keychainManager.isExist()
     }
 }
 

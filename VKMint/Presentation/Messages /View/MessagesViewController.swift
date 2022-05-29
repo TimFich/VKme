@@ -86,6 +86,10 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
         setUpUIForLoader()
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    }
 }    
 
 //MARK: - MessagesViewInputProtocol

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol LockInteractorInput: AnyObject {
-    func perform(parentViewController: UINavigationController)
+    func needPassword() -> String
 }
 
 protocol LockInteractorOutput: AnyObject {
@@ -20,13 +20,13 @@ protocol LockInteractorOutput: AnyObject {
 class LockInteractor {
     
     weak var output: LockInteractorOutput!
+    private let keyChainManager = KeychainManager()
 }
 
 //MARK: - LockInteractorInput
 extension LockInteractor: LockInteractorInput {
-    func perform(parentViewController: UINavigationController) {
-        let coordinator = SettingsFlowCoordinator(parentViewController: parentViewController, flag: 2, door: true)
-        coordinator.start(animated: true)
+    func needPassword() -> String {
+        keyChainManager.getChain()
     }
 }
 

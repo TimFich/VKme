@@ -15,7 +15,7 @@ protocol LockViewInput: AnyObject {
 }
 
 protocol LockViewOutput: AnyObject {
-    func needToPerformNewScreen(parentViewController: UINavigationController)
+    func needPassword() -> String
 }
 
 
@@ -23,12 +23,13 @@ class LockViewController: UIViewController {
     
     //MARK: - Properties
     var presenter: LockPresenter!
-    var passwordContainerView: PasswordContainerView!
-    let kPasswordDigit = 6
+    private let kPasswordDigit = 6
     private var password = ""
     private let keyChainManager = KeychainManager()
     
     //MARK: - UI
+    private var passwordContainerView: PasswordContainerView!
+    
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -40,9 +41,9 @@ class LockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-        password = keyChainManager.getChain()
         title = "Lock Screen"
         view.backgroundColor = .systemBackground
+        password = presenter.needPassword()
         setUpUI()
     }
     
@@ -93,7 +94,8 @@ private extension LockViewController {
     
     func validationSuccess() {
         print("*️⃣ success!")
-        presenter.needToPerformNewScreen(parentViewController: navigationController!)
+        passwordContainerView.clearInput()
+        dismiss(animated: true)
     }
     
     func validationFail() {

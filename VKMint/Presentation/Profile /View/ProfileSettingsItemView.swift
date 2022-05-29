@@ -15,8 +15,9 @@ protocol ProfileSettingsItemOutput: AnyObject {
 
 class ProfileSettingsItemView: UIView {
     
+    //MARK: - Private properties
     private var flagOfChange = true
-    var traintCollection = UITraitCollection()
+    private var output: ProfileSettingsItemOutput
     
     //MARK: - UI
     private lazy var imageView: UIImageView = {
@@ -38,8 +39,6 @@ class ProfileSettingsItemView: UIView {
         return imageView
     }()
     
-    private var output: ProfileSettingsItemOutput
-    
     init(title: String, image: UIImage, output: ProfileSettingsItemOutput) {
         self.output = output
         super.init(frame: .zero)
@@ -52,6 +51,7 @@ class ProfileSettingsItemView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - configure UI
     private func setUpUI() {
         self.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -83,6 +83,7 @@ class ProfileSettingsItemView: UIView {
 //        }
 //    }
 //
+    //MARK: - Action
     @objc
     func touchItem() {
         if title.currentTitle == "Appearance" {

@@ -15,7 +15,6 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     public weak var parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     
-
     init(parentViewController: UINavigationController?, finishHandler: @escaping () -> Void) {
         self.parentViewController = parentViewController
         self.finishHandler = finishHandler
@@ -23,39 +22,51 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
     
     func start(animated: Bool) {
         if VKDelegate.isAuthorised() {
-            openTapBar(animated: animated)
+            openTabBar(animated: animated)
         } else {
-            openAuth(animated: animated)
+            openAuth(animated: animated, completion: nil)
         }
     }
     
-    func finish(animated: Bool) {
+    func finish() {
         // unused
     }
     
-    private func openTapBar(animated: Bool) {
-        let tapBarFC = TabBarFlowCoordinator(parentViewController: parentViewController!)
-        childCoordinators.append(tapBarFC)
-        tapBarFC.start(animated: true)
+    private func openTabBar(animated: Bool) {
+        let tabBarFC = TabBarFlowCoordinator(parentViewController: parentViewController!, output: self)
+        childCoordinators.append(tabBarFC)
+        tabBarFC.start(animated: true)
     }
     
-    private func openAuth(animated: Bool) {
+    func openAuth(animated: Bool, completion: (() -> Void)?) {
         let builder = AuthorisationModuleBuilder(output: self)
         let viewController = builder.build()
         viewController.modalPresentationStyle = .fullScreen
         parentViewController?.pushViewController(viewController, animated: true)
+        completion?()
+    }
+    
+    deinit {
+        print("---Main sdox")
     }
 }
 
 //MARK: - AuthModuleOutput
 extension MainFlowCoordinator: AuthModuleOutput {
     func moduleWantsToOpenTapBar(animated: Bool) {
-        openTapBar(animated: animated)
+        openTabBar(animated: animated)
     }
 }
 
-extension MainFlowCoordinator: ProfileInteractorOutput {
-    func logoutSuccess() {
-        openAuth(animated: true)
+extension MainFlowCoordinator: TabBarFlowCoordinatorOutput {
+    func tabBarWantsToClose(completion: () -> Void) {
+        childCoordinators.removeAll(where: { coordinator in
+            coordinator is TabBarFlowCoordinator
+        })
+        completion()
+    }
+    
+    func tabBarWantsToOpenAuth() {
+        openAuth(animated: true, completion: nil)
     }
 }

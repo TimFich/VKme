@@ -13,7 +13,7 @@ protocol AppearanceViewInput: AnyObject {
 }
 
 protocol AppearanceViewOutput: AnyObject {
-    
+    func viewWantsToClose()
 }
 
 class AppearanceViewController: UIViewController {
@@ -75,6 +75,11 @@ class AppearanceViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(LogoCollectionViewCell.self, forCellWithReuseIdentifier: idetifier)
         setUpUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter.viewWantsToClose()
     }
     
     private func setUpUI() {

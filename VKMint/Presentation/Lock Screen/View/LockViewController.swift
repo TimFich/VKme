@@ -44,6 +44,7 @@ class LockViewController: UIViewController {
         title = "Lock Screen"
         view.backgroundColor = .systemBackground
         password = presenter.needPassword()
+        print(password)
         setUpUI()
     }
     
@@ -67,6 +68,7 @@ class LockViewController: UIViewController {
 extension LockViewController: PasswordInputCompleteProtocol {
     func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
         if password != "" {
+            print(password)
             if validation(input) {
                 validationSuccess()
             } else {

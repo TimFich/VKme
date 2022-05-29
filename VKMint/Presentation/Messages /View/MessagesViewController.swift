@@ -18,10 +18,12 @@ protocol MessagesViewInputProtocol {
 protocol MessagesViewOutputProtocol {
     func viewDidLoad()
     func nextButtonPressed(offset: Int)
+    func wantsToOpenChat(id: Int)
 }
 
 class MessagesViewController: UIViewController {
     
+    //MARK: - Properties
     var data: [MessageTableViewCellData] = []
     var peerIdToIndexDict: [Int: Int] = [:]
     var presenter: MessagesPresenter!
@@ -88,7 +90,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        presenter.wantsToOpenChat(id: data[indexPath.row].peerId)
     }
 }    
 

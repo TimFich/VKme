@@ -19,13 +19,6 @@ class ContactsPresenter {
     }
 }
 
-//MARK: - ContactsInteractorInput
-extension ContactsPresenter: ContactsInteractorInput {
-    func fetchUsers(completion: @escaping ([ContactsTableViewCellData]) -> Void) {
-        
-    }
-}
-
 //MARK: - ContactsViewOutput
 extension ContactsPresenter: ContactsViewOutput {
     func viewDidLoad() {

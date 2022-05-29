@@ -21,10 +21,12 @@ class AppearancePresenter {
     }
 }
 
+//MARK: - AppearanceInteractorOutput
 extension AppearancePresenter: AppearanceInteractorOutput {
     
 }
 
+//MARK: - AppearanceViewOutput
 extension AppearancePresenter: AppearanceViewOutput {
     func viewWantsToClose() {
         moduleOutput?.appearenceWantsToClose()

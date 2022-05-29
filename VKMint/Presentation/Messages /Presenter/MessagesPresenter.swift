@@ -9,16 +9,24 @@ import Foundation
 
 class MessagesPresenter {
     
-    init(interactor: MessagesInteractor, view: MessagesViewController) {
-        self.interactor = interactor
-        self.view = view
-    }
-    
     private var interactor: MessagesInteractor!
     weak var view: MessagesViewController!
+    private weak var moduleOutput: MessagesModuleOutput!
+    
+    init(interactor: MessagesInteractor, view: MessagesViewController, output: MessagesModuleOutput) {
+        self.interactor = interactor
+        self.view = view
+        self.moduleOutput = output
+    }
 }
 
+//MARK: - MessagesViewOutputProtocol
 extension MessagesPresenter: MessagesViewOutputProtocol {
+    
+    func wantsToOpenChat(id: Int) {
+        moduleOutput.openChat(id: id)
+    }
+    
     func nextButtonPressed(offset: Int) {
         interactor.downloadConversations(offset: offset, completion: { cellsData in
             self.view.dataFetched(data: cellsData)

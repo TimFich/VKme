@@ -17,7 +17,8 @@ class MainApiInteractorImpl: MainApiInteractor {
     
     func authorize(onSuccess: @escaping () -> (), onError: @escaping () -> ()) {
         VK.sessions.default.logIn(onSuccess: {
-            _ in
+            result in
+            UserDefaults.standard.set(result["user_id"], forKey: UserDefaultsKeys.userId.rawValue)
             onSuccess()
         }, onError: {
             _ in

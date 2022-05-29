@@ -31,7 +31,8 @@ class MessagesTableViewCell: UITableViewCell {
         setUpUI()
     }
     
-    private func setUpUI(){
+    private func setUpUI() {
+        
         contentView.addSubview(convImage)
         convImage.layer.cornerRadius = 30
         convImage.clipsToBounds = true
@@ -59,7 +60,7 @@ class MessagesTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(5)
             make.left.equalTo(titleLabel.snp.right).offset(10)
         }
-
+        
         contentView.addSubview(lastMessageLabel)
         lastMessageLabel.snp.makeConstraints { make in
             make.left.equalTo(convImage.snp.right).offset(10)

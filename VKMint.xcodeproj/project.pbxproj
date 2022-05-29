@@ -64,7 +64,7 @@
 		E5339ADB283FCA480050C082 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADA283FCA480050C082 /* KeychainManager.swift */; };
 		E5339ADD283FDFCD0050C082 /* LockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADC283FDFCD0050C082 /* LockInteractor.swift */; };
 		E5339ADF283FDFE00050C082 /* LockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADE283FDFE00050C082 /* LockPresenter.swift */; };
-		E5339AE1284007420050C082 /* LockScreenFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */; };
+		E5339AE1284007420050C082 /* LockFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339AE0284007420050C082 /* LockFlowCoordinator.swift */; };
 		E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */; };
 		E5469A4528194EDD00929418 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A4428194EDD00929418 /* DataStoreManager.swift */; };
 		E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */; };
@@ -88,6 +88,7 @@
 		E57A5BF42832274200051988 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF32832274200051988 /* AboutInteractor.swift */; };
 		E57A5BF62832275700051988 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF52832275700051988 /* AboutViewController.swift */; };
 		E57A5BF82832276900051988 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A5BF72832276900051988 /* AboutPresenter.swift */; };
+		E591461828429D55005326D1 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591461728429D55005326D1 /* ChatModuleBuilder.swift */; };
 		E5AD819B283B9F1100D2A3A2 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AD819A283B9F1100D2A3A2 /* LogoCollectionViewCell.swift */; };
 		E5AE259B2829BFF400D514D3 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259A2829BFF400D514D3 /* DateConverter.swift */; };
 		E5AE259F282AA4EB00D514D3 /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */; };
@@ -179,7 +180,7 @@
 		E5339ADA283FCA480050C082 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		E5339ADC283FDFCD0050C082 /* LockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockInteractor.swift; sourceTree = "<group>"; };
 		E5339ADE283FDFE00050C082 /* LockPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPresenter.swift; sourceTree = "<group>"; };
-		E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenFlowCoordinator.swift; sourceTree = "<group>"; };
+		E5339AE0284007420050C082 /* LockFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFlowCoordinator.swift; sourceTree = "<group>"; };
 		E54699E12819406E00929418 /* Entities for messages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entities for messages.xcdatamodel"; sourceTree = "<group>"; };
 		E5469A4428194EDD00929418 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDLastMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		E57A5BF32832274200051988 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		E57A5BF52832275700051988 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E57A5BF72832276900051988 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
+		E591461728429D55005326D1 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		E5AD819A283B9F1100D2A3A2 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5AE259A2829BFF400D514D3 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		E5AE259E282AA4EB00D514D3 /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
@@ -257,7 +259,7 @@
 				74153CC5280082CC005D3333 /* MainFlowCoordinator.swift */,
 				7448B22D281B177800B54D0C /* TabBarFlowCoordinator.swift */,
 				E57A5BF128321EDE00051988 /* SettingsFlowCoordinator.swift */,
-				E5339AE0284007420050C082 /* LockScreenFlowCoordinator.swift */,
+				E5339AE0284007420050C082 /* LockFlowCoordinator.swift */,
 				7434465728282D9C00DAF818 /* LongPollManager.swift */,
 			);
 			path = Common;
@@ -274,11 +276,13 @@
 		7427A41B279C1C65004A9039 /* Messages  */ = {
 			isa = PBXGroup;
 			children = (
+				E591461128429C2A005326D1 /* Chats */,
 				7448B233281B438000B54D0C /* Interactor */,
 				E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */,
 				7448B234281B438B00B54D0C /* Presenter */,
 				7427A41C279C1C8F004A9039 /* View */,
 				7480662028206F00002525CB /* MessageTableViewCellDataConverter.swift */,
+				E591461728429D55005326D1 /* ChatModuleBuilder.swift */,
 			);
 			path = "Messages ";
 			sourceTree = "<group>";
@@ -667,6 +671,37 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		E591461128429C2A005326D1 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				E591461628429D3B005326D1 /* Interactor */,
+				E591461528429D19005326D1 /* Presenter */,
+				E591461428429D12005326D1 /* View */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		E591461428429D12005326D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E591461528429D19005326D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E591461628429D3B005326D1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		E5AE259C282AA46D00D514D3 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,7 +952,7 @@
 				7434465A28284CE600DAF818 /* LongPollEntities.swift in Sources */,
 				7434466428291F0400DAF818 /* CDContacts+CoreDataProperties.swift in Sources */,
 				E57A5BF228321EDE00051988 /* SettingsFlowCoordinator.swift in Sources */,
-				E5339AE1284007420050C082 /* LockScreenFlowCoordinator.swift in Sources */,
+				E5339AE1284007420050C082 /* LockFlowCoordinator.swift in Sources */,
 				74C807902799D95900F7B772 /* MainApiInteractor.swift in Sources */,
 				E57A5BF62832275700051988 /* AboutViewController.swift in Sources */,
 				E57A5BE8283132A500051988 /* AppearanceModuleBuilder.swift in Sources */,
@@ -939,6 +974,7 @@
 				E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */,
 				E5469A6F28199F1500929418 /* CDConversationClass+CoreDataProperties.swift in Sources */,
 				E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */,
+				E591461828429D55005326D1 /* ChatModuleBuilder.swift in Sources */,
 				E5469A7428199F1500929418 /* CDConversations+CoreDataClass.swift in Sources */,
 				74DDD59128299FE0008D0045 /* EscapingClosureHelper.swift in Sources */,
 				74344660282918E500DAF818 /* ContactsInteractor.swift in Sources */,

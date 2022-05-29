@@ -11,7 +11,6 @@ import UIKit
 protocol ProfileInteractorInput: AnyObject {
     func getDataOfUser(completion: @escaping (ProfileData) -> Void)
     func logout()
-    func performViewController(parentViewController: UINavigationController, flag: Int)
 }
 
 protocol ProfileInteractorOutput: AnyObject {
@@ -27,6 +26,7 @@ class ProfileInteractor {
 
 //MARK: - ProfileInteractorInput
 extension ProfileInteractor: ProfileInteractorInput {
+    
     func getDataOfUser(completion: @escaping (ProfileData) -> Void) {
         let converter = ProfileDataConverter()
         profileInteractor.getUserInfo { result in
@@ -39,10 +39,5 @@ extension ProfileInteractor: ProfileInteractorInput {
     func logout() {
         mainInteractor.sigout()
         output.logoutSuccess()
-    }
-    
-    func performViewController(parentViewController: UINavigationController, flag: Int) {
-        let coordinator = SettingsFlowCoordinator(parentViewController: parentViewController, flag: flag, door: false)
-        coordinator.start(animated: true)
     }
 }

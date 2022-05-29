@@ -9,36 +9,26 @@ import Foundation
 
 class AboutPresenter {
     
-    //MARK: - Private Properties
-    
-    private var interactor: AboutInteractor
-    
     //MARK: - Properties
-    
+    private var interactor: AboutInteractor
     weak var view: AboutViewController?
+    private weak var moduleOutput: AboutModuleOutput!
     
-    //MARK: - Life cycle
-    
-    init(interactor: AboutInteractor, view: AboutViewController) {
+    init(interactor: AboutInteractor, view: AboutViewController, output: AboutModuleOutput) {
         self.interactor = interactor
         self.view = view
+        self.moduleOutput = output
     }
 }
 
-//MARK: - AboutInteractorInput
-
-extension AboutPresenter: AboutInteractorInput {
-    
-}
-
 //MARK: - AboutInteractorOutput
-
 extension AboutPresenter: AboutInteractorOutput {
     
 }
 
 //MARK: - AboutViewOutput
-
 extension AboutPresenter: AboutViewOutput {
-    
+    func viewWantsToClose() {
+        moduleOutput?.aboutWantsToClose()
+    }
 }

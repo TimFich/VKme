@@ -8,49 +8,76 @@
 import Foundation
 import UIKit
 
+protocol SettingsFlowCoordinatorOutput: AnyObject {
+    func settingsWantsToClose()
+}
+
 class SettingsFlowCoordinator: FlowCoordinatorProtocol {
     
     private let parentViewController: UINavigationController?
     private let flag: Int
-    private var door = false
-    private let keyChainManager = KeychainManager()
-    private var isExistPassword = false
+    private weak var output: SettingsFlowCoordinatorOutput?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
-    init(parentViewController: UINavigationController, flag: Int, door: Bool) {
+    init(parentViewController: UINavigationController, flag: Int, output: SettingsFlowCoordinatorOutput) {
         self.parentViewController = parentViewController
         self.flag = flag
-        self.door = door
-        isExistPassword = keyChainManager.isExist()
+        self.output = output
     }
     
     func start(animated: Bool) {
         let vc = setUp(flag: flag)
         DispatchQueue.main.async {
+            let backItem = UIBarButtonItem()
+               backItem.title = "POPOPOP"
+            vc.navigationItem.backBarButtonItem = backItem
             self.parentViewController?.pushViewController(vc, animated: true)
         }
     }
     
-    func finish(animated: Bool) {
+    func finish() {
+        output?.settingsWantsToClose()
+    }
+    
+    deinit {
+        print("---Settings sdox")
     }
     
     private func setUp(flag: Int) -> UIViewController {
         if flag == 1 {
-            let builder = AppearanceModuleBuilder()
+            let builder = AppearanceModuleBuilder(output: self)
             return builder.build()
         } else if flag == 2 {
-            if !isExistPassword || door {
-                print("Open Security screen")
-                let builder = SecurityModuleBuilder()
+            let builder = SecurityModuleBuilder(output: self)
                 return builder.build()
-            } else {
-                print("Open Lock screen")
-                let builder = LockModuleBuilder()
-                return builder.build()
-            }
         } else {
-            let builder = AboutModuleBuilder()
+            let builder = AboutModuleBuilder(output: self)
             return builder.build()
         }
     }
     
+}
+
+extension SettingsFlowCoordinator: AppearanceModuleOutput {
+    func appearenceWantsToClose() {
+        finish()
+    }
+}
+
+extension SettingsFlowCoordinator: SecurityModuleOutput {
+    func openLockScreen() {
+        let lockFC = LockFlowCoordinator(parentViewController: parentViewController!)
+        childCoordinators.append(lockFC)
+        lockFC.start(animated: true)
+    }
+    
+    func securityWantsToClose() {
+        finish()
+    }
+}
+
+extension SettingsFlowCoordinator: AboutModuleOutput {
+    func aboutWantsToClose() {
+        finish()
+    }
 }

@@ -13,7 +13,9 @@ protocol SecurityViewInput: AnyObject {
 }
 
 protocol SecurityViewOutput: AnyObject {
-    func addPinCodePressed(parentViewController: UINavigationController, flag: Bool)
+    func openLockScreen()
+    func viewWantsToClose()
+    func isExist() -> Bool
 }
 
 class SecurityViewController: UIViewController {
@@ -21,6 +23,7 @@ class SecurityViewController: UIViewController {
     //MARK: - Properties
     var presenter: SecurityPresenter!
     private let interItemSpacing = CGFloat(20)
+    private var flag = false
     
     //MARK: - UI
     private lazy var scrollView: UIScrollView = {
@@ -34,6 +37,7 @@ class SecurityViewController: UIViewController {
         button.addTarget(nil, action: #selector(touchItem), for: .touchUpInside)
         button.setTitle("Add Pin-Code", for: .normal)
         button.contentHorizontalAlignment = .center
+        button.setTitleColor(UIColor.gray, for: .disabled)
         return button
     }()
     
@@ -60,14 +64,23 @@ class SecurityViewController: UIViewController {
         title = "Security"
         navigationController?.navigationItem.setLeftBarButton(backButton, animated: true)
         view.backgroundColor = .systemBackground
+        flag = presenter.isExist()
         setUpUI()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter.viewWantsToClose()
+    }
+    
+    //MARK: - Configure UI
     private func setUpUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        addPasswordButton.isEnabled = !flag
         
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -78,10 +91,10 @@ class SecurityViewController: UIViewController {
         }
     }
     
-    //MARK: - Action
+    //MARK: - Actions
     @objc
     private func touchItem() {
-        presenter.addPinCodePressed(parentViewController: navigationController!, flag: true)
+        presenter.openLockScreen()
     }
     
     @objc

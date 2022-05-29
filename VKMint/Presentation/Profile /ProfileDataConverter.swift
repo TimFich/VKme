@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileDataConverter {
     
+    //MARK: - Private properties
     private let profileApiInteractor: ProfileApiInteractor = ProfileApiInteractorImpl()
     
     func convertToData(photoUser: [UserItems : UIImage], completion: @escaping (ProfileData) -> Void) {

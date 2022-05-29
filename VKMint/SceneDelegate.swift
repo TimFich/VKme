@@ -10,21 +10,24 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let rootNavigationController = UINavigationController()
+    let lockVC = LockModuleBuilder().build()
+    let keyChainManager = KeychainManager()
+    var timeOfExit = Date()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let vc = UINavigationController()
-        vc.view.backgroundColor = .white
-        window.rootViewController = vc
+        rootNavigationController.view.backgroundColor = .white
+        window.rootViewController = rootNavigationController
         self.window = window
         window.makeKeyAndVisible()
         
-        vc.isNavigationBarHidden = true
+        rootNavigationController.isNavigationBarHidden = true
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.startMainFlowCoordinator(rootViewController: vc)
+        appDelegate.startMainFlowCoordinator(rootViewController: rootNavigationController)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -37,11 +40,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        let timeOfEnter = NSDate() as Date
+        let dif = Calendar.current.dateComponents([.minute], from: timeOfExit, to: timeOfEnter).minute
+        if  dif ?? 0 > 2 {
+            if keyChainManager.isExist() {
+            rootNavigationController.modalPresentationStyle = .fullScreen
+            rootNavigationController.present(lockVC, animated: true)
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+         timeOfExit = NSDate() as Date
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {

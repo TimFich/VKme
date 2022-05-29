@@ -8,12 +8,22 @@
 import Foundation
 import UIKit
 
+protocol AboutModuleOutput: AnyObject {
+    func aboutWantsToClose()
+}
+
 class AboutModuleBuilder {
+    
+    private weak var output: AboutModuleOutput?
+    
+    init(output: AboutModuleOutput) {
+        self.output = output
+    }
     
     func build() -> UIViewController {
         let interactor = AboutInteractor()
         let view = AboutViewController()
-        let presenter = AboutPresenter(interactor: interactor, view: view)
+        let presenter = AboutPresenter(interactor: interactor, view: view, output: output!)
         interactor.output = presenter
         view.presenter = presenter
         

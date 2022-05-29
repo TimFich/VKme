@@ -19,6 +19,7 @@ class AboutInteractor {
     weak var output: AboutInteractorOutput!
 }
 
+//MARK: - AboutInteractorInput
 extension AboutInteractor: AboutInteractorInput {
     
 }

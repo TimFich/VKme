@@ -10,15 +10,18 @@ import UIKit
 
 class ChatModuleBuilder {
     
-    private var id: Int
+    private let id: Int
+    private let title: String
     
-    init(id: Int) {
+    init(id: Int, title: String) {
         self.id = id
+        self.title = title
     }
         
     func build() -> UIViewController {
         let interactor = ChatInteractor(id: id)
         let view = ChatViewController()
+        view.title = title
         let presenter = ChatPresenter(interactor: interactor, view: view)
         interactor.output = presenter
         view.mainPresenter = presenter

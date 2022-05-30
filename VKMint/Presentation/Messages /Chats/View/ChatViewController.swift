@@ -11,7 +11,7 @@ import MapKit
 import InputBarAccessoryView
 
 protocol ChatViewOutput {
-    func getChatData(completion: (ChatData) -> Void)
+    func getChatData(completion: @escaping (ChatData) -> Void)
 }
 
 protocol ChatViewInput {
@@ -20,16 +20,20 @@ protocol ChatViewInput {
 
 class ChatViewController: MessageKit.MessagesViewController {
     
+    //MARK: - Properties
     private var content: [ChatUnit] = []
     var mainPresenter: ChatPresenter!
 
+    //MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-        title = ""
         mainPresenter.getChatData(completion: { result in
-            content = result.content
-            title = result.title
+            self.content = result.content.reversed()
+            DispatchQueue.main.async {
+                self.messagesCollectionView.reloadData()
+                self.messagesCollectionView.scrollToLastItem()
+            }
         })
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesDataSource = self
@@ -37,6 +41,7 @@ class ChatViewController: MessageKit.MessagesViewController {
     }
 }
 
+//MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -56,6 +61,7 @@ extension ChatViewController: MessagesLayoutDelegate {
     }
 }
 
+//MARK: - MessagesDisplayDelegate, MessagesDataSource
 extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     
     func currentSender() -> SenderType {
@@ -67,11 +73,15 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        1
+    }
+    
+    func numberOfItems(inSection section: Int, in messagesCollectionView: MessagesCollectionView) -> Int {
         content.count
     }
     
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .white : .darkText
+        return isFromCurrentSender(message: message) ? .white : .white
     }
     
     func detectorAttributes(for detector: DetectorType, and message: MessageType, at indexPath: IndexPath) -> [NSAttributedString.Key: Any] {
@@ -85,8 +95,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
         return [.url, .address, .phoneNumber, .date, .transitInformation, .mention, .hashtag]
     }
     
-    // MARK: - All Messages
-    
+// MARK: - All Messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return .blue    }
     
@@ -102,8 +111,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
     }
     
-    // MARK: - Location Messages
-    
+// MARK: - Location Messages
     func annotationViewForLocation(message: MessageType, at indexPath: IndexPath, in messageCollectionView: MessagesCollectionView) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: nil, reuseIdentifier: nil)
         let pinImage =  #imageLiteral(resourceName: "ic_map_marker")
@@ -126,8 +134,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
         return LocationMessageSnapshotOptions(showsBuildings: true, showsPointsOfInterest: true, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     }
 
-    // MARK: - Audio Messages
-
+// MARK: - Audio Messages
 func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : UIColor(red: 15/255, green: 135/255, blue: 255/255, alpha: 1.0)
     }
@@ -136,6 +143,7 @@ func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messag
     }
 }
 
+//MARK: - ChatViewInput
 extension ChatViewController: ChatViewInput {
     
 }

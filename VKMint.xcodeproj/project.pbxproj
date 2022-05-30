@@ -107,6 +107,10 @@
 		E5C0FEF728440A2300B55FD8 /* ChatUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FEF628440A2300B55FD8 /* ChatUnit.swift */; };
 		E5C0FEF92844118C00B55FD8 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FEF82844118C00B55FD8 /* ChatData.swift */; };
 		E5C0FEFB2844123700B55FD8 /* ChatApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FEFA2844123700B55FD8 /* ChatApiInteractor.swift */; };
+		E5C0FEFD2844169C00B55FD8 /* ChatEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FEFC2844169C00B55FD8 /* ChatEntities.swift */; };
+		E5C0FEFF284418DF00B55FD8 /* ChatDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FEFE284418DF00B55FD8 /* ChatDataConverter.swift */; };
+		E5C0FF012844F8FE00B55FD8 /* AudioChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FF002844F8FE00B55FD8 /* AudioChatMessage.swift */; };
+		E5C0FF032844FAAF00B55FD8 /* MediaChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C0FF022844FAAF00B55FD8 /* MediaChatMessage.swift */; };
 		E5C5FD7527E23456002D177F /* MessageTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */; };
 		E5C5FD7727E23C3F002D177F /* UserEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C5FD7627E23C3F002D177F /* UserEntities.swift */; };
 		E5E0C7FC283CC52200607DD3 /* SecurityModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E0C7FB283CC52200607DD3 /* SecurityModuleBuilder.swift */; };
@@ -231,6 +235,10 @@
 		E5C0FEF628440A2300B55FD8 /* ChatUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUnit.swift; sourceTree = "<group>"; };
 		E5C0FEF82844118C00B55FD8 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		E5C0FEFA2844123700B55FD8 /* ChatApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatApiInteractor.swift; sourceTree = "<group>"; };
+		E5C0FEFC2844169C00B55FD8 /* ChatEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEntities.swift; sourceTree = "<group>"; };
+		E5C0FEFE284418DF00B55FD8 /* ChatDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataConverter.swift; sourceTree = "<group>"; };
+		E5C0FF002844F8FE00B55FD8 /* AudioChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChatMessage.swift; sourceTree = "<group>"; };
+		E5C0FF022844FAAF00B55FD8 /* MediaChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaChatMessage.swift; sourceTree = "<group>"; };
 		E5C5FD7427E23456002D177F /* MessageTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCellData.swift; sourceTree = "<group>"; };
 		E5C5FD7627E23C3F002D177F /* UserEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntities.swift; sourceTree = "<group>"; };
 		E5E0C7FB283CC52200607DD3 /* SecurityModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityModuleBuilder.swift; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 				7439DC6827A1574500506767 /* Conversation Entities.swift */,
 				E5C5FD7627E23C3F002D177F /* UserEntities.swift */,
 				7434465928284CE600DAF818 /* LongPollEntities.swift */,
+				E5C0FEFC2844169C00B55FD8 /* ChatEntities.swift */,
 			);
 			path = JsonObjects;
 			sourceTree = "<group>";
@@ -693,6 +702,7 @@
 				E591461F2843FDFA005326D1 /* ChatModuleBuilder.swift */,
 				E591461528429D19005326D1 /* Presenter */,
 				E591461428429D12005326D1 /* View */,
+				E5C0FEFE284418DF00B55FD8 /* ChatDataConverter.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -743,6 +753,8 @@
 				E5C0FEF42844090100B55FD8 /* ChatUser.swift */,
 				E5C0FEF628440A2300B55FD8 /* ChatUnit.swift */,
 				E5C0FEF82844118C00B55FD8 /* ChatData.swift */,
+				E5C0FF002844F8FE00B55FD8 /* AudioChatMessage.swift */,
+				E5C0FF022844FAAF00B55FD8 /* MediaChatMessage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -974,10 +986,12 @@
 				E5AE25AB282ACB0100D514D3 /* ProfileDataConverter.swift in Sources */,
 				E57A5BF0283133E700051988 /* AppearancePresenter.swift in Sources */,
 				7434465828282D9C00DAF818 /* LongPollManager.swift in Sources */,
+				E5C0FF032844FAAF00B55FD8 /* MediaChatMessage.swift in Sources */,
 				E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */,
 				E5C0FEFB2844123700B55FD8 /* ChatApiInteractor.swift in Sources */,
 				E5C0FEF728440A2300B55FD8 /* ChatUnit.swift in Sources */,
 				E5469A6D28199F1500929418 /* CDChatSettings+CoreDataProperties.swift in Sources */,
+				E5C0FF012844F8FE00B55FD8 /* AudioChatMessage.swift in Sources */,
 				7480661F281D5B57002525CB /* MessagesInteractor.swift in Sources */,
 				7434465A28284CE600DAF818 /* LongPollEntities.swift in Sources */,
 				7434466428291F0400DAF818 /* CDContacts+CoreDataProperties.swift in Sources */,
@@ -1016,11 +1030,13 @@
 				7434466B28295F6F00DAF818 /* ContactsModuleBuilder.swift in Sources */,
 				E5AE25A5282AA7FF00D514D3 /* ProfileInteractor.swift in Sources */,
 				E57A5BEC283133A700051988 /* AppearanceInteractor.swift in Sources */,
+				E5C0FEFF284418DF00B55FD8 /* ChatDataConverter.swift in Sources */,
 				E591462228440779005326D1 /* UserDefaultsKeys.swift in Sources */,
 				E57A5BF42832274200051988 /* AboutInteractor.swift in Sources */,
 				7434466228291EF000DAF818 /* CDContacts+CoreDataClass.swift in Sources */,
 				E59146202843FDFA005326D1 /* ChatModuleBuilder.swift in Sources */,
 				749F4E622799B77000E2958A /* AppDelegate.swift in Sources */,
+				E5C0FEFD2844169C00B55FD8 /* ChatEntities.swift in Sources */,
 				749F4E642799B77000E2958A /* SceneDelegate.swift in Sources */,
 				7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */,
 				E5E0C7FC283CC52200607DD3 /* SecurityModuleBuilder.swift in Sources */,

@@ -18,7 +18,7 @@ protocol MessagesViewInputProtocol {
 protocol MessagesViewOutputProtocol {
     func viewDidLoad()
     func nextButtonPressed(offset: Int)
-    func wantsToOpenChat(id: Int)
+    func wantsToOpenChat(id: Int, title: String)
 }
 
 class MessagesViewController: UIViewController {
@@ -46,6 +46,11 @@ class MessagesViewController: UIViewController {
         tableView.register(MessagesTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
         configureTable()
         presenter.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: - Configure UI
@@ -90,7 +95,7 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.wantsToOpenChat(id: data[indexPath.row].peerId)
+        presenter.wantsToOpenChat(id: data[indexPath.row].peerId, title: data[indexPath.row].title)
     }
 }    
 

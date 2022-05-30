@@ -23,8 +23,8 @@ class MessagesPresenter {
 //MARK: - MessagesViewOutputProtocol
 extension MessagesPresenter: MessagesViewOutputProtocol {
     
-    func wantsToOpenChat(id: Int) {
-        moduleOutput.openChat(id: id)
+    func wantsToOpenChat(id: Int, title: String) {
+        moduleOutput.openChat(id: id, title: title)
     }
     
     func nextButtonPressed(offset: Int) {

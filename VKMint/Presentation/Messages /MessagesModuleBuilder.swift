@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol MessagesModuleOutput: AnyObject {
-    func openChat(id: Int)
+    func openChat(id: Int, title: String)
 }
 
 class MessagesModuleBuilder {

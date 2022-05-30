@@ -95,8 +95,8 @@ extension TabBarFlowCoordinator: ProfileModuleOutput {
 
 extension TabBarFlowCoordinator: MessagesModuleOutput {
     
-    func openChat(id: Int) {
-        let vc = ChatModuleBuilder(id: id).build()
+    func openChat(id: Int, title: String) {
+        let vc = ChatModuleBuilder(id: id, title: title).build()
         let backItem = UIBarButtonItem()
             backItem.title = "Back"
         vc.navigationItem.backBarButtonItem = backItem

@@ -25,7 +25,7 @@ extension ChatPresenter: ChatInteractorOutput {
 
 //MARK: - ChatViewOutput
 extension ChatPresenter: ChatViewOutput {
-    func getChatData(completion: (ChatData) -> Void) {
+    func getChatData(completion: @escaping (ChatData) -> Void) {
         interactor.getChatData(completion: completion)
     }
 }

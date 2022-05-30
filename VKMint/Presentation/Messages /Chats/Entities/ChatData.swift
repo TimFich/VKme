@@ -9,5 +9,4 @@ import Foundation
 
 struct ChatData {
     let content: [ChatUnit]
-    let title: String
 }

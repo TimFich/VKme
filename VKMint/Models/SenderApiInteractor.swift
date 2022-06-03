@@ -22,12 +22,10 @@ class SenderApiInteractorImpl: SenderApiInteractor {
                 completion(response.messageId)
             }).send()
         } else {
-            VK.API.Messages.send([Parameter.peerId: "\(peerId!)", Parameter.randomId: "\(randomId)", Parameter.message: "\(message)"]).onSuccess ({ result in
+            VK.API.Messages.send([Parameter.peerId: "\(peerId!)", Parameter.randomId: "\(randomId)", Parameter.message: "\(message)"]).onSuccess({ result in
                 let response = try! JSONDecoder().decode(ResponseOfMessage.self, from: result)
                 completion(response.messageId)
             }).send()
         }
-        
-       
     }
 }

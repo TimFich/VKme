@@ -18,14 +18,14 @@ protocol AppearanceViewOutput: AnyObject {
 
 class AppearanceViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var presenter: AppearancePresenter!
     private let idetifier = "logoCells"
     private let namesOfIcons = ["First_Logo", "Second_Logo", "Third_Logo", "Fourth_Logo", "Fifth_Logo"]
     private let interItemSpacing = CGFloat(10)
     private var layout = UICollectionViewFlowLayout()
     
-    //MARK: - UI
+    // MARK: - UI
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
@@ -42,7 +42,7 @@ class AppearanceViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             titleLabel,
@@ -64,8 +64,8 @@ class AppearanceViewController: UIViewController {
         layout.scrollDirection = .horizontal
         return collectionView
     }()
-    
-    //MARK: - View life cyrcle
+
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -108,7 +108,7 @@ class AppearanceViewController: UIViewController {
     }
 }
 
-//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension AppearanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return namesOfIcons.count
@@ -124,7 +124,7 @@ extension AppearanceViewController: UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard UIApplication.shared.supportsAlternateIcons else {
             return
@@ -141,7 +141,7 @@ extension AppearanceViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-//MARK: - AppearanceViewInput
+// MARK: - AppearanceViewInput
 extension AppearanceViewController: AppearanceViewInput {
     
 }

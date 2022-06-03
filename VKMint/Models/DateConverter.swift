@@ -18,7 +18,6 @@
      func convert(_ date: Int) -> String {
          let time = Date(timeIntervalSince1970: TimeInterval(date))
          let dif = Calendar.current.dateComponents([.minute], from: time, to: currentTime).minute
-         
          if date == 0 {
              return "last seen recently"
          }

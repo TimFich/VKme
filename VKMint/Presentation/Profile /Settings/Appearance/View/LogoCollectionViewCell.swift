@@ -34,7 +34,7 @@ class LogoCollectionViewCell: UICollectionViewCell {
             image.image = UIImage(named: "VK_Logo")
         }
     }
-    
+
     private func configureUI() {
         contentView.addSubview(image)
         image.snp.makeConstraints { make in

@@ -15,7 +15,7 @@ protocol UsersApiInteractor {
 
 class UsersApiInteracorImpl: UsersApiInteractor {
     
-    func getUserByID(userId: Int, completion: @escaping (UserItems) -> ()) {
+    func getUserByID(userId: Int, completion: @escaping (UserItems) -> Void) {
         VK.API.Users.get([Parameter.userId: "\(userId)"])
             .onSuccess({ result in
                 let user = try! JSONDecoder().decode([UserItems].self, from: result)
@@ -29,14 +29,11 @@ class UsersApiInteracorImpl: UsersApiInteractor {
             parameters[Parameter.userId] = "\(id)"
         }
         VK.API.Users.get(parameters).onSuccess({ result in
-            do {
+
                 let users = try! JSONDecoder().decode([UserItems].self, from: result)
                 DispatchQueue.main.async {
                     completion(users)
                 }
-            } catch let error {
-                print(error)
-            }
         }).send()
     }
     

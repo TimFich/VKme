@@ -8,7 +8,7 @@
 import Foundation
 
 class AppearancePresenter {
-    
+
     // MARK: - Properties
     private var interactor: AppearanceInteractor
     weak var view: AppearanceViewController?

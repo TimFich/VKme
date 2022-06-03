@@ -23,7 +23,6 @@ class ImageDownloaderImpl: ImageDownloader {
             DispatchQueue.main.async {
                 completion(users)
             }
-        }).onError ({_ in
         }).send()
     }
     
@@ -42,7 +41,7 @@ class ImageDownloaderImpl: ImageDownloader {
         }
     }
     
-    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 }

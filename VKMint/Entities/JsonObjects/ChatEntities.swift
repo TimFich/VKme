@@ -11,6 +11,7 @@ import Foundation
 struct ChatResponse: Codable {
     let count: Int
     let items: [ChatItem]
+    let profiles: [UserItems]
 }
 
 // MARK: - Item

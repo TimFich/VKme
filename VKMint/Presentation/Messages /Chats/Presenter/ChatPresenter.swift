@@ -25,6 +25,10 @@ extension ChatPresenter: ChatInteractorOutput {
 
 //MARK: - ChatViewOutput
 extension ChatPresenter: ChatViewOutput {
+    func needToSendMessage(completion: @escaping ((Int) -> Void), textOfMessage: String) {
+        interactor.sendMesaage(completion: completion, text: textOfMessage)
+    }
+    
     func getChatData(completion: @escaping (ChatData) -> Void) {
         interactor.getChatData(completion: completion)
     }

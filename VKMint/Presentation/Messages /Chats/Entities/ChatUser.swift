@@ -7,9 +7,12 @@
 
 import Foundation
 import MessageKit
+import UIKit
 
 struct ChatUser: SenderType {
     var senderId: String
     
     var displayName: String
+    
+    var avatar: URL?
 }

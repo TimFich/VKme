@@ -10,9 +10,14 @@ import MessageKit
 
 class ChatDataConverter {
     
+    var idToAvatar: [Int: URL?] = [:]
+    
     func convert(data: ChatResponse) -> ChatData {
         
         var chatUnits: [ChatUnit] = []
+        for profile in data.profiles {
+            idToAvatar[profile.id] = URL(string: profile.photo_100!)
+        }
         
         for item in data.items {
             
@@ -35,43 +40,53 @@ class ChatDataConverter {
     }
     
     func convertTextMessage(_ item: ChatItem) -> ChatUnit {
+        let avatarUrl = idToAvatar[item.fromID] ?? nil
         
-        ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: ""), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.text(item.text))
+        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.text(item.text))
     }
     
     func convertAudioMessage(_ item: ChatItem) -> ChatUnit {
+        
+        let avatarUrl = idToAvatar[item.fromID] ?? nil
+
         
         let audioUnit = item.attachments[0].audio
         
         let audio = AudioChatMessage(url: URL(string: audioUnit?.url ?? "")!, duration: Float(audioUnit?.duration ?? 0), size: CGSize(width: 200, height: 100))
         
-        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: ""), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
+        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
     }
     
     func convertVoiceMessage(_ item: ChatItem) -> ChatUnit {
+        
+        let avatarUrl = idToAvatar[item.fromID] ?? nil
         
         let audioUnit = item.attachments[0].audioMessage
         
         let audio = AudioChatMessage(url: URL(string: audioUnit?.link_mp3 ?? "")!, duration: Float(audioUnit?.duration ?? 0), size: CGSize(width: 200, height: 100))
         
-        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: ""), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
+        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
     }
     
     func convertStickerMessage(_ item: ChatItem) -> ChatUnit {
         
+        let avatarUrl = idToAvatar[item.fromID] ?? nil
+        
         let stickerUnit = item.attachments[0].sticker
         
-        let sticker = MediaChatMessage(url: URL(string: stickerUnit?.images[0].url ?? "")!, image: UIImage(), placeholderImage: UIImage(systemName: "rays")!, size: CGSize(width: stickerUnit?.images[0].width ?? 0, height: stickerUnit?.images[0].height ?? 0))
+        let sticker = MediaChatMessage(url: URL(string: stickerUnit?.images[0].url ?? "")!, image: UIImage(), placeholderImage: UIImage(systemName: "rays")!, size: CGSize(width: stickerUnit?.images.last?.width ?? 0, height: stickerUnit?.images.last?.height ?? 0))
         
-        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: ""), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.photo(sticker))
+        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.photo(sticker))
     }
     
     func convertPhotoMessage(_ item: ChatItem) -> ChatUnit {
         
+        let avatarUrl = idToAvatar[item.fromID] ?? nil
+        
         let photoUnit = item.attachments[0].photo
         
-        let photo = MediaChatMessage(url: URL(string: photoUnit?.sizes[0].url ?? "")!, image: UIImage(), placeholderImage: UIImage(systemName: "rays")!, size: CGSize(width: 100, height: photoUnit?.sizes[0].height ?? 0))
+        let photo = MediaChatMessage(url: URL(string: photoUnit?.sizes[0].url ?? "")!, image: UIImage(), placeholderImage: UIImage(systemName: "rays")!, size: CGSize(width: 300, height: photoUnit?.sizes.last?.height ?? 0))
         
-        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: ""), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.photo(photo))
+        return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.photo(photo))
     }
 }

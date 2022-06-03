@@ -5,13 +5,15 @@
 //  Created by Тимур Миргалиев on 29.05.2022.
 //
 
-import MessageKit
 import UIKit
+import MessageKit
 import MapKit
 import InputBarAccessoryView
+import Kingfisher
 
 protocol ChatViewOutput {
     func getChatData(completion: @escaping (ChatData) -> Void)
+    func needToSendMessage(completion: @escaping ((Int) -> Void), textOfMessage: String)
 }
 
 protocol ChatViewInput {
@@ -23,6 +25,7 @@ class ChatViewController: MessageKit.MessagesViewController {
     //MARK: - Properties
     private var content: [ChatUnit] = []
     var mainPresenter: ChatPresenter!
+    lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
 
     //MARK: - View life cyrcle
     override func viewDidLoad() {
@@ -38,6 +41,18 @@ class ChatViewController: MessageKit.MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messageCellDelegate = self
+        configureMessageInputBar()
+    }
+    
+    func configureMessageInputBar() {
+        messageInputBar.delegate = self
+        messageInputBar.inputTextView.tintColor = .white
+        messageInputBar.sendButton.setTitleColor(.white, for: .normal)
+        messageInputBar.sendButton.setTitleColor(
+            .white.withAlphaComponent(0.3),
+            for: .highlighted
+        )
     }
 }
 
@@ -97,18 +112,27 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     
 // MARK: - All Messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return .blue    }
+        return .systemGray    }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         
         let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
-        return .bubbleTail(tail, .curved)
+        return .bubbleTail(tail, .pointedEdge)
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        guard let chatUser = message.sender as? ChatUser else {
+            return
+        }
+        avatarView.kf.setImage(with: chatUser.avatar)
     }
 
     func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if case MessageKind.photo(let media) = message.kind, let imageURL = media.url {
+            imageView.kf.setImage(with: imageURL)
+        } else {
+            imageView.kf.cancelDownloadTask()
+        }
     }
     
 // MARK: - Location Messages
@@ -140,6 +164,96 @@ func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messag
     }
     
     func configureAudioCell(_ cell: AudioMessageCell, message: MessageType) {
+        audioController.configureAudioCell(cell, message: message)
+    }
+}
+
+//MARK: - MessageCellDelegate
+extension ChatViewController: MessageCellDelegate {
+    func didTapAvatar(in cell: MessageCollectionViewCell) {
+        print("Avatar tapped")
+    }
+    
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        print("Message tapped")
+    }
+    
+    func didTapImage(in cell: MessageCollectionViewCell) {
+        print("Image tapped")
+    }
+    
+    func didTapCellTopLabel(in cell: MessageCollectionViewCell) {
+        print("Top cell label tapped")
+    }
+    
+    func didTapCellBottomLabel(in cell: MessageCollectionViewCell) {
+        print("Bottom cell label tapped")
+    }
+    
+    func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
+        print("Top message label tapped")
+    }
+    
+    func didTapMessageBottomLabel(in cell: MessageCollectionViewCell) {
+        print("Bottom label tapped")
+    }
+
+    func didTapPlayButton(in cell: AudioMessageCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell),
+            let message = messagesCollectionView.messagesDataSource?.messageForItem(at: indexPath, in: messagesCollectionView) else {
+                print("Failed to identify message when audio cell receive tap gesture")
+                return
+        }
+        guard audioController.state != .stopped else {
+            // There is no audio sound playing - prepare to start playing for given audio message
+            audioController.playSound(for: message, in: cell)
+            return
+        }
+        if audioController.playingMessage?.messageId == message.messageId {
+            // tap occur in the current cell that is playing audio sound
+            if audioController.state == .playing {
+                audioController.pauseSound(for: message, in: cell)
+            } else {
+                audioController.resumeSound()
+            }
+        } else {
+            // tap occur in a difference cell that the one is currently playing sound. First stop currently playing and start the sound for given message
+            audioController.stopAnyOngoingPlaying()
+            audioController.playSound(for: message, in: cell)
+        }
+    }
+
+    func didStartAudio(in cell: AudioMessageCell) {
+        print("Did start playing audio sound")
+    }
+
+    func didPauseAudio(in cell: AudioMessageCell) {
+        print("Did pause audio sound")
+    }
+
+    func didStopAudio(in cell: AudioMessageCell) {
+        print("Did stop audio sound")
+    }
+
+    func didTapAccessoryView(in cell: MessageCollectionViewCell) {
+        print("Accessory view tapped")
+    }
+
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    
+    @objc
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        mainPresenter.needToSendMessage(
+            completion: { result in
+                DispatchQueue.main.async {
+                self.content.append(ChatUnit(sender: self.currentSender(), messageId: "\(result)", sentDate: Date.now, kind: MessageKind.text(inputBar.inputTextView.text)))
+                    self.messagesCollectionView.reloadData()
+                    self.messagesCollectionView.scrollToLastItem()
+                    inputBar.inputTextView.text = ""
+                }
+            }, textOfMessage: inputBar.inputTextView.text)
     }
 }
 

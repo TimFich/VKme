@@ -18,7 +18,7 @@ class AppearanceInteractor {
     weak var output: AppearanceInteractorOutput!
 }
 
-//MARK: - AppearanceInteractorInput
+// MARK: - AppearanceInteractorInput
 extension AppearanceInteractor: AppearanceInteractorInput {
     
 }

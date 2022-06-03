@@ -34,15 +34,15 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
             self.parentViewController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     func finish() {
         output?.settingsWantsToClose()
     }
-    
+
     deinit {
         print("---Settings sdox")
     }
-    
+
     private func setUp(flag: Int) -> UIViewController {
         if flag == 1 {
             let builder = AppearanceModuleBuilder(output: self)

@@ -22,7 +22,7 @@ class DataStoreManager: DataStoreManagerProtocol {
     
     lazy var viewContext = persistentContainer.viewContext
     let imageDownloader: ImageDownloader = ImageDownloaderImpl()
-    
+
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Entities for messages")
@@ -102,7 +102,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         }
 
     }
-    
+
     func fetchConversations() -> CDConversations? {
         let fetchRequest = CDConversations.fetchRequest()
         do {
@@ -137,7 +137,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         }
         return NSOrderedSet(array: cdProfiles)
     }
-    
+
     func addCDItem(_ item: Item) -> CDItems {
         let cdItem = CDItems(context: viewContext)
         cdItem.conversation = addCDConversationClass(item.conversation)
@@ -145,7 +145,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         saveContext()
         return cdItem
     }
-    
+
     func addCDUserItem(_ profile: UserItems) -> CDUserItems {
         let cdProfile = CDUserItems(context: viewContext)
         cdProfile.firstName = profile.firstName
@@ -157,7 +157,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         })
         return cdProfile
     }
-    
+
     func addCDConversationClass(_ conversation: ConversationClass) -> CDConversationClass {
         let convClass = CDConversationClass(context: viewContext)
         convClass.unreadCount = Int64(conversation.unreadCount ?? 0)
@@ -203,7 +203,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         saveContext()
         return cdLastMess
     }
-    
+
     func replaceLastMessage(lastMessage: LastMessage) {
         let fetchRequest = CDLastMessage.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "peerID == %@", NSNumber(value: lastMessage.peerID))

@@ -10,7 +10,7 @@ import UIKit
 
 class MainFlowCoordinator: FlowCoordinatorProtocol {
     
-    //MARK: - Properties
+    // MARK: - Properties
     private var finishHandler: () -> Void
     public weak var parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []

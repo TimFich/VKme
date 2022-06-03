@@ -54,14 +54,14 @@ struct ChatAttachments: Codable {
     }
 }
 
-//MARK: - ChatPhoto
+// MARK: - ChatPhoto
 struct ChatPhoto: Codable {
     let id: Int
     let date: Int
     let ownerId: Int
     let accessKey: String
     let sizes: [PhotoSizes]
-    
+
     enum CodingKeys: String, CodingKey {
         case id, date
         case ownerId = "owner_id"
@@ -70,13 +70,13 @@ struct ChatPhoto: Codable {
     }
 }
 
-//MARK: - PhotoSizes
+// MARK: - PhotoSizes
 struct PhotoSizes: Codable {
     let height: Int
     let url: String
 }
 
-//MARK: - Stickers
+// MARK: - Stickers
 struct Stickers: Codable {
     let stickerId: Int
     let images: [StickerSizes]
@@ -87,14 +87,14 @@ struct Stickers: Codable {
     }
 }
 
-//MARK: - StickerSizes
+// MARK: - StickerSizes
 struct StickerSizes: Codable {
     let url: String
     let width: Int
     let height: Int
 }
 
-//MARK: - AudioMessage
+// MARK: - Audio
 struct Audio: Codable {
     let artist: String
     let title: String
@@ -102,9 +102,9 @@ struct Audio: Codable {
     let url: String
 }
 
+// MARK: - AudioMessage
 struct AudioMessage: Codable {
     let id: Int
     let duration: Int
     let link_mp3: String
 }
-

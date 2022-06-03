@@ -9,7 +9,7 @@ import Foundation
 
 class ContactsPresenter {
     
-    //MARK: - Properties
+    // MARK: - Properties
     private var interactor: СontactsInteractor
     weak var view: ContactsViewController?
 
@@ -19,7 +19,7 @@ class ContactsPresenter {
     }
 }
 
-//MARK: - ContactsViewOutput
+// MARK: - ContactsViewOutput
 extension ContactsPresenter: ContactsViewOutput {
     func viewDidLoad() {
         interactor.fetchUsers(completion: { cellData in
@@ -28,7 +28,7 @@ extension ContactsPresenter: ContactsViewOutput {
     }
 }
 
-//MARK: - ContactsInteractorOutput
+// MARK: - ContactsInteractorOutput
 extension ContactsPresenter: ContactsInteractorOutput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData]) {
         view?.needToUpdateContacts(updatedData: updatedData)

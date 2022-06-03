@@ -14,10 +14,10 @@ protocol AuthViewOutput: AnyObject {
 
 class AuthViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var presenter: AuthViewOutput!
     
-    //MARK: - UI
+    // MARK: - UI
     let logo = UIImageView()
     let mainLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -33,7 +33,7 @@ class AuthViewController: UIViewController {
         setUpUI()
     }
     
-    //MARK: - Make constraints
+    // MARK: - Make constraints
      func setUpUI() {
          view.addSubview(logo)
          logo.image = UIImage(named: "VK_Logo")
@@ -73,8 +73,8 @@ class AuthViewController: UIViewController {
             make.bottom.equalToSuperview().inset(50)
         }
     }
-    
-    //MARK: - Actions
+
+    // MARK: - Actions
     @objc
     func registration() {
         presenter.signInButtonPressed()

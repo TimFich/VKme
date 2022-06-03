@@ -28,7 +28,7 @@ extension AuthPresenter: AuthViewOutput {
     }
 }
 
-//MARK: - AuthInteractorOutput
+// MARK: - AuthInteractorOutput
 extension AuthPresenter: AuthInteractorOutput {
     func authorizedSuccesful() {
         moduleOutput.moduleWantsToOpenTapBar(animated: true)
@@ -37,4 +37,3 @@ extension AuthPresenter: AuthInteractorOutput {
     func authorizedFailure() {
     }
 }
-

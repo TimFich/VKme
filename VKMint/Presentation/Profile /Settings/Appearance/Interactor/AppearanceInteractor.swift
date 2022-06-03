@@ -11,9 +11,7 @@ protocol AppearanceInteractorInput: AnyObject {
     
 }
 
-protocol AppearanceInteractorOutput: AnyObject {
-    
-}
+protocol AppearanceInteractorOutput: AnyObject {}
 
 class AppearanceInteractor {
     

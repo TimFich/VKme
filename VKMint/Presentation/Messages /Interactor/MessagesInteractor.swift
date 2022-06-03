@@ -29,7 +29,7 @@ class MessagesInteractor: MessagesInteractorInput {
     let longPollManager = LongPollManager.shared
     weak var output: MessagesInteractorOutput!
     
-    //MARK: - Public functions
+    // MARK: - Public functions
     func getStoredOrLoadConversations(completion: @escaping ([MessageTableViewCellData]) -> Void) {
         let result = dataStoreManager.fetchConversations()
         guard let result = result else {
@@ -69,11 +69,11 @@ class MessagesInteractor: MessagesInteractorInput {
             })
         })
     }
-    
+
     private func startLongPolling() {
         longPollManager.start()
         longPollManager.addOnReceiveCompletion(eventNumber: 4,completion: { data in
-            let data = try! JSONSerialization.jsonObject(with: data, options: []) as! Array<Any>
+            let data = try! JSONSerialization.jsonObject(with: data, options: []) as! [Any]
             let peerId = data[2] as! Int
             let text = data[5] as! String
             let id = data[1] as! Int

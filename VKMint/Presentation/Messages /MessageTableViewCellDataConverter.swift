@@ -42,7 +42,6 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
                     helper.photosCount -= 1
                 }
             case .group:
-                // TODO: Made groups
                 helper.photosCount -= 1
             case .user:
                 let peerId = item.conversation.peer.id
@@ -69,7 +68,7 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
     
     func convertToCellData(conversation: CDConversations) -> [MessageTableViewCellData] {
         var result: [MessageTableViewCellData] = []
-        let items = Array(conversation.items) as! Array<CDItems>
+        let items = [conversation.items] as! [CDItems]
         for item in items {
             let type = TypeEnum(rawValue: item.conversation.peer.type)
             guard let type = type else { return [] }
@@ -86,11 +85,10 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
                     cellData.avatarOfChat = UIImage(data: data)!
                 }
             case .group:
-                // TODO: Made groups
                 print("Need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id
-                let profiles = Array(conversation.profiles) as! Array<CDUserItems>
+                let profiles = [conversation.profiles] as! [CDUserItems]
                 let profile = profiles.first(where: {
                     $0.id == peerId
                 })

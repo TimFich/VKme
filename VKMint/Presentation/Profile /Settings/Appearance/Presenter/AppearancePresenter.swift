@@ -8,8 +8,8 @@
 import Foundation
 
 class AppearancePresenter {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var interactor: AppearanceInteractor
     weak var view: AppearanceViewController?
     private weak var moduleOutput: AppearanceModuleOutput!
@@ -21,12 +21,12 @@ class AppearancePresenter {
     }
 }
 
-//MARK: - AppearanceInteractorOutput
+// MARK: - AppearanceInteractorOutput
 extension AppearancePresenter: AppearanceInteractorOutput {
     
 }
 
-//MARK: - AppearanceViewOutput
+// MARK: - AppearanceViewOutput
 extension AppearancePresenter: AppearanceViewOutput {
     func viewWantsToClose() {
         moduleOutput?.appearenceWantsToClose()

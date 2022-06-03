@@ -44,8 +44,7 @@ extension СontactsInteractor: ContactsInteractorInput {
             completion(cellData)
             output.startUpdatingUsers()
             friendsApiInteractor.getFriends(completion: { userEntities in
-                converter.convertToCellData(contacts: userEntities, completion: {
-                    result in
+                converter.convertToCellData(contacts: userEntities, completion: { result in
                     self.output.needToUpdateContacts(updatedData: result)
                     self.output.endUpdatingUsers()
                 })
@@ -54,5 +53,3 @@ extension СontactsInteractor: ContactsInteractorInput {
         }
     }
 }
-
-

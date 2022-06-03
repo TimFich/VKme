@@ -23,11 +23,11 @@ class LockFlowCoordinator: FlowCoordinatorProtocol {
             self.parentViewController?.present(vc, animated: true)
         }
     }
-    
+
     func finish() {
         
     }
-    
+
     deinit {
         print("---Lock sdox")
     }

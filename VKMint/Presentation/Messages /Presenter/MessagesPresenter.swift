@@ -40,7 +40,7 @@ extension MessagesPresenter: MessagesViewOutputProtocol {
     }
 }
 
-//MARK: - MessagesInteractorOutput
+// MARK: - MessagesInteractorOutput
 extension MessagesPresenter: MessagesInteractorOutput {
     func newMessageReceived(message: LastMessage) {
         view.updateLastMessage(message: message)

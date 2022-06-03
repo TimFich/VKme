@@ -33,7 +33,6 @@ struct UserItems: Codable, Hashable {
     }
 }
 
-
 // MARK: - Response
 struct FriendEntity: Codable {
     let count: Int

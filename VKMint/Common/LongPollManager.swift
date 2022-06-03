@@ -12,7 +12,7 @@ class LongPollManager {
     
     //MARK: - Properties
     static let shared = LongPollManager()
-    private var onReceiveEvent: [Int: [(Data) -> ()]] = [:]
+    private var onReceiveEvent: [Int: [(Data) -> Void]] = [:]
     
     public func start() {
         VK.sessions.default.longPoll.start(version: .third, onReceiveEvents: { events in
@@ -88,7 +88,7 @@ class LongPollManager {
         })
     }
     
-    public func addOnReceiveCompletion(eventNumber: Int, completion: @escaping (Data)-> ()) {
+    public func addOnReceiveCompletion(eventNumber: Int, completion: @escaping (Data) -> Void) {
         var completions = onReceiveEvent[eventNumber]
         guard completions != nil else {
             completions = []

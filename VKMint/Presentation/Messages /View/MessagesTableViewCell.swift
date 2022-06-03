@@ -16,7 +16,7 @@ class MessagesTableViewCell: UITableViewCell {
     var lastMessageLabel = UILabel()
     var unreadCountLabel = UILabel()
     
-    //MARK: - Public functions
+    // MARK: - Public functions
     func configure(cellData: MessageTableViewCellData) {
         self.convImage.image = cellData.avatarOfChat
         self.titleLabel.text = cellData.title
@@ -30,7 +30,7 @@ class MessagesTableViewCell: UITableViewCell {
         }
         setUpUI()
     }
-    
+
     private func setUpUI() {
         
         contentView.addSubview(convImage)

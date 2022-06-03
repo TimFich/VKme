@@ -42,7 +42,6 @@ struct ConversationClass: Codable {
     let chatSettings: ChatSettings?
     let pushSettings: PushSettings?
    
-
     enum CodingKeys: String, CodingKey {
         case isMarkedUnread = "is_marked_unread"
         case inRead = "in_read"
@@ -82,11 +81,11 @@ struct ChatSettings: Codable {
     }
 }
 
-//MARK: - Photo
+// MARK: - Photo
 struct Photo: Codable {
     let photoMini: String?
     let isDefaultPhoto: Bool
-    
+
     enum CodingKeys: String, CodingKey {
         case isDefaultPhoto = "is_default_photo"
         case photoMini = "photo_100"
@@ -147,7 +146,7 @@ struct LastMessage: Codable {
 
 struct Attachments: Codable {
     let type: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type = "type"
     }

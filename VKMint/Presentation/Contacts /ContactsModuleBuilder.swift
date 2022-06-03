@@ -19,5 +19,3 @@ class ContactsModuleBuilder {
         return view
     }
 }
-
-

@@ -9,7 +9,6 @@ import UIKit
 import SmileLock
 import SnapKit
 
-
 protocol LockViewInput: AnyObject {
     
 }
@@ -17,7 +16,6 @@ protocol LockViewInput: AnyObject {
 protocol LockViewOutput: AnyObject {
     func needPassword() -> String
 }
-
 
 class LockViewController: UIViewController {
     
@@ -27,7 +25,7 @@ class LockViewController: UIViewController {
     private var password = ""
     private let keyChainManager = KeychainManager()
     
-    //MARK: - UI
+    // MARK: - UI
     private var passwordContainerView: PasswordContainerView!
     
     private lazy var mainStackView: UIStackView = {
@@ -37,7 +35,7 @@ class LockViewController: UIViewController {
         return stackView
     }()
     
-    //MARK: - View life cyrcle
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -48,13 +46,12 @@ class LockViewController: UIViewController {
         setUpUI()
     }
     
-    //MARK: - Configure UI
+    // MARK: - Configure UI
     private func setUpUI() {
         view.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
-        
         passwordContainerView = PasswordContainerView.create(in: mainStackView, digit: kPasswordDigit)
         passwordContainerView.delegate = self
         passwordContainerView.deleteButton.setTitle("", for: .normal)
@@ -64,7 +61,7 @@ class LockViewController: UIViewController {
     }
 }
 
-//MARK: - PasswordInputCompleteProtocol
+// MARK: - PasswordInputCompleteProtocol
 extension LockViewController: PasswordInputCompleteProtocol {
     func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
         if password != "" {

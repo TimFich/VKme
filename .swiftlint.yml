@@ -1,5 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - colon
+  - syntactic_sugar
   - comma
   - control_statement
   - identifier_name #rule for checking variable conditions (Upper case , lower case , underscore )

@@ -42,7 +42,6 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
                     helper.photosCount -= 1
                 }
             case .group:
-                // TODO: Made groups
                 helper.photosCount -= 1
             case .user:
                 let peerId = item.conversation.peer.id
@@ -86,7 +85,6 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
                     cellData.avatarOfChat = UIImage(data: data)!
                 }
             case .group:
-                // TODO: Made groups
                 print("Need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id

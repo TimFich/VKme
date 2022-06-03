@@ -15,12 +15,10 @@ protocol TabBarFlowCoordinatorOutput: AnyObject {
 
 class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     
-    
     private let tabBar = UITabBarController()
     private weak var output: TabBarFlowCoordinatorOutput?
     private let parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
-    
     
     init(parentViewController: UINavigationController, output: TabBarFlowCoordinatorOutput) {
         self.parentViewController = parentViewController
@@ -43,9 +41,9 @@ class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     deinit {
         print("---TabBar sdox")
     }
-    
+
     private func setUp() {
-        
+
         let contactsVC = buildContacts()
         
         let messagesVC = buildMessages()
@@ -85,7 +83,7 @@ extension TabBarFlowCoordinator: ProfileModuleOutput {
         childCoordinators.append(setFC)
         setFC.start(animated: true)
     }
-    
+
     func moduleWantsToOpenAuthScreen() {
         finish(animated: true, completion: {
             output?.tabBarWantsToOpenAuth()

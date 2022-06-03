@@ -13,7 +13,7 @@ class VKDelegate: SwiftyVKDelegate {
     //MARK: - Properties
     let appId = "2685278"
     let scopes: Scopes = [.messages]
-    var viewController: UIViewController? = nil
+    var viewController: UIViewController?
     
     //MARK: - Public functions
     class func isAuthorised() -> Bool {

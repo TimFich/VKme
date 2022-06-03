@@ -56,7 +56,7 @@ class ChatViewController: MessageKit.MessagesViewController {
     }
 }
 
-//MARK: - MessagesLayoutDelegate
+// MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -76,17 +76,17 @@ extension ChatViewController: MessagesLayoutDelegate {
     }
 }
 
-//MARK: - MessagesDisplayDelegate, MessagesDataSource
+// MARK: - MessagesDisplayDelegate, MessagesDataSource
 extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
-    
+
     func currentSender() -> SenderType {
         ChatUser(senderId: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String, displayName: "")
     }
-    
+
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         content[indexPath.row]
     }
-    
+
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         1
     }
@@ -98,7 +98,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : .white
     }
-    
+
     func detectorAttributes(for detector: DetectorType, and message: MessageType, at indexPath: IndexPath) -> [NSAttributedString.Key: Any] {
         switch detector {
         case .hashtag, .mention: return [.foregroundColor: UIColor.blue]
@@ -109,7 +109,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     func enabledDetectors(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> [DetectorType] {
         return [.url, .address, .phoneNumber, .date, .transitInformation, .mention, .hashtag]
     }
-    
+
 // MARK: - All Messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return .systemGray    }
@@ -154,7 +154,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     }
     
     func snapshotOptionsForLocation(message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LocationMessageSnapshotOptions {
-        
+
         return LocationMessageSnapshotOptions(showsBuildings: true, showsPointsOfInterest: true, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     }
 
@@ -162,18 +162,18 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
 func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : UIColor(red: 15/255, green: 135/255, blue: 255/255, alpha: 1.0)
     }
-    
+
     func configureAudioCell(_ cell: AudioMessageCell, message: MessageType) {
         audioController.configureAudioCell(cell, message: message)
     }
 }
 
-//MARK: - MessageCellDelegate
+// MARK: - MessageCellDelegate
 extension ChatViewController: MessageCellDelegate {
     func didTapAvatar(in cell: MessageCollectionViewCell) {
         print("Avatar tapped")
     }
-    
+
     func didTapMessage(in cell: MessageCollectionViewCell) {
         print("Message tapped")
     }
@@ -181,15 +181,15 @@ extension ChatViewController: MessageCellDelegate {
     func didTapImage(in cell: MessageCollectionViewCell) {
         print("Image tapped")
     }
-    
+
     func didTapCellTopLabel(in cell: MessageCollectionViewCell) {
         print("Top cell label tapped")
     }
-    
+
     func didTapCellBottomLabel(in cell: MessageCollectionViewCell) {
         print("Bottom cell label tapped")
     }
-    
+
     func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
         print("Top message label tapped")
     }
@@ -242,7 +242,7 @@ extension ChatViewController: MessageCellDelegate {
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
-    
+
     @objc
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         mainPresenter.needToSendMessage(
@@ -257,7 +257,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 }
 
-//MARK: - ChatViewInput
+// MARK: - ChatViewInput
 extension ChatViewController: ChatViewInput {
-    
+
 }

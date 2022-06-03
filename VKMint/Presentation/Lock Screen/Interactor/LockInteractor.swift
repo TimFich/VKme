@@ -16,14 +16,13 @@ protocol LockInteractorOutput: AnyObject {
     
 }
 
-
 class LockInteractor {
     
     weak var output: LockInteractorOutput!
     private let keyChainManager = KeychainManager()
 }
 
-//MARK: - LockInteractorInput
+// MARK: - LockInteractorInput
 extension LockInteractor: LockInteractorInput {
     func needPassword() -> String {
         keyChainManager.getChain()

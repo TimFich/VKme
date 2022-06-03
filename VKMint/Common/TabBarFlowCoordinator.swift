@@ -64,7 +64,7 @@ class TabBarFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     private func buildMessages() -> UIViewController {
-        let builder = MessagesModuleBuilder()
+        let builder = MessagesModuleBuilder(output: self)
         return builder.build()
     }
     
@@ -90,6 +90,17 @@ extension TabBarFlowCoordinator: ProfileModuleOutput {
         finish(animated: true, completion: {
             output?.tabBarWantsToOpenAuth()
         })
+    }
+}
+
+extension TabBarFlowCoordinator: MessagesModuleOutput {
+    
+    func openChat(id: Int, title: String) {
+        let vc = ChatModuleBuilder(id: id, title: title).build()
+        let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+        vc.navigationItem.backBarButtonItem = backItem
+        parentViewController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -61,11 +61,11 @@ class KeychainManager {
     
     func saveChain(password: String) {
         //TODO: - как-то достать id аккаунта
-            try? keychainSave(service: "VKMint", account: "VKAccount", password: password.data(using: .utf8) ?? Data())
+            try? keychainSave(service: "VKMint", account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String, password: password.data(using: .utf8) ?? Data())
     }
     
     func getChain() -> String{
-            let password = self.keychainGet(service: "VKMint", account: "VKAccount")
+            let password = self.keychainGet(service: "VKMint", account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String)
             return String(decoding: password, as: UTF8.self)
     }
     

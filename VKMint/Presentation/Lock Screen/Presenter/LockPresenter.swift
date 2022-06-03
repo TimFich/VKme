@@ -25,6 +25,7 @@ extension LockPresenter: LockInteractorOutput {
     
 }
 
+//MARK: - LockViewOutput
 extension LockPresenter: LockViewOutput {
     func needPassword() -> String {
         interactor.needPassword()

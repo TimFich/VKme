@@ -153,29 +153,6 @@ struct Attachments: Codable {
     }
 }
 
-// MARK: - AudioMessage
-struct AudioMessage: Codable {
-    let linkOgg: String
-    let linkMp3: String
-    let id: Int
-    let waveform: [Int]
-    let ownerID: Int
-    let transcriptState: String
-    let duration: Int
-    let accessKey, transcript: String
-
-    enum CodingKeys: String, CodingKey {
-        case linkOgg = "link_ogg"
-        case linkMp3 = "link_mp3"
-        case id, waveform
-        case ownerID = "owner_id"
-        case transcriptState = "transcript_state"
-        case duration
-        case accessKey = "access_key"
-        case transcript
-    }
-}
-
 // MARK: - Encode/decode helpers
 class JSONNull: Codable, Hashable {
 

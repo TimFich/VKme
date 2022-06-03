@@ -10,4 +10,6 @@ target 'VKMint' do
    pod 'SnapKit'
 pod 'SmileLock'
 pod 'MessageKit'	
+pod 'Kingfisher'
+pod 'InputBarAccessoryView'
 end

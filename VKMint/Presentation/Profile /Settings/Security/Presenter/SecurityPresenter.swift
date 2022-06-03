@@ -27,6 +27,7 @@ extension SecurityPresenter: SecurityInteractorOutput {
     
 }
 
+//MARK: - SecurityViewOutput
 extension SecurityPresenter: SecurityViewOutput {
     func isExist() -> Bool {
         interactor.isExist()

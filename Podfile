@@ -12,4 +12,5 @@ pod 'SmileLock'
 pod 'MessageKit'	
 pod 'Kingfisher'
 pod 'InputBarAccessoryView'
+pod 'SwiftLint'
 end

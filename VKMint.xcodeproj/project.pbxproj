@@ -828,6 +828,7 @@
 			buildConfigurationList = 749F4E722799B77000E2958A /* Build configuration list for PBXNativeTarget "VKMint" */;
 			buildPhases = (
 				49D02EB0567773AFF49D6679 /* [CP] Check Pods Manifest.lock */,
+				E5BAAF43284AC60200D617A8 /* Run SwiftLint */,
 				749F4E5A2799B77000E2958A /* Sources */,
 				749F4E5B2799B77000E2958A /* Frameworks */,
 				749F4E5C2799B77000E2958A /* Resources */,
@@ -838,8 +839,6 @@
 			dependencies = (
 			);
 			name = VKMint;
-			packageProductDependencies = (
-			);
 			productName = VKMint;
 			productReference = 749F4E5E2799B77000E2958A /* VKMint.app */;
 			productType = "com.apple.product-type.application";
@@ -890,8 +889,6 @@
 				Base,
 			);
 			mainGroup = 749F4E552799B77000E2958A;
-			packageReferences = (
-			);
 			productRefGroup = 749F4E5F2799B77000E2958A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -965,6 +962,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E5BAAF43284AC60200D617A8 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

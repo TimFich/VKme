@@ -30,6 +30,7 @@ class ProfileSettingsItemView: UIView {
         let button = UIButton(frame: .zero)
         button.addTarget(nil, action: #selector(touchItem), for: .touchUpInside)
         button.contentHorizontalAlignment = .left
+        button.setTitleColor(UIColor.systemGray, for: .normal)
         return button
     }()
 

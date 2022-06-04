@@ -111,7 +111,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
 
 // MARK: - All Messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return .systemGray    }
+        return .systemBlue    }
 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
 

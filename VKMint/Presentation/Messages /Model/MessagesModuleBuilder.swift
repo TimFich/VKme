@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class MessagesModuleBuilder {
-    
-    func start() -> UIViewController{
+
+    func start() -> UIViewController {
         return UIViewController()
     }
 }

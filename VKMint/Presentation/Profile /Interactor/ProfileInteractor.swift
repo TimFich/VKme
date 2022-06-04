@@ -24,9 +24,9 @@ class ProfileInteractor {
     weak var output: ProfileInteractorOutput!
 }
 
-//MARK: - ProfileInteractorInput
+// MARK: - ProfileInteractorInput
 extension ProfileInteractor: ProfileInteractorInput {
-    
+
     func getDataOfUser(completion: @escaping (ProfileData) -> Void) {
         let converter = ProfileDataConverter()
         profileInteractor.getUserInfo { result in
@@ -35,7 +35,7 @@ extension ProfileInteractor: ProfileInteractorInput {
             }
         }
     }
-    
+
     func logout() {
         mainInteractor.sigout()
         output.logoutSuccess()

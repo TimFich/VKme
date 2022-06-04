@@ -9,10 +9,10 @@ import Foundation
 import MessageKit
 
 struct AudioChatMessage: AudioItem {
-    
+
     var url: URL
-    
+
     var duration: Float
-    
+
     var size: CGSize
 }

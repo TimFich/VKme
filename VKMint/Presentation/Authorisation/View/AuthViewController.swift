@@ -13,10 +13,10 @@ protocol AuthViewOutput: AnyObject {
 }
 
 class AuthViewController: UIViewController {
-    
+
     // MARK: - Properties
     var presenter: AuthViewOutput!
-    
+
     // MARK: - UI
     let logo = UIImageView()
     let mainLabel = UILabel()
@@ -26,13 +26,13 @@ class AuthViewController: UIViewController {
         button.addTarget(nil, action: #selector(registration), for: .touchUpInside)
         return button
     }()
-    
-    //MARK: - Lifecycle
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
     }
-    
+
     // MARK: - Make constraints
      func setUpUI() {
          view.addSubview(logo)
@@ -47,7 +47,7 @@ class AuthViewController: UIViewController {
          mainLabel.tintColor = .black
          mainLabel.textAlignment = .center
          mainLabel.text = "VK me!!!"
-         
+
          mainLabel.snp.makeConstraints { make in
             make.top.equalTo(logo.snp.bottom).offset(20)
             make.leading.equalToSuperview().inset(20)

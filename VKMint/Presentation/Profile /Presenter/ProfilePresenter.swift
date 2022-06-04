@@ -9,12 +9,12 @@ import Foundation
 import SwiftyVK
 
 class ProfilePresenter {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var interactor: ProfileInteractor
     weak var view: ProfileViewController?
     private weak var moduleOutput: ProfileModuleOutput!
-    
+
     init(interactor: ProfileInteractor, view: ProfileViewController, output: ProfileModuleOutput) {
         self.interactor = interactor
         self.view = view
@@ -22,7 +22,7 @@ class ProfilePresenter {
     }
 }
 
-//MARK: - ProfileInteractorOutput
+// MARK: - ProfileInteractorOutput
 extension ProfilePresenter: ProfileInteractorOutput {
     func logoutSuccess() {
         view?.dismiss(animated: true, completion: {
@@ -31,16 +31,16 @@ extension ProfilePresenter: ProfileInteractorOutput {
     }
 }
 
-//MARK: - ProfileViewOutput
+// MARK: - ProfileViewOutput
 extension ProfilePresenter: ProfileViewOutput {
     func itemPressed(flag: Int) {
         moduleOutput.moduleWantsToOpenSetting(flag: flag)
     }
-    
+
     func signOutPressed() {
         interactor.logout()
     }
-    
+
     func needToLoadData() {
         interactor.getDataOfUser { result in
             self.view?.needToUpdateProfile(person: result)

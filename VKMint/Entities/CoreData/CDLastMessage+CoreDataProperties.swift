@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDLastMessage {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDLastMessage> {

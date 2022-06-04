@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension CDContacts {
-        
+
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDContacts> {
         return NSFetchRequest<CDContacts>(entityName: "CDContacts")
     }
@@ -24,5 +24,4 @@ extension CDContacts {
 }
 
 extension CDContacts: Identifiable {
-    
 }

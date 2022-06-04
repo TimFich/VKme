@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class LockFlowCoordinator: FlowCoordinatorProtocol {
-    
+
     private let parentViewController: UINavigationController?
-    
+
     init(parentViewController: UINavigationController) {
         self.parentViewController = parentViewController
     }
-    
+
     func start(animated: Bool) {
         let vc = setUp()
         DispatchQueue.main.async {
@@ -25,16 +25,10 @@ class LockFlowCoordinator: FlowCoordinatorProtocol {
     }
 
     func finish() {
-        
     }
 
-    deinit {
-        print("---Lock sdox")
-    }
-    
     private func setUp() -> UIViewController {
         let builder = LockModuleBuilder()
         return builder.build()
     }
-    
 }

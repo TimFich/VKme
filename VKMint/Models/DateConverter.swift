@@ -24,11 +24,11 @@
          if dif == 0 {
              return "online"
          }
-         
+
          var buf = dif!
          var hours = 0
          var days = 0
-         
+
          while buf > 1440 || buf > 60 {
              if buf > 1440 {
                  buf -= 1440

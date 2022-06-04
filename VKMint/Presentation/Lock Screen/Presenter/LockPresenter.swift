@@ -9,23 +9,22 @@ import Foundation
 import UIKit
 
 class LockPresenter {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var interactor: LockInteractor
     weak var view: LockViewController?
-    
+
     init(interactor: LockInteractor, view: LockViewController) {
         self.interactor = interactor
         self.view = view
     }
 }
 
-//MARK: - SecurityInteractorOutput
+// MARK: - SecurityInteractorOutput
 extension LockPresenter: LockInteractorOutput {
-    
 }
 
-//MARK: - LockViewOutput
+// MARK: - LockViewOutput
 extension LockPresenter: LockViewOutput {
     func needPassword() -> String {
         interactor.needPassword()

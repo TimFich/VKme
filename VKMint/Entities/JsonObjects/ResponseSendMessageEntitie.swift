@@ -9,7 +9,7 @@ import Foundation
 
 struct ResponseOfMessage: Codable {
     let messageId: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case messageId = "response"
     }

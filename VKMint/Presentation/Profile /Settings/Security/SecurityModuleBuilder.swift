@@ -14,13 +14,13 @@ protocol SecurityModuleOutput: AnyObject {
 }
 
 class SecurityModuleBuilder {
-    
+
     private weak var output: SecurityModuleOutput?
-    
+
     init(output: SecurityModuleOutput) {
         self.output = output
     }
-    
+
     func build() -> UIViewController {
         let interactor = SecurityInteractor()
         let view = SecurityViewController()

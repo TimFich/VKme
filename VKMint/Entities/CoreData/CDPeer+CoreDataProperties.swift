@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDPeer {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDPeer> {

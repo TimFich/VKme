@@ -14,31 +14,31 @@ protocol ProfileSettingsItemOutput: AnyObject {
 }
 
 class ProfileSettingsItemView: UIView {
-    
-    //MARK: - Private properties
+
+    // MARK: - Private properties
     private var flagOfChange = true
     private var output: ProfileSettingsItemOutput
-    
-    //MARK: - UI
+
+    // MARK: - UI
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: nil)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
+
     private lazy var title: UIButton = {
         let button = UIButton(frame: .zero)
         button.addTarget(nil, action: #selector(touchItem), for: .touchUpInside)
         button.contentHorizontalAlignment = .left
         return button
     }()
-    
+
     private lazy var imageOfArrow: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(systemName: "arrow.turn.up.right")
         return imageView
     }()
-    
+
     init(title: String, image: UIImage, output: ProfileSettingsItemOutput) {
         self.output = output
         super.init(frame: .zero)
@@ -46,12 +46,12 @@ class ProfileSettingsItemView: UIView {
         self.imageView.image = image
         setUpUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: - configure UI
+
+    // MARK: - configure UI
     private func setUpUI() {
         self.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -59,14 +59,14 @@ class ProfileSettingsItemView: UIView {
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(20)
         }
-        
+
         self.addSubview(title)
         title.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(16)
             make.left.equalTo(imageView.snp.right).offset(10)
             make.right.equalToSuperview().inset(40)
         }
-        
+
         self.addSubview(imageOfArrow)
         imageOfArrow.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 20, height: 20))
@@ -74,7 +74,6 @@ class ProfileSettingsItemView: UIView {
             make.right.equalToSuperview().inset(10)
         }
     }
-    
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 //        super.traitCollectionDidChange(previousTraitCollection)
 //        
@@ -83,7 +82,7 @@ class ProfileSettingsItemView: UIView {
 //        }
 //    }
 //
-    //MARK: - Action
+    // MARK: - Action
     @objc
     func touchItem() {
         if title.currentTitle == "Appearance" {

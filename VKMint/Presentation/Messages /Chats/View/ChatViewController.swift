@@ -17,17 +17,16 @@ protocol ChatViewOutput {
 }
 
 protocol ChatViewInput {
-    
 }
 
 class ChatViewController: MessageKit.MessagesViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var content: [ChatUnit] = []
     var mainPresenter: ChatPresenter!
     lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
 
-    //MARK: - View life cyrcle
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -44,7 +43,7 @@ class ChatViewController: MessageKit.MessagesViewController {
         messagesCollectionView.messageCellDelegate = self
         configureMessageInputBar()
     }
-    
+
     func configureMessageInputBar() {
         messageInputBar.delegate = self
         messageInputBar.inputTextView.tintColor = .white
@@ -58,19 +57,19 @@ class ChatViewController: MessageKit.MessagesViewController {
 
 // MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
-    
+
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 18
     }
-    
+
     func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 17
     }
-    
+
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 20
     }
-    
+
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 16
     }
@@ -90,11 +89,11 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         1
     }
-    
+
     func numberOfItems(inSection section: Int, in messagesCollectionView: MessagesCollectionView) -> Int {
         content.count
     }
-    
+
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : .white
     }
@@ -105,7 +104,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
         default: return MessageLabel.defaultAttributes
         }
     }
-    
+
     func enabledDetectors(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> [DetectorType] {
         return [.url, .address, .phoneNumber, .date, .transitInformation, .mention, .hashtag]
     }
@@ -113,13 +112,13 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
 // MARK: - All Messages
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return .systemGray    }
-    
+
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-        
+
         let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
         return .bubbleTail(tail, .pointedEdge)
     }
-    
+
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         guard let chatUser = message.sender as? ChatUser else {
             return
@@ -134,7 +133,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
             imageView.kf.cancelDownloadTask()
         }
     }
-    
+
 // MARK: - Location Messages
     func annotationViewForLocation(message: MessageType, at indexPath: IndexPath, in messageCollectionView: MessagesCollectionView) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: nil, reuseIdentifier: nil)
@@ -143,7 +142,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
         annotationView.centerOffset = CGPoint(x: 0, y: -pinImage.size.height / 2)
         return annotationView
     }
-    
+
     func animationBlockForLocation(message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> ((UIImageView) -> Void)? {
         return { view in
             view.layer.transform = CATransform3DMakeScale(2, 2, 2)
@@ -152,7 +151,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
             }, completion: nil)
         }
     }
-    
+
     func snapshotOptionsForLocation(message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LocationMessageSnapshotOptions {
 
         return LocationMessageSnapshotOptions(showsBuildings: true, showsPointsOfInterest: true, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
@@ -177,7 +176,7 @@ extension ChatViewController: MessageCellDelegate {
     func didTapMessage(in cell: MessageCollectionViewCell) {
         print("Message tapped")
     }
-    
+
     func didTapImage(in cell: MessageCollectionViewCell) {
         print("Image tapped")
     }
@@ -193,7 +192,7 @@ extension ChatViewController: MessageCellDelegate {
     func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
         print("Top message label tapped")
     }
-    
+
     func didTapMessageBottomLabel(in cell: MessageCollectionViewCell) {
         print("Bottom label tapped")
     }

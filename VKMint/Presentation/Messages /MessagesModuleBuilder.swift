@@ -13,13 +13,13 @@ protocol MessagesModuleOutput: AnyObject {
 }
 
 class MessagesModuleBuilder {
-    
+
     private weak var output: MessagesModuleOutput?
-    
+
     init(output: MessagesModuleOutput) {
         self.output = output
     }
-        
+
     func build() -> UIViewController {
         let interactor = MessagesInteractor()
         let view = MessagesViewController()

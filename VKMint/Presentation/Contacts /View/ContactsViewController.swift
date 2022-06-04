@@ -14,26 +14,26 @@ protocol ContactsViewOutput {
 
 protocol ContactsViewInput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData])
-    
+
     func startUpdatingUsers()
-    
+
     func endUpdatingUsers()
 }
 
 class ContactsViewController: UIViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     var presenter: ContactsPresenter!
     private var data: [ContactsTableViewCellData] = []
-    
-    //MARK: - UI
+
+    // MARK: - UI
     lazy var tableView: UITableView = {
         return UITableView(frame: view.frame, style: .insetGrouped)
     }()
     let headerView = UIView()
     let activityIndicator = UIActivityIndicatorView(style: .large)
-    
-    //MARK: - View life cyrcle
+
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -42,7 +42,7 @@ class ContactsViewController: UIViewController {
         setUpUI()
         presenter.viewDidLoad()
     }
-    
+
     private func setUpUI() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -53,13 +53,13 @@ class ContactsViewController: UIViewController {
     }
 }
 
-//MARK: - UITableViewDataSource, UITableViewDelegate
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -68,7 +68,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
             return nil
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -83,7 +83,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             headerView.addSubview(activityIndicator)
@@ -95,7 +95,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
             return nil
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ContactsTableViewCell else {
             return UITableViewCell()
@@ -107,19 +107,18 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//MARK: - ContactsViewInput
+// MARK: - ContactsViewInput
 extension ContactsViewController: ContactsViewInput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData]) {
         data = updatedData
         tableView.reloadData()
     }
-    
+
     func startUpdatingUsers() {
         activityIndicator.startAnimating()
     }
-    
+
     func endUpdatingUsers() {
         activityIndicator.stopAnimating()
     }
 }
-

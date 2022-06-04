@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ContactsModuleBuilder {
-        
+
     func build() -> UIViewController {
         let interactor = СontactsInteractor()
         let view = ContactsViewController()

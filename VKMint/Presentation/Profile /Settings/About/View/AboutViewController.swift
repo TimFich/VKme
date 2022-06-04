@@ -8,27 +8,25 @@
 import UIKit
 
 protocol AboutViewInput: AnyObject {
-    
 }
 
 protocol AboutViewOutput: AnyObject {
     func viewWantsToClose()
-    
 }
 
 class AboutViewController: UIViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private let interItemSpacing = CGFloat(10)
     var presenter: AboutPresenter!
-    
-    //MARK: - UI
+
+    // MARK: - UI
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
-    
+
     private lazy var firstLine: StackVerticalSpacingView = {
         let line = StackVerticalSpacingView(size: 1, color: .systemGray6)
         return line
@@ -37,14 +35,14 @@ class AboutViewController: UIViewController {
         let line = StackVerticalSpacingView(size: 1, color: .systemGray6)
         return line
     }()
-    
+
     private lazy var logoImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "VK_Logo"))
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
-    
+
     private lazy var versionLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
@@ -55,7 +53,7 @@ class AboutViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .caption2)
         return label
     }()
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             firstLine,
@@ -68,7 +66,7 @@ class AboutViewController: UIViewController {
         stackView.spacing = interItemSpacing
         return stackView
     }()
-    
+
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
@@ -79,7 +77,7 @@ class AboutViewController: UIViewController {
         return label
     }()
 
-    //MARK: - View life cyrcle
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -87,19 +85,19 @@ class AboutViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setUpView()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         presenter.viewWantsToClose()
     }
-    
-    //MARK: - Configure UI
+
+    // MARK: - Configure UI
     private func setUpView() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
+
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -107,21 +105,21 @@ class AboutViewController: UIViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
+
         firstLine.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
+
         secondLine.snp.makeConstraints { make in
             make.right.equalToSuperview()
             make.left.equalToSuperview()
         }
-        
+
         logoImage.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 100, height: 100))
         }
-        
+
         scrollView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(20)
@@ -132,7 +130,6 @@ class AboutViewController: UIViewController {
     }
 }
 
-//MARK: - AboutViewInput
+// MARK: - AboutViewInput
 extension AboutViewController: AboutViewInput {
-    
 }

@@ -37,14 +37,14 @@ struct ChatItem: Codable {
     }
 }
 
-//MARK: - ChatAttachments
+// MARK: - ChatAttachments
 struct ChatAttachments: Codable {
     let type: String
     let photo: ChatPhoto?
     let sticker: Stickers?
     let audio: Audio?
     let audioMessage: AudioMessage?
-    
+
     enum CodingKeys: String, CodingKey {
         case type
         case photo
@@ -80,7 +80,7 @@ struct PhotoSizes: Codable {
 struct Stickers: Codable {
     let stickerId: Int
     let images: [StickerSizes]
-    
+
     enum CodingKeys: String, CodingKey {
         case stickerId = "sticker_id"
         case images

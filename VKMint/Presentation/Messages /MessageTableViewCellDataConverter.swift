@@ -10,7 +10,7 @@ import UIKit
 
 protocol MessageTableViewCellDataConverterProtocol {
     func convertToCellData(conversation: CDConversations) -> [MessageTableViewCellData]
-    
+
     func convertToCellData(conversation: Conversation, completion: @escaping ([MessageTableViewCellData]) -> Void)
 }
 
@@ -65,7 +65,7 @@ class MessageTableViewCellDataConverter: MessageTableViewCellDataConverterProtoc
             }
         }
     }
-    
+
     func convertToCellData(conversation: CDConversations) -> [MessageTableViewCellData] {
         var result: [MessageTableViewCellData] = []
         let items = Array(conversation.items) as! Array<CDItems>

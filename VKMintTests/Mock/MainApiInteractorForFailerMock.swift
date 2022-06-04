@@ -9,7 +9,10 @@ import Foundation
 @testable import VKMint
 
 class MainApiInteractorForFailerMock: MainApiInteractor {
-    func authorize(onSuccess: @escaping () -> (), onError: @escaping () -> ()) {
+    func sigout() {
+    }
+
+    func authorize(onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
         onError()
     }
 }

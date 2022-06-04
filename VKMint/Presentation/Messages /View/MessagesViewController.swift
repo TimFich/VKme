@@ -22,7 +22,7 @@ protocol MessagesViewOutputProtocol {
 }
 
 class MessagesViewController: UIViewController {
-    
+
     // MARK: - Properties
     var data: [MessageTableViewCellData] = []
     var peerIdToIndexDict: [Int: Int] = [:]
@@ -36,7 +36,7 @@ class MessagesViewController: UIViewController {
     let activityIndicator = UIActivityIndicatorView(style: .large)
     let headerView = UIView()
     private let kCellIdentifier = "cell"
-        
+
     // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class MessagesViewController: UIViewController {
         configureTable()
         presenter.viewDidLoad()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.isNavigationBarHidden = true
@@ -62,13 +62,13 @@ class MessagesViewController: UIViewController {
             make.right.bottom.equalToSuperview().inset(0)
         }
     }
-    
+
     private func makePeerIdDict() {
         for (index, element) in data.enumerated() {
             peerIdToIndexDict[element.peerId] = index
         }
     }
-    
+
     private func setUpUIForLoader() {
         activityIndicator.snp.makeConstraints { make in
             make.centerY.centerX.equalToSuperview()
@@ -81,13 +81,13 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier) as? MessagesTableViewCell else { return UITableViewCell() }
         cell.configure(cellData: data[indexPath.row])
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView.addSubview(activityIndicator)
         setUpUIForLoader()
@@ -101,21 +101,21 @@ extension MessagesViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - MessagesViewInputProtocol
 extension MessagesViewController: MessagesViewInputProtocol {
-    
+
     func didStartUpdatingConversations() {
         activityIndicator.startAnimating()
     }
-    
+
     func didEndUpdatingConversations() {
         activityIndicator.stopAnimating()
     }
-    
+
     func dataFetched(data: [MessageTableViewCellData]) {
         self.data = data
         makePeerIdDict()
         tableView.reloadData()
     }
-    
+
     func updateLastMessage(message: LastMessage) {
         let index = peerIdToIndexDict[message.peerID]
         guard let index = index else {

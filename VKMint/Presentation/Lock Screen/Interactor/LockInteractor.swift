@@ -13,11 +13,10 @@ protocol LockInteractorInput: AnyObject {
 }
 
 protocol LockInteractorOutput: AnyObject {
-    
 }
 
 class LockInteractor {
-    
+
     weak var output: LockInteractorOutput!
     private let keyChainManager = KeychainManager()
 }
@@ -28,8 +27,3 @@ extension LockInteractor: LockInteractorInput {
         keyChainManager.getChain()
     }
 }
-
-
-
-
-

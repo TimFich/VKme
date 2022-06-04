@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ContactsTableViewCellConverter {
-    
+
     func convertToCellData(contacts: FriendEntity, completion: @escaping ([ContactsTableViewCellData]) -> Void) {
         let imageDownloader: ImageDownloader = ImageDownloaderImpl()
         let helper = EscapingClosureHelper<ContactsTableViewCellData>(count: contacts.items.count)
@@ -40,7 +40,7 @@ class ContactsTableViewCellConverter {
             })
         }
     }
-    
+
     func convertToCellData(contacts: [CDContacts]) -> [ContactsTableViewCellData] {
         var result: [ContactsTableViewCellData] = []
         for contact in contacts {

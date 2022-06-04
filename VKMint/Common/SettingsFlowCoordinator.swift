@@ -13,18 +13,18 @@ protocol SettingsFlowCoordinatorOutput: AnyObject {
 }
 
 class SettingsFlowCoordinator: FlowCoordinatorProtocol {
-    
+
     private let parentViewController: UINavigationController?
     private let flag: Int
     private weak var output: SettingsFlowCoordinatorOutput?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
-    
+
     init(parentViewController: UINavigationController, flag: Int, output: SettingsFlowCoordinatorOutput) {
         self.parentViewController = parentViewController
         self.flag = flag
         self.output = output
     }
-    
+
     func start(animated: Bool) {
         let vc = setUp(flag: flag)
         DispatchQueue.main.async {
@@ -55,7 +55,6 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
             return builder.build()
         }
     }
-    
 }
 
 extension SettingsFlowCoordinator: AppearanceModuleOutput {
@@ -65,12 +64,13 @@ extension SettingsFlowCoordinator: AppearanceModuleOutput {
 }
 
 extension SettingsFlowCoordinator: SecurityModuleOutput {
+
     func openLockScreen() {
         let lockFC = LockFlowCoordinator(parentViewController: parentViewController!)
         childCoordinators.append(lockFC)
         lockFC.start(animated: true)
     }
-    
+
     func securityWantsToClose() {
         finish()
     }

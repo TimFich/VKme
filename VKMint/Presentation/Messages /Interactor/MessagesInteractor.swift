@@ -21,14 +21,14 @@ protocol MessagesInteractorOutput: AnyObject {
 }
 
 class MessagesInteractor: MessagesInteractorInput {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     let conversationInteractor: ConversationsApiInteractor = ConversationsApiInteractorImpl()
     let dataStoreManager: DataStoreManagerProtocol = DataStoreManager()
     let cellDataConverter: MessageTableViewCellDataConverterProtocol = MessageTableViewCellDataConverter()
     let longPollManager = LongPollManager.shared
     weak var output: MessagesInteractorOutput!
-    
+
     // MARK: - Public functions
     func getStoredOrLoadConversations(completion: @escaping ([MessageTableViewCellData]) -> Void) {
         let result = dataStoreManager.fetchConversations()
@@ -37,9 +37,9 @@ class MessagesInteractor: MessagesInteractorInput {
             conversationInteractor.getConversation(offset: 0, count: 200, completion: { [self] conv in
                 cellDataConverter.convertToCellData(conversation: conv, completion: { result in
                     completion(result)
-                    output.didEndUpdatingConversations()
-                    dataStoreManager.addCDConversation(conv)
-                    startLongPolling()
+                    self.output.didEndUpdatingConversations()
+                    self.dataStoreManager.addCDConversation(conv)
+                    self.startLongPolling()
                 })
             })
             return
@@ -49,7 +49,7 @@ class MessagesInteractor: MessagesInteractorInput {
         output?.didStartUpdatingConversations()
         saveUpdatedConversation()
     }
-    
+
     func downloadConversations(offset: Int, completion: @escaping ([MessageTableViewCellData]) -> Void) {
         conversationInteractor.getConversation(offset: offset, count: 200, completion: { conv in
             self.cellDataConverter.convertToCellData(conversation: conv, completion: { result in
@@ -57,7 +57,7 @@ class MessagesInteractor: MessagesInteractorInput {
             })
         })
     }
-    
+
     private func saveUpdatedConversation() {
         dataStoreManager.deleteConversations()
         conversationInteractor.getConversation(offset: 0, count: 200, completion: { conv in

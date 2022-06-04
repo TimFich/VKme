@@ -9,18 +9,18 @@ import Foundation
 import MessageKit
 
 class ChatDataConverter {
-    
+
     var idToAvatar: [Int: URL?] = [:]
-    
+
     func convert(data: ChatResponse) -> ChatData {
-        
+
         var chatUnits: [ChatUnit] = []
         for profile in data.profiles {
             idToAvatar[profile.id] = URL(string: profile.photo_100!)
         }
-        
+
         for item in data.items {
-            
+
             if item.attachments.isEmpty {
                 chatUnits.append(convertTextMessage(item))
             } else {
@@ -38,35 +38,35 @@ class ChatDataConverter {
         }
         return ChatData(content: chatUnits)
     }
-    
+
     func convertTextMessage(_ item: ChatItem) -> ChatUnit {
         let avatarUrl = idToAvatar[item.fromID] ?? nil
-        
+
         return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.text(item.text))
     }
-    
+
     func convertAudioMessage(_ item: ChatItem) -> ChatUnit {
-        
+
         let avatarUrl = idToAvatar[item.fromID] ?? nil
 
         let audioUnit = item.attachments[0].audio
-        
+
         let audio = AudioChatMessage(url: URL(string: audioUnit?.url ?? "")!, duration: Float(audioUnit?.duration ?? 0), size: CGSize(width: 200, height: 100))
 
         return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
     }
-    
+
     func convertVoiceMessage(_ item: ChatItem) -> ChatUnit {
-        
+
         let avatarUrl = idToAvatar[item.fromID] ?? nil
-        
+
         let audioUnit = item.attachments[0].audioMessage
 
         let audio = AudioChatMessage(url: URL(string: audioUnit?.link_mp3 ?? "")!, duration: Float(audioUnit?.duration ?? 0), size: CGSize(width: 200, height: 100))
-        
+
         return ChatUnit(sender: ChatUser(senderId: "\(item.fromID)", displayName: "", avatar: avatarUrl), messageId: "\(item.conversationMessageID)", sentDate: Date.init(timeIntervalSince1970: TimeInterval(item.date)), kind: MessageKind.audio(audio))
     }
-    
+
     func convertStickerMessage(_ item: ChatItem) -> ChatUnit {
 
         let avatarUrl = idToAvatar[item.fromID] ?? nil

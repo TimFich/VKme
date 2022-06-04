@@ -13,13 +13,13 @@ protocol AppearanceModuleOutput: AnyObject {
 }
 
 class AppearanceModuleBuilder {
-    
+
     private weak var output: AppearanceModuleOutput?
-    
+
     init(output: AppearanceModuleOutput) {
         self.output = output
     }
-    
+
     func build() -> UIViewController {
         let interactor = AppearanceInteractor()
         let view = AppearanceViewController()

@@ -13,7 +13,7 @@ struct Conversation: Codable {
     let count: Int
     let items: [Item]
     let profiles: [UserItems]
-    
+
     enum CodingKeys: String, CodingKey {
         case unreadCount = "unread_count"
         case count, items, profiles
@@ -41,7 +41,7 @@ struct ConversationClass: Codable {
     let lastMessageID, outRead, inReadCmid: Int
     let chatSettings: ChatSettings?
     let pushSettings: PushSettings?
-   
+
     enum CodingKeys: String, CodingKey {
         case isMarkedUnread = "is_marked_unread"
         case inRead = "in_read"
@@ -95,7 +95,7 @@ struct Photo: Codable {
 // MARK: - Permissions
 struct Permissions: Codable {
     let invite: String
-    
+
     enum CodingKeys: String, CodingKey {
         case invite
     }

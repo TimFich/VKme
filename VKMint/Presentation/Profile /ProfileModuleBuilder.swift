@@ -14,13 +14,13 @@ protocol ProfileModuleOutput: AnyObject {
 }
 
 class ProfileModuleBuilder {
-    
+
     private weak var output: ProfileModuleOutput?
-    
+
     init(output: ProfileModuleOutput) {
         self.output = output
     }
-    
+
     func build() -> UIViewController {
         let interactor = ProfileInteractor()
         let view = ProfileViewController()

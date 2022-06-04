@@ -9,11 +9,11 @@ import Foundation
 import SwiftyVK
 
 class LongPollManager {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     static let shared = LongPollManager()
     private var onReceiveEvent: [Int: [(Data) -> Void]] = [:]
-    
+
     public func start() {
         VK.sessions.default.longPoll.start(version: .third, onReceiveEvents: { events in
             for event in events {
@@ -87,7 +87,7 @@ class LongPollManager {
             }
         })
     }
-    
+
     public func addOnReceiveCompletion(eventNumber: Int, completion: @escaping (Data) -> Void) {
         var completions = onReceiveEvent[eventNumber]
         guard completions != nil else {
@@ -99,9 +99,9 @@ class LongPollManager {
         completions?.append(completion)
         onReceiveEvent[eventNumber] = completions
     }
-    
+
     private init() {}
-    
+
     private func processEvent(number: Int, data: Data) {
         let completions = onReceiveEvent[number] ?? []
         for completion in completions {

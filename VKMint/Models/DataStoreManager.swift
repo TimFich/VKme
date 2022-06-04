@@ -19,21 +19,21 @@ protocol DataStoreManagerProtocol {
 }
 
 class DataStoreManager: DataStoreManagerProtocol {
-    
+
     lazy var viewContext = persistentContainer.viewContext
     let imageDownloader: ImageDownloader = ImageDownloaderImpl()
 
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Entities for messages")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-    
+
     // MARK: - CRUD
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -46,7 +46,7 @@ class DataStoreManager: DataStoreManagerProtocol {
             }
         }
     }
-    
+
     func deleteConversations() {
         let fetchRequest = CDConversations.fetchRequest()
         do {
@@ -56,10 +56,9 @@ class DataStoreManager: DataStoreManagerProtocol {
             }
             saveContext()
         } catch {
-            
         }
     }
-    
+
     func fetchContacts() -> [CDContacts] {
         let fetchRequest = CDContacts.fetchRequest()
         do {
@@ -70,7 +69,7 @@ class DataStoreManager: DataStoreManagerProtocol {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-    
+
     func addContacts(contacts: FriendEntity) {
         let fetchRequest = CDContacts.fetchRequest()
         do {
@@ -113,7 +112,7 @@ class DataStoreManager: DataStoreManagerProtocol {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-    
+
     func addCDConversation(_ conversation: Conversation) {
         let cdConv = CDConversations(context: viewContext)
         cdConv.count = Int64(conversation.count)
@@ -121,7 +120,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         cdConv.items = tranformItemsToSet(conversation.items)
         cdConv.profiles = transformProfilesToSet(conversation.profiles)
     }
-    
+
     func tranformItemsToSet(_ items: [Item]) -> NSOrderedSet {
         var cdItems: [CDItems] = []
         for item in items {
@@ -129,7 +128,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         }
         return NSOrderedSet(array: cdItems)
     }
-    
+
     func transformProfilesToSet(_ profiles: [UserItems]) -> NSOrderedSet {
         var cdProfiles: [CDUserItems] = []
         for profile in profiles {
@@ -169,7 +168,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         saveContext()
         return convClass
     }
-    
+
     func addCDPeer(_ peer: Peer) -> CDPeer {
         let cdPeer = CDPeer(context: viewContext)
         cdPeer.id = Int64(peer.id)
@@ -177,7 +176,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         saveContext()
         return cdPeer
     }
-    
+
     func addCDChatSettings(_ chatSet: ChatSettings) -> CDChatSettings {
         let cdChatSet = CDChatSettings(context: viewContext)
         cdChatSet.ownerID = Int64(chatSet.ownerID)
@@ -193,7 +192,7 @@ class DataStoreManager: DataStoreManagerProtocol {
         })
         return cdChatSet
     }
-    
+
     func addCDLastMessages(_ lastMessage: LastMessage) -> CDLastMessage {
         let cdLastMess = CDLastMessage(context: viewContext)
         cdLastMess.id = Int64(lastMessage.id)

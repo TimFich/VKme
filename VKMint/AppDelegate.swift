@@ -14,14 +14,14 @@ var vkDelegate : SwiftyVKDelegate?
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     private var rootFlowCoordinator: MainFlowCoordinator!
-    
+
     func startMainFlowCoordinator(rootViewController: UINavigationController) {
         rootFlowCoordinator = MainFlowCoordinator(parentViewController: rootViewController, finishHandler: {})
         rootFlowCoordinator.start(animated: true)
     }
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         vkDelegate = VKDelegate()
         print("Documents Directory: ", FileManager
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              VK.handle(url: url, sourceApplication: app)
              return true
          }
-    
+
     func application(
                _ application: UIApplication,
                open url: URL,

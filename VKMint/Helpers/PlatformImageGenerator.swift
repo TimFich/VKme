@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class PlatformImageGenerator {
-        
+
     func generateImage(platform: Int) -> UIImage? {
         switch platform {
         case 1, 4:

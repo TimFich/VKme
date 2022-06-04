@@ -8,12 +8,12 @@
 import Foundation
 
 class AboutPresenter {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var interactor: AboutInteractor
     weak var view: AboutViewController?
     private weak var moduleOutput: AboutModuleOutput!
-    
+
     init(interactor: AboutInteractor, view: AboutViewController, output: AboutModuleOutput) {
         self.interactor = interactor
         self.view = view
@@ -21,12 +21,11 @@ class AboutPresenter {
     }
 }
 
-//MARK: - AboutInteractorOutput
+// MARK: - AboutInteractorOutput
 extension AboutPresenter: AboutInteractorOutput {
-    
 }
 
-//MARK: - AboutViewOutput
+// MARK: - AboutViewOutput
 extension AboutPresenter: AboutViewOutput {
     func viewWantsToClose() {
         moduleOutput?.aboutWantsToClose()

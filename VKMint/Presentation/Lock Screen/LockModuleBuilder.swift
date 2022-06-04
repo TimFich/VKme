@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class LockModuleBuilder {
-    
+
     func build() -> UIViewController {
         let interactor = LockInteractor()
         let view = LockViewController()

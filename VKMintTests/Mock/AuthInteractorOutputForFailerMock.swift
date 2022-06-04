@@ -10,12 +10,12 @@ import Foundation
 @testable import VKMint
 
 class AuthInteractorOutputForFailerMock: AuthInteractorOutput {
-    
+
     var isSuccessful: Bool = true
-    
+
     func authorizedSuccesful() {
     }
-    
+
     func authorizedFailure() {
         isSuccessful = false
     }

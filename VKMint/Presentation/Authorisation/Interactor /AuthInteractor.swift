@@ -17,11 +17,11 @@ protocol AuthInteractorOutput: AnyObject {
 }
 
 class AuthInteractor {
-    
+
     var mainApiInteractor: MainApiInteractor = MainApiInteractorImpl()
-    
+
     weak var output: AuthInteractorOutput!
-    
+
     func authorize() {
         mainApiInteractor.authorize(onSuccess: { [weak self] in
             DispatchQueue.main.async {

@@ -8,18 +8,18 @@
 import UIKit
 
 class LogoCollectionViewCell: UICollectionViewCell {
-    
+
     private lazy var image: UIImageView = {
         let imageView = UIImageView(image: nil)
         return imageView
     }()
-    
+
     func configure(index: Int) {
-        
+
         configureUI()
-        
+
         switch index {
-            
+
         case 0:
             image.image = UIImage(named: "VK_Logo")
         case 1:

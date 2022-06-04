@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 protocol AppearanceViewInput: AnyObject {
-    
 }
 
 protocol AppearanceViewOutput: AnyObject {
@@ -17,21 +16,21 @@ protocol AppearanceViewOutput: AnyObject {
 }
 
 class AppearanceViewController: UIViewController {
-    
+
     // MARK: - Properties
     var presenter: AppearancePresenter!
     private let idetifier = "logoCells"
     private let namesOfIcons = ["First_Logo", "Second_Logo", "Third_Logo", "Fourth_Logo", "Fifth_Logo"]
     private let interItemSpacing = CGFloat(10)
     private var layout = UICollectionViewFlowLayout()
-    
+
     // MARK: - UI
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
-    
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
@@ -53,7 +52,7 @@ class AppearanceViewController: UIViewController {
         stackView.spacing = interItemSpacing
         return stackView
     }()
-    
+
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.backgroundColor = .clear
@@ -76,18 +75,18 @@ class AppearanceViewController: UIViewController {
         collectionView.register(LogoCollectionViewCell.self, forCellWithReuseIdentifier: idetifier)
         setUpUI()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         presenter.viewWantsToClose()
     }
-    
+
     private func setUpUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
+
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -95,12 +94,12 @@ class AppearanceViewController: UIViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
+
         titleLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
             make.right.equalToSuperview().offset(20)
         }
-        
+
         collectionView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: view.bounds.width, height: 70))
             make.left.right.equalToSuperview()
@@ -113,15 +112,15 @@ extension AppearanceViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return namesOfIcons.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idetifier, for: indexPath) as? LogoCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+
         cell.configure(index: indexPath.row)
-        
+
         return cell
     }
 
@@ -143,5 +142,4 @@ extension AppearanceViewController: UICollectionViewDelegate, UICollectionViewDa
 
 // MARK: - AppearanceViewInput
 extension AppearanceViewController: AppearanceViewInput {
-    
 }

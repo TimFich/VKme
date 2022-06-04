@@ -10,7 +10,7 @@ import UIKit
 
 protocol TableViewCellDataConverterProtocol {
     func convertToCellData(conversation: CDConversations) -> [TableViewCellData]
-    
+
     func convertToCellData(conversation: Conversation) -> [TableViewCellData]
 }
 
@@ -36,7 +36,6 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                     })
                 }
             case .group:
-                // TODO: Made groups
                 print("--need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id
@@ -60,7 +59,7 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
         }
         return result
     }
-    
+
     func convertToCellData(conversation: CDConversations) -> [TableViewCellData] {
         var result: [TableViewCellData] = []
         let items = Array(conversation.items) as! Array<CDItems>
@@ -80,7 +79,6 @@ class TableViewCellDataConverter: TableViewCellDataConverterProtocol {
                     cellData.avatarOfChat = UIImage(data: data)!
                 }
             case .group:
-                // TODO: Made groups
                 print("need to process groups")
             case .user:
                 let peerId = item.conversation.peer.id

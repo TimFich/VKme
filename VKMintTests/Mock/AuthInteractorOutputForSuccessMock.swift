@@ -9,13 +9,13 @@ import Foundation
 @testable import VKMint
 
 class AuthInteractorOutputForSuccessMock: AuthInteractorOutput {
-    
+
     var isSuccessful: Bool = false
-    
+
     func authorizedSuccesful() {
         isSuccessful = true
     }
-    
+
     func authorizedFailure() {
     }
 }

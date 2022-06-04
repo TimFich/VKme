@@ -10,7 +10,6 @@ import SmileLock
 import SnapKit
 
 protocol LockViewInput: AnyObject {
-    
 }
 
 protocol LockViewOutput: AnyObject {
@@ -18,23 +17,23 @@ protocol LockViewOutput: AnyObject {
 }
 
 class LockViewController: UIViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     var presenter: LockPresenter!
     private let kPasswordDigit = 6
     private var password = ""
     private let keyChainManager = KeychainManager()
-    
+
     // MARK: - UI
     private var passwordContainerView: PasswordContainerView!
-    
+
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
         return stackView
     }()
-    
+
     // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class LockViewController: UIViewController {
         print(password)
         setUpUI()
     }
-    
+
     // MARK: - Configure UI
     private func setUpUI() {
         view.addSubview(mainStackView)
@@ -76,7 +75,7 @@ extension LockViewController: PasswordInputCompleteProtocol {
             validationSuccess()
         }
     }
-    
+
     func touchAuthenticationComplete(_ passwordContainerView: PasswordContainerView, success: Bool, error: Error?) {
         if success {
             self.validationSuccess()
@@ -90,20 +89,19 @@ private extension LockViewController {
     func validation(_ input: String) -> Bool {
         return input == self.password
     }
-    
+
     func validationSuccess() {
         print("*️⃣ success!")
         passwordContainerView.clearInput()
         dismiss(animated: true)
     }
-    
+
     func validationFail() {
         print("*️⃣ failure!")
         passwordContainerView.wrongPassword()
     }
 }
 
-//MARK: - LockViewInput
+// MARK: - LockViewInput
 extension LockViewController: LockViewInput {
-    
 }

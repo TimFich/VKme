@@ -8,17 +8,15 @@
 import Foundation
 
 protocol AppearanceInteractorInput: AnyObject {
-    
 }
 
 protocol AppearanceInteractorOutput: AnyObject {}
 
 class AppearanceInteractor {
-    
+
     weak var output: AppearanceInteractorOutput!
 }
 
 // MARK: - AppearanceInteractorInput
 extension AppearanceInteractor: AppearanceInteractorInput {
-    
 }

@@ -13,7 +13,7 @@ class AppearancePresenter {
     private var interactor: AppearanceInteractor
     weak var view: AppearanceViewController?
     private weak var moduleOutput: AppearanceModuleOutput!
-    
+
     init(interactor: AppearanceInteractor, view: AppearanceViewController, output: AppearanceModuleOutput) {
         self.interactor = interactor
         self.view = view
@@ -23,7 +23,6 @@ class AppearancePresenter {
 
 // MARK: - AppearanceInteractorOutput
 extension AppearancePresenter: AppearanceInteractorOutput {
-    
 }
 
 // MARK: - AppearanceViewOutput

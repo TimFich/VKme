@@ -8,19 +8,19 @@
 import Foundation
 
 class EscapingClosureHelper<T> {
-    
+
     var downloadedPhotos: Int = 0
     var photosCount: Int = 0
     var result: [T] = []
-    
+
     init(count: Int) {
         self.photosCount = count
     }
-    
+
     func increase() {
         downloadedPhotos += 1
     }
-    
+
     func isEnough() -> Bool {
         return downloadedPhotos == photosCount
     }

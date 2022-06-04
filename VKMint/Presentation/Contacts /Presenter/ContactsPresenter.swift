@@ -8,7 +8,7 @@
 import Foundation
 
 class ContactsPresenter {
-    
+
     // MARK: - Properties
     private var interactor: СontactsInteractor
     weak var view: ContactsViewController?
@@ -33,11 +33,11 @@ extension ContactsPresenter: ContactsInteractorOutput {
     func needToUpdateContacts(updatedData: [ContactsTableViewCellData]) {
         view?.needToUpdateContacts(updatedData: updatedData)
     }
-    
+
     func startUpdatingUsers() {
         view?.startUpdatingUsers()
     }
-    
+
     func endUpdatingUsers() {
         view?.endUpdatingUsers()
     }

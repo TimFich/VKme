@@ -9,7 +9,5 @@
 import Foundation
 import CoreData
 
-
 public class CDItems: NSManagedObject {
-
 }

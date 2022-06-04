@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 class ChatModuleBuilder {
-    
+
     private let id: Int
     private let title: String
-    
+
     init(id: Int, title: String) {
         self.id = id
         self.title = title
     }
-        
+
     func build() -> UIViewController {
         let interactor = ChatInteractor(id: id)
         let view = ChatViewController()

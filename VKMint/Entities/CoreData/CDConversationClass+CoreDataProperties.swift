@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDConversationClass {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDConversationClass> {

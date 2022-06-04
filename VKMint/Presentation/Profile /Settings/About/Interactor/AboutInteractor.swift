@@ -8,18 +8,15 @@
 import Foundation
 
 protocol AboutInteractorInput: AnyObject {
-    
 }
 
 protocol AboutInteractorOutput: AnyObject {
-    
 }
 
 class AboutInteractor {
     weak var output: AboutInteractorOutput!
 }
 
-//MARK: - AboutInteractorInput
+// MARK: - AboutInteractorInput
 extension AboutInteractor: AboutInteractorInput {
-    
 }

@@ -13,13 +13,13 @@ protocol AuthModuleOutput: AnyObject {
 }
 
 class AuthorisationModuleBuilder {
-    
+
     private weak var output: AuthModuleOutput?
-    
+
     init(output: AuthModuleOutput) {
         self.output = output
     }
-    
+
     func build() -> UIViewController {
         let interactor = AuthInteractor()
         let presenter = AuthPresenter(interactor: interactor, moduleOutput: output!)

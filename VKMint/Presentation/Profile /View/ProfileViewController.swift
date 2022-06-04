@@ -19,13 +19,13 @@ protocol ProfileViewInput {
 }
 
 class ProfileViewController: UIViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     var presenter: ProfilePresenter!
-    
-    //MARK: - UI
+
+    // MARK: - UI
     private let interItemSpacing = CGFloat(10)
-    
+
     private lazy var avatar: UIImageView = {
         let imageView = UIImageView(image: nil)
         imageView.contentMode = .scaleAspectFill
@@ -33,13 +33,13 @@ class ProfileViewController: UIViewController {
         imageView.layer.cornerRadius = 50
         return imageView
     }()
-    
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
-    
+
     private lazy var fullNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.lineBreakMode = .byWordWrapping
@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
-    
+
     private lazy var nickName: UILabel = {
         let label = UILabel(frame: .zero)
         label.lineBreakMode = .byWordWrapping
@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
-    
+
     private lazy var number: UILabel = {
         let label = UILabel(frame: .zero)
         label.lineBreakMode = .byWordWrapping
@@ -65,7 +65,7 @@ class ProfileViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
-    
+
     lazy var stackViewProfile: UIStackView = {
         let stackView = UIStackView(
             arrangedSubviews: [
@@ -83,7 +83,7 @@ class ProfileViewController: UIViewController {
         stackView.spacing = interItemSpacing
         return stackView
     }()
-    
+
     private lazy var stackViewSettings: UIStackView = {
         let stackView = UIStackView(
             arrangedSubviews: [
@@ -112,7 +112,7 @@ class ProfileViewController: UIViewController {
         stackView.alignment = .fill
         return stackView
     }()
-    
+
     private lazy var signOutButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.contentHorizontalAlignment = .center
@@ -122,25 +122,25 @@ class ProfileViewController: UIViewController {
         return button
     }()
 
-    //MARK: - View life cyrcle
+    // MARK: - View life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         presenter.needToLoadData()
         configureUI()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    
-    //MARK: - Configure UI
+
+    // MARK: - Configure UI
     private func configureUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
+
         scrollView.addSubview(stackViewProfile)
         stackViewProfile.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -148,15 +148,15 @@ class ProfileViewController: UIViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
+
         avatar.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 100, height: 100))
         }
-        
+
         number.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(20)
         }
-        
+
         scrollView.addSubview(stackViewSettings)
         stackViewSettings.snp.makeConstraints { make in
             make.top.equalTo(stackViewProfile.snp.bottom)
@@ -169,29 +169,29 @@ class ProfileViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
-    
+
     private func updateProfile(person: ProfileData) {
         avatar.image = person.photo
         fullNameLabel.text = person.firstName + " " + person.lastName
         nickName.text = "@" + person.nickname!
         number.text = person.number
     }
-    
-    //MARK: - Action
+
+    // MARK: - Action
     @objc
     func didClickSigOutButton() {
         presenter.signOutPressed()
     }
 }
 
-//MARK: - ProfileViewInput
+// MARK: - ProfileViewInput
 extension ProfileViewController: ProfileViewInput {
     func needToUpdateProfile(person: ProfileData) {
         updateProfile(person: person)
     }
 }
 
-//MARK: - ProfileSettingsItemOutput
+// MARK: - ProfileSettingsItemOutput
 extension ProfileViewController: ProfileSettingsItemOutput {
     func buttonTaped(flag: Int) {
         presenter.itemPressed(flag: flag)

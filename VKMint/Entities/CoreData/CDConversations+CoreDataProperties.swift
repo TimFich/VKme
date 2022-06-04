@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDConversations {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDConversations> {
@@ -37,7 +36,7 @@ extension CDConversations {
 
     @objc(removeItems:)
     @NSManaged public func removeFromItems(_ values: Set<CDItems>)
-    
+
     @objc(addProfilesObject:)
     @NSManaged public func addToProfiles(_ value: CDUserItems)
 

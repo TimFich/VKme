@@ -8,16 +8,15 @@
 import XCTest
 @testable import VKMint
 
-
 class TestOfFailerAuth: XCTestCase {
-    
+
     var apiInteractor: MainApiInteractorForFailerMock!
     var interactor: AuthInteractor!
     var output: AuthInteractorOutputForFailerMock!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
+
         output = AuthInteractorOutputForFailerMock()
         apiInteractor = MainApiInteractorForFailerMock()
         interactor = AuthInteractor()
@@ -29,17 +28,15 @@ class TestOfFailerAuth: XCTestCase {
         apiInteractor = nil
         output = nil
         apiInteractor = nil
-        
+
         try super.tearDownWithError()
     }
-    
+
     func testAuthorizeaFailer() throws {
         // given
-        
-        
         // when
         interactor.authorize()
-        
+
         // then
         XCTAssertFalse(output.isSuccessful)
     }

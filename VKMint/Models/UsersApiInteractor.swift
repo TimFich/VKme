@@ -9,12 +9,12 @@ import Foundation
 import SwiftyVK
 
 protocol UsersApiInteractor {
-    func getUserByID(userId: Int, completion: @escaping (UserItems) -> ())
+    func getUserByID(userId: Int, completion: @escaping (UserItems) -> Void)
     func getUsers(ids: [Int], completion: @escaping ([UserItems]) -> Void)
 }
 
 class UsersApiInteracorImpl: UsersApiInteractor {
-    
+
     func getUserByID(userId: Int, completion: @escaping (UserItems) -> Void) {
         VK.API.Users.get([Parameter.userId: "\(userId)"])
             .onSuccess({ result in
@@ -22,7 +22,7 @@ class UsersApiInteracorImpl: UsersApiInteractor {
                     completion(user[0])
             }).send()
     }
-    
+
     func getUsers(ids: [Int], completion: @escaping ([UserItems]) -> Void) {
         var parameters: Parameters = [:]
         for id in ids {
@@ -36,5 +36,4 @@ class UsersApiInteracorImpl: UsersApiInteractor {
                 }
         }).send()
     }
-    
 }

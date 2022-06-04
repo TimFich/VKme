@@ -9,13 +9,13 @@ import UIKit
 import SnapKit
 
 class MessagesTableViewCell: UITableViewCell {
-    
-    //MARK: - UI
+
+    // MARK: - UI
     var convImage = UIImageView()
     var titleLabel = UILabel()
     var lastMessageLabel = UILabel()
     var unreadCountLabel = UILabel()
-    
+
     // MARK: - Public functions
     func configure(cellData: MessageTableViewCellData) {
         self.convImage.image = cellData.avatarOfChat
@@ -32,7 +32,7 @@ class MessagesTableViewCell: UITableViewCell {
     }
 
     private func setUpUI() {
-        
+
         contentView.addSubview(convImage)
         convImage.layer.cornerRadius = 30
         convImage.clipsToBounds = true
@@ -41,7 +41,7 @@ class MessagesTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().inset(10)
             make.size.equalTo(CGSize(width: 60, height: 60))
         }
-        
+
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -49,7 +49,7 @@ class MessagesTableViewCell: UITableViewCell {
             make.top.equalToSuperview().offset(10)
             make.right.equalToSuperview().inset(50)
         }
-        
+
         contentView.addSubview(unreadCountLabel)
         unreadCountLabel.textAlignment = .center
         unreadCountLabel.layer.cornerRadius = 10
@@ -60,7 +60,7 @@ class MessagesTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(5)
             make.left.equalTo(titleLabel.snp.right).offset(10)
         }
-        
+
         contentView.addSubview(lastMessageLabel)
         lastMessageLabel.snp.makeConstraints { make in
             make.left.equalTo(convImage.snp.right).offset(10)

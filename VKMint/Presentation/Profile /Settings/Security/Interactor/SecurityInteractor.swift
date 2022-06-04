@@ -13,23 +13,17 @@ protocol SecurityInteractorInput: AnyObject {
 }
 
 protocol SecurityInteractorOutput: AnyObject {
-    
 }
 
 class SecurityInteractor {
-    
+
     weak var output: SecurityInteractorOutput!
     private let keychainManager = KeychainManager()
 }
 
-//MARK: - SecurityInteractorInput
+// MARK: - SecurityInteractorInput
 extension SecurityInteractor: SecurityInteractorInput {
     func isExist() -> Bool {
         keychainManager.isExist()
     }
 }
-
-
-
-
-

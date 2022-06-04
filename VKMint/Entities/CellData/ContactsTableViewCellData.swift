@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ContactsTableViewCellData {
-    
+
     let id: Int
     let firstName: String
     let lastName: String

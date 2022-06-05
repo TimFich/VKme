@@ -1,2 +1,2 @@
-# Project for Tinkoff 
- VKME
+# Клиент для приложения ВКонтакте
+ VKMint

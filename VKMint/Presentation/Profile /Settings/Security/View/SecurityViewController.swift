@@ -36,6 +36,7 @@ class SecurityViewController: UIViewController {
         button.addTarget(nil, action: #selector(touchItem), for: .touchUpInside)
         button.setTitle("Add Pin-Code", for: .normal)
         button.contentHorizontalAlignment = .center
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.setTitleColor(UIColor.gray, for: .disabled)
         return button
     }()

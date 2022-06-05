@@ -46,10 +46,11 @@ class ChatViewController: MessageKit.MessagesViewController {
 
     func configureMessageInputBar() {
         messageInputBar.delegate = self
+        messageInputBar.inputTextView.placeholderLabel.text = "Enter your message"
         messageInputBar.inputTextView.tintColor = .white
-        messageInputBar.sendButton.setTitleColor(.white, for: .normal)
+        messageInputBar.sendButton.setTitleColor(.systemBlue, for: .normal)
         messageInputBar.sendButton.setTitleColor(
-            .white.withAlphaComponent(0.3),
+            .systemBlue.withAlphaComponent(0.3),
             for: .highlighted
         )
     }

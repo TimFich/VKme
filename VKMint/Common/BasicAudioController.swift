@@ -193,5 +193,4 @@ open class BasicAudioController: NSObject, AVAudioPlayerDelegate {
     open func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         stopAnyOngoingPlaying()
     }
-
 }

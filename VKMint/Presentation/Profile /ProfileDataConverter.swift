@@ -27,6 +27,6 @@ class ProfileDataConverter {
             newDomain = user!.domain ?? ""
         }
 
-        completion(ProfileData(firstName: user!.firstName, lastName: user!.lastName, photo: image ?? UIImage(), number: user!.phoneNumber, nickname: user?.domain))
+        completion(ProfileData(firstName: user!.firstName, lastName: user!.lastName, photo: image ?? UIImage(), nickname: user?.domain, number: user!.phoneNumber))
     }
 }

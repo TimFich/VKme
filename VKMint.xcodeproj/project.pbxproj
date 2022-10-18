@@ -53,7 +53,7 @@
 		E526231E27FCB48D00032B61 /* MessagesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */; };
 		E5262373280D436D00032B61 /* ConversationsApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */; };
 		E5262375280D43F400032B61 /* UsersApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262374280D43F400032B61 /* UsersApiInteractor.swift */; };
-		E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */; };
+		E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262376280D44DA00032B61 /* ImageDownloader.swift */; };
 		E526237F280D799D00032B61 /* VKMintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526237E280D799D00032B61 /* VKMintTests.swift */; };
 		E5262387280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */; };
 		E5262389280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5262388280DF5F500032B61 /* AuthInteractorOutputForSuccessMock.swift */; };
@@ -64,6 +64,7 @@
 		E5339ADD283FDFCD0050C082 /* LockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADC283FDFCD0050C082 /* LockInteractor.swift */; };
 		E5339ADF283FDFE00050C082 /* LockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339ADE283FDFE00050C082 /* LockPresenter.swift */; };
 		E5339AE1284007420050C082 /* LockFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5339AE0284007420050C082 /* LockFlowCoordinator.swift */; };
+		E5381D9128FA8C0F00869453 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5381D9028FA8C0F00869453 /* LoadingManager.swift */; };
 		E54699E22819406E00929418 /* Entities for messages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E54699E02819406E00929418 /* Entities for messages.xcdatamodeld */; };
 		E5469A4528194EDD00929418 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A4428194EDD00929418 /* DataStoreManager.swift */; };
 		E5469A6A28199F1500929418 /* CDLastMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */; };
@@ -183,7 +184,7 @@
 		E526231D27FCB48D00032B61 /* MessagesModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModuleBuilder.swift; sourceTree = "<group>"; };
 		E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsApiInteractor.swift; sourceTree = "<group>"; };
 		E5262374280D43F400032B61 /* UsersApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApiInteractor.swift; sourceTree = "<group>"; };
-		E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
+		E5262376280D44DA00032B61 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		E526237C280D799D00032B61 /* VKMintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKMintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E526237E280D799D00032B61 /* VKMintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKMintTests.swift; sourceTree = "<group>"; };
 		E5262386280DED1F00032B61 /* MainApiInteractorForSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiInteractorForSuccessMock.swift; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 		E5339ADC283FDFCD0050C082 /* LockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockInteractor.swift; sourceTree = "<group>"; };
 		E5339ADE283FDFE00050C082 /* LockPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPresenter.swift; sourceTree = "<group>"; };
 		E5339AE0284007420050C082 /* LockFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFlowCoordinator.swift; sourceTree = "<group>"; };
+		E5381D9028FA8C0F00869453 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
 		E54699E12819406E00929418 /* Entities for messages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entities for messages.xcdatamodel"; sourceTree = "<group>"; };
 		E5469A4428194EDD00929418 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		E5469A5E28199F1500929418 /* CDLastMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDLastMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -597,6 +599,21 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		E5381D8F28FA8BFB00869453 /* ApiInteractors */ = {
+			isa = PBXGroup;
+			children = (
+				74C8078F2799D95900F7B772 /* MainApiInteractor.swift */,
+				E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */,
+				E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */,
+				E5C0FEFA2844123700B55FD8 /* ChatApiInteractor.swift */,
+				E5BAAF3F284AA5FF00D617A8 /* SenderApiInteractor.swift */,
+				E5AE25A8282AC93600D514D3 /* ProfileApiInteractor.swift */,
+				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
+				E5262376280D44DA00032B61 /* ImageDownloader.swift */,
+			);
+			path = ApiInteractors;
+			sourceTree = "<group>";
+		};
 		E54699E328194BFA00929418 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,17 +787,11 @@
 		E5C5FD7127E2324F002D177F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				74C8078F2799D95900F7B772 /* MainApiInteractor.swift */,
-				E5262372280D436D00032B61 /* ConversationsApiInteractor.swift */,
-				E5262374280D43F400032B61 /* UsersApiInteractor.swift */,
-				E5262376280D44DA00032B61 /* ImageDownloaderProtocol.swift */,
-				E5469A4428194EDD00929418 /* DataStoreManager.swift */,
-				E5182175281AFC6A002C1E88 /* FriendsApiInteractor.swift */,
-				E5AE25A8282AC93600D514D3 /* ProfileApiInteractor.swift */,
-				E5C0FEFA2844123700B55FD8 /* ChatApiInteractor.swift */,
-				E5BAAF3F284AA5FF00D617A8 /* SenderApiInteractor.swift */,
+				E5381D9028FA8C0F00869453 /* LoadingManager.swift */,
 				E5AE259A2829BFF400D514D3 /* DateConverter.swift */,
 				E5339ADA283FCA480050C082 /* KeychainManager.swift */,
+				E5469A4428194EDD00929418 /* DataStoreManager.swift */,
+				E5381D8F28FA8BFB00869453 /* ApiInteractors */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -994,7 +1005,7 @@
 				743446682829251600DAF818 /* ContactsTableViewCellData.swift in Sources */,
 				E5BAAF3E284A5D3B00D617A8 /* BasicAudioController.swift in Sources */,
 				74153CCB2800B55E005D3333 /* AuthInteractor.swift in Sources */,
-				E5262377280D44DA00032B61 /* ImageDownloaderProtocol.swift in Sources */,
+				E5262377280D44DA00032B61 /* ImageDownloader.swift in Sources */,
 				E510CAD3283E2C5500D8FE9A /* LockViewController.swift in Sources */,
 				E5339ADB283FCA480050C082 /* KeychainManager.swift in Sources */,
 				E5E0C802283CC64800607DD3 /* SecurityPresenter.swift in Sources */,
@@ -1068,6 +1079,7 @@
 				7480662528214B9F002525CB /* CDUserItems+CoreDataProperties.swift in Sources */,
 				E5E0C7FC283CC52200607DD3 /* SecurityModuleBuilder.swift in Sources */,
 				E5182176281AFC6A002C1E88 /* FriendsApiInteractor.swift in Sources */,
+				E5381D9128FA8C0F00869453 /* LoadingManager.swift in Sources */,
 				E5E0C7FE283CC5AD00607DD3 /* SecurityInteractor.swift in Sources */,
 				E5469A6C28199F1500929418 /* CDChatSettings+CoreDataClass.swift in Sources */,
 				74153CC82800B090005D3333 /* AuthPresenter.swift in Sources */,

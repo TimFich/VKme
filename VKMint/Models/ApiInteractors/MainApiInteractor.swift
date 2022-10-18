@@ -13,7 +13,7 @@ protocol MainApiInteractor {
     func sigout()
 }
 
-class MainApiInteractorImpl: MainApiInteractor {
+final class MainApiInteractorImpl: MainApiInteractor {
 
     func authorize(onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
         VK.sessions.default.logIn(onSuccess: { result in

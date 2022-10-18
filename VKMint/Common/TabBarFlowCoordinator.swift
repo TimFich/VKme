@@ -13,10 +13,11 @@ protocol TabBarFlowCoordinatorOutput: AnyObject {
     func tabBarWantsToOpenAuth()
 }
 
-class TabBarFlowCoordinator: FlowCoordinatorProtocol {
+final class TabBarFlowCoordinator: FlowCoordinatorProtocol {
+
+    private weak var output: TabBarFlowCoordinatorOutput?
 
     private let tabBar = UITabBarController()
-    private weak var output: TabBarFlowCoordinatorOutput?
     private let parentViewController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
 
@@ -74,6 +75,7 @@ class TabBarFlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension TabBarFlowCoordinator: ProfileModuleOutput {
+
     func moduleWantsToOpenSetting(flag: Int) {
         let setFC = SettingsFlowCoordinator(parentViewController: parentViewController!, flag: flag, output: self)
         childCoordinators.append(setFC)
@@ -101,6 +103,7 @@ extension TabBarFlowCoordinator: MessagesModuleOutput {
 
 // MARK: - SettingsFlowCoordinatorOutput
 extension TabBarFlowCoordinator: SettingsFlowCoordinatorOutput {
+
     func settingsWantsToClose() {
         childCoordinators.removeAll(where: { coordinator in
             coordinator is SettingsFlowCoordinator

@@ -32,12 +32,6 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
         // unused
     }
 
-    private func openTabBar(animated: Bool) {
-        let tabBarFC = TabBarFlowCoordinator(parentViewController: parentViewController!, output: self)
-        childCoordinators.append(tabBarFC)
-        tabBarFC.start(animated: true)
-    }
-
     func openAuth(animated: Bool, completion: (() -> Void)?) {
         let builder = AuthorisationModuleBuilder(output: self)
         let viewController = builder.build()
@@ -46,8 +40,10 @@ class MainFlowCoordinator: FlowCoordinatorProtocol {
         completion?()
     }
 
-    deinit {
-        print("---Main sdox")
+    private func openTabBar(animated: Bool) {
+        let tabBarFC = TabBarFlowCoordinator(parentViewController: parentViewController!, output: self)
+        childCoordinators.append(tabBarFC)
+        tabBarFC.start(animated: true)
     }
 }
 

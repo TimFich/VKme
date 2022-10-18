@@ -8,13 +8,18 @@
 import Foundation
 import SwiftyVK
 
-class KeychainManager {
+private enum KeychainErorr: Error {
+    case duplicateEntry
+    case unknown(OSStatus)
+}
 
-    enum KeychainErorr: Error {
+protocol KeychainManagerInput: AnyObject {
+    func saveChain(password: String)
+    func getChain() -> String
+    func isExist() -> Bool
+}
 
-        case duplicateEntry
-        case unknown(OSStatus)
-    }
+final class KeychainManager {
 
     private func keychainSave(service: String, account: String, password: Data) throws {
 
@@ -55,21 +60,27 @@ class KeychainManager {
 
         return result as? Data ?? Data()
     }
+}
 
+// MARK: - KeychainManagerInput
+
+extension KeychainManager: KeychainManagerInput {
     func saveChain(password: String) {
-            try? keychainSave(service: "VKMint", account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String, password: password.data(using: .utf8) ?? Data())
+        try? keychainSave(service: "VKMint",
+                          account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String,
+                          password: password.data(using: .utf8) ?? Data())
     }
 
     func getChain() -> String {
-            let password = self.keychainGet(service: "VKMint", account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String)
-            return String(decoding: password, as: UTF8.self)
+        let password = self.keychainGet(service: "VKMint",
+                                        account: UserDefaults.standard.object(forKey: UserDefaultsKeys.userId.rawValue) as! String)
+        return String(decoding: password, as: UTF8.self)
     }
 
     func isExist() -> Bool {
-
         let password = getChain()
 
-        if password == "" {
+        if password.isEmpty {
             return false
         } else {
             return true

@@ -13,7 +13,7 @@ protocol UsersApiInteractor {
     func getUsers(ids: [Int], completion: @escaping ([UserItems]) -> Void)
 }
 
-class UsersApiInteracorImpl: UsersApiInteractor {
+final class UsersApiInteracorImpl: UsersApiInteractor {
 
     func getUserByID(userId: Int, completion: @escaping (UserItems) -> Void) {
         VK.API.Users.get([Parameter.userId: "\(userId)"])

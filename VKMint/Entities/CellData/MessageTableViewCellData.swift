@@ -10,12 +10,12 @@ import UIKit
 
 class MessageTableViewCellData {
 
-    public let title: String
-    public var avatarOfChat: UIImage
-    public var lastMessage: String
-    public let type: TypeEnum
-    public let peerId: Int
-    public var unreadCount = 0
+    let title: String
+    var avatarOfChat: UIImage
+    var lastMessage: String
+    let type: TypeEnum
+    let peerId: Int
+    var unreadCount = 0
 
     init(peerId: Int, title: String, avatarOfChat: UIImage, lastMessage: String, type: TypeEnum, unreadCount: Int) {
         self.peerId = peerId

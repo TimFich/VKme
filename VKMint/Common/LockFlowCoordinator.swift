@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LockFlowCoordinator: FlowCoordinatorProtocol {
+final class LockFlowCoordinator: FlowCoordinatorProtocol {
 
     private let parentViewController: UINavigationController?
 
@@ -18,10 +18,8 @@ class LockFlowCoordinator: FlowCoordinatorProtocol {
 
     func start(animated: Bool) {
         let vc = setUp()
-        DispatchQueue.main.async {
-            vc.modalPresentationStyle = .fullScreen
-            self.parentViewController?.present(vc, animated: true)
-        }
+        vc.modalPresentationStyle = .fullScreen
+        parentViewController?.present(vc, animated: true)
     }
 
     func finish() {

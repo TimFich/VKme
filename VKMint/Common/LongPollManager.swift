@@ -8,9 +8,10 @@
 import Foundation
 import SwiftyVK
 
-class LongPollManager {
+final class LongPollManager {
 
     // MARK: - Properties
+
     static let shared = LongPollManager()
     private var onReceiveEvent: [Int: [(Data) -> Void]] = [:]
 
@@ -99,8 +100,6 @@ class LongPollManager {
         completions?.append(completion)
         onReceiveEvent[eventNumber] = completions
     }
-
-    private init() {}
 
     private func processEvent(number: Int, data: Data) {
         let completions = onReceiveEvent[number] ?? []

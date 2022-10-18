@@ -8,19 +8,11 @@
 import Foundation
 import UIKit
 
-class ProfileData {
+struct ProfileData {
 
-    public let firstName: String
-    public let lastName: String
-    public let photo: UIImage
-    public var nickname: String? = ""
-    public var number: String? = ""
-
-    init(firstName: String, lastName: String, photo: UIImage, number: String?, nickname: String?) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.photo = photo
-        self.number = number
-        self.nickname = nickname
-    }
+    let firstName: String
+    let lastName: String
+    let photo: UIImage
+    var nickname: String? = ""
+    var number: String? = ""
 }

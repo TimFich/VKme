@@ -18,12 +18,13 @@ protocol DataStoreManagerProtocol {
     func addContacts(contacts: FriendEntity)
 }
 
-class DataStoreManager: DataStoreManagerProtocol {
+final class DataStoreManager: DataStoreManagerProtocol {
 
     lazy var viewContext = persistentContainer.viewContext
     let imageDownloader: ImageDownloader = ImageDownloaderImpl()
 
     // MARK: - Core Data stack
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Entities for messages")
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -35,6 +36,7 @@ class DataStoreManager: DataStoreManagerProtocol {
     }()
 
     // MARK: - CRUD
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

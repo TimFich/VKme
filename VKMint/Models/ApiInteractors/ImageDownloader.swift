@@ -10,20 +10,21 @@ import SwiftyVK
 
 protocol ImageDownloader {
     func getUserAvatar(userId: Int, completion: @escaping ([UserEntities]) -> Void)
-    func downloadImage(urlOfPhoto: String, completion: @escaping((UIImage) -> Void))
+    func downloadImage(urlOfPhoto: String, completion: @escaping ((UIImage) -> Void))
 }
 
-class ImageDownloaderImpl: ImageDownloader {
+final class ImageDownloaderImpl: ImageDownloader {
 
     func getUserAvatar(userId: Int, completion: @escaping ([UserEntities]) -> Void) {
-        VK.API.Users.get([Parameter.userId: "\(userId)", Parameter.fields: "photo_200"]).onSuccess({ result in
+        VK.API.Users.get([Parameter.userId: "\(userId)",
+                          Parameter.fields: "photo_200"]).onSuccess({ result in
 
             let users = try! JSONDecoder().decode([UserEntities].self, from: result)
 
             DispatchQueue.main.async {
                 completion(users)
             }
-       }).send()
+        }).send()
     }
 
     func downloadImage(urlOfPhoto: String, completion: @escaping((UIImage) -> Void)) {
@@ -41,7 +42,7 @@ class ImageDownloaderImpl: ImageDownloader {
         }
     }
 
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 }

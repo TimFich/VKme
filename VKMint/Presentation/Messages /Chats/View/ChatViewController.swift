@@ -22,11 +22,13 @@ protocol ChatViewInput {
 class ChatViewController: MessageKit.MessagesViewController {
 
     // MARK: - Properties
+
     private var content: [ChatUnit] = []
     var mainPresenter: ChatPresenter!
     lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
 
     // MARK: - View life cyrcle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
@@ -111,6 +113,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     }
 
 // MARK: - All Messages
+
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return .systemBlue    }
 
@@ -136,6 +139,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     }
 
 // MARK: - Location Messages
+
     func annotationViewForLocation(message: MessageType, at indexPath: IndexPath, in messageCollectionView: MessagesCollectionView) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: nil, reuseIdentifier: nil)
         let pinImage =  #imageLiteral(resourceName: "ic_map_marker")
@@ -159,6 +163,7 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesDataSource {
     }
 
 // MARK: - Audio Messages
+
 func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : UIColor(red: 15/255, green: 135/255, blue: 255/255, alpha: 1.0)
     }
@@ -169,6 +174,7 @@ func audioTintColor(for message: MessageType, at indexPath: IndexPath, in messag
 }
 
 // MARK: - MessageCellDelegate
+
 extension ChatViewController: MessageCellDelegate {
     func didTapAvatar(in cell: MessageCollectionViewCell) {
         print("Avatar tapped")
@@ -258,6 +264,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 }
 
 // MARK: - ChatViewInput
+
 extension ChatViewController: ChatViewInput {
 
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EscapingClosureHelper<T> {
+final class EscapingClosureHelper<T> {
 
     var downloadedPhotos: Int = 0
     var photosCount: Int = 0

@@ -12,7 +12,7 @@ protocol SettingsFlowCoordinatorOutput: AnyObject {
     func settingsWantsToClose()
 }
 
-class SettingsFlowCoordinator: FlowCoordinatorProtocol {
+final class SettingsFlowCoordinator: FlowCoordinatorProtocol {
 
     private let parentViewController: UINavigationController?
     private let flag: Int
@@ -27,20 +27,11 @@ class SettingsFlowCoordinator: FlowCoordinatorProtocol {
 
     func start(animated: Bool) {
         let vc = setUp(flag: flag)
-        DispatchQueue.main.async {
-            let backItem = UIBarButtonItem()
-               backItem.title = "POPOPOP"
-            vc.navigationItem.backBarButtonItem = backItem
-            self.parentViewController?.pushViewController(vc, animated: true)
-        }
+        parentViewController?.pushViewController(vc, animated: true)
     }
 
     func finish() {
         output?.settingsWantsToClose()
-    }
-
-    deinit {
-        print("---Settings sdox")
     }
 
     private func setUp(flag: Int) -> UIViewController {

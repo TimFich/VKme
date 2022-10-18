@@ -11,7 +11,7 @@
      func convert(_ date: Int) -> String
  }
 
- class DateConverterImpl: DateConverter {
+ final class DateConverterImpl: DateConverter {
 
      let currentTime = NSDate() as Date
 

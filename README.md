@@ -1,2 +1,3 @@
-# Project for Tinkoff 
- VKME
+# VKME
+Клиент ВК
+использовалась API VK(SwiftyVK)

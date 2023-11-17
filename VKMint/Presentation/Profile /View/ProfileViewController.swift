@@ -18,12 +18,12 @@ protocol ProfileViewInput {
     func needToUpdateProfile(person: ProfileData)
 }
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
-    // MARK: - Properties
+    // Properties
     var presenter: ProfilePresenter!
 
-    // MARK: - UI
+    // UI
     private let interItemSpacing = CGFloat(10)
 
     private lazy var avatar: UIImageView = {
@@ -123,6 +123,7 @@ class ProfileViewController: UIViewController {
     }()
 
     // MARK: - View life cyrcle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -134,7 +135,7 @@ class ProfileViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
-    // MARK: - Configure UI
+    // Private
     private func configureUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -178,6 +179,7 @@ class ProfileViewController: UIViewController {
     }
 
     // MARK: - Action
+
     @objc
     func didClickSigOutButton() {
         presenter.signOutPressed()
@@ -185,6 +187,7 @@ class ProfileViewController: UIViewController {
 }
 
 // MARK: - ProfileViewInput
+
 extension ProfileViewController: ProfileViewInput {
     func needToUpdateProfile(person: ProfileData) {
         updateProfile(person: person)
@@ -192,6 +195,7 @@ extension ProfileViewController: ProfileViewInput {
 }
 
 // MARK: - ProfileSettingsItemOutput
+
 extension ProfileViewController: ProfileSettingsItemOutput {
     func buttonTaped(flag: Int) {
         presenter.itemPressed(flag: flag)

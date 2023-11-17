@@ -18,5 +18,6 @@ class AboutInteractor {
 }
 
 // MARK: - AboutInteractorInput
+
 extension AboutInteractor: AboutInteractorInput {
 }

@@ -10,7 +10,8 @@ import UIKit
 
 class ProfileDataConverter {
 
-    // MARK: - Private properties
+    // MARK: - Properties
+    
     private let profileApiInteractor: ProfileApiInteractor = ProfileApiInteractorImpl()
 
     func convertToData(photoUser: [UserItems : UIImage], completion: @escaping (ProfileData) -> Void) {
@@ -27,6 +28,10 @@ class ProfileDataConverter {
             newDomain = user!.domain ?? ""
         }
 
-        completion(ProfileData(firstName: user!.firstName, lastName: user!.lastName, photo: image ?? UIImage(), nickname: user?.domain, number: user!.phoneNumber))
+        completion(ProfileData(firstName: user!.firstName,
+                               lastName: user!.lastName,
+                               photo: image ?? UIImage(),
+                               nickname: user?.domain,
+                               number: user!.phoneNumber))
     }
 }

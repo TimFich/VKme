@@ -25,6 +25,7 @@ class ProfileInteractor {
 }
 
 // MARK: - ProfileInteractorInput
+
 extension ProfileInteractor: ProfileInteractorInput {
 
     func getDataOfUser(completion: @escaping (ProfileData) -> Void) {

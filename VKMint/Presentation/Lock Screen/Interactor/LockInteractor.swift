@@ -22,6 +22,7 @@ class LockInteractor {
 }
 
 // MARK: - LockInteractorInput
+
 extension LockInteractor: LockInteractorInput {
     func needPassword() -> String {
         keyChainManager.getChain()

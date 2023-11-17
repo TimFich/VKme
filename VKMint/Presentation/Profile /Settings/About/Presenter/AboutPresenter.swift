@@ -22,10 +22,12 @@ class AboutPresenter {
 }
 
 // MARK: - AboutInteractorOutput
+
 extension AboutPresenter: AboutInteractorOutput {
 }
 
 // MARK: - AboutViewOutput
+
 extension AboutPresenter: AboutViewOutput {
     func viewWantsToClose() {
         moduleOutput?.aboutWantsToClose()

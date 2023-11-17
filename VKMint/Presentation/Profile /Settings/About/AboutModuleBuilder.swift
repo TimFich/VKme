@@ -14,6 +14,7 @@ protocol AboutModuleOutput: AnyObject {
 
 class AboutModuleBuilder {
 
+    // Dependencies
     private weak var output: AboutModuleOutput?
 
     init(output: AboutModuleOutput) {
